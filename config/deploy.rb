@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 #set :application, 'dingist'
-set :application, 'jiancan'
+set :application, 'ruzun'
 #set :repo_url, 'git@github.com:85636682/dongqilai.git'
 set :repo_url, 'git@git.coding.net:dongqilai/ruzun-web.git'
 

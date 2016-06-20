@@ -57,20 +57,13 @@ gem 'jpush', '~> 4.0.2'
 # 枚举
 gem 'enumerize'
 
-# Grape APIs
-gem 'grape', '~> 0.13.0'
-gem 'active_model_serializers'
-gem 'grape-active_model_serializers'
-gem 'hashie-forbidden_attributes'
-
-# JWT
-gem 'jwt'
-
 # for api 跨域
 gem 'rack-cors', require: 'rack/cors'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+gem 'whenever'
 
 gem 'puma'
 
