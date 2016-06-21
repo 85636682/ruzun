@@ -9,8 +9,9 @@ class Api::V1::SessionsController < Api::V1::BaseController
        # 验证成功，生成并返回登陆令牌
        @jwt = create_jwt(@user)
        # respond_with jwt, status: :created
-     else
+    else
        # 处理验证失败
-     end
+       api_error(400)
+    end
   end
 end
