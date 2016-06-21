@@ -9,7 +9,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     if user.save
       render json: user.to_json
     else
-      api_error(400)
+      api_error(status: 400)
     end
   end
 
@@ -18,7 +18,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     if user.update_attributes user_params
       render json: user.to_json
     else
-      api_error(400)
+      api_error(status: 400)
     end
   end
 

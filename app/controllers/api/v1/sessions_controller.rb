@@ -11,7 +11,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
        # respond_with jwt, status: :created
     else
        # 处理验证失败
-       api_error(400)
+       api_error(status: 400)
     end
   end
 end
