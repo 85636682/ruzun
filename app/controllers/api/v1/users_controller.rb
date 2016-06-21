@@ -5,8 +5,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def create
     user = User.new(:mobile => params["mobile"],
-                    :password => params["password"],
-                    :password_confirmation => params["password_confirmation"])
+                    :password => params["password"])
     if user.save
       render json: user.to_json
     else
