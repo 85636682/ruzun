@@ -14,10 +14,8 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def update
-    user = User.find(params[:id])
-    if user.update_attributes user_params
-      render json: user.to_json
-    else
+    @user = User.find(params[:id])
+    if not @user.update_attributes user_params
       api_error(status: 400)
     end
   end
