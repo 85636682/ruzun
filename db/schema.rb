@@ -11,11 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620102550) do
+ActiveRecord::Schema.define(version: 20160627104930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "province"
+    t.string   "city"
+    t.string   "district"
+    t.string   "sign"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "mobile"
@@ -31,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160620102550) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.integer  "teams_count"
   end
 
 end
