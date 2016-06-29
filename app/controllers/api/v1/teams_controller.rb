@@ -1,4 +1,6 @@
 class Api::V1::TeamsController < Api::V1::BaseController
+  before_action :verify_auth_token, only: [:create, :update]
+
   def index
     @teams = Team.all
   end
@@ -8,10 +10,8 @@ class Api::V1::TeamsController < Api::V1::BaseController
   end
 
   def create
-    team = Team.new team_params
-    if team.save
-      render json: team.to_json
-    else
+    @team = Team.new team_params
+    if not @team.save
       api_error(status: 400)
     end
   end
