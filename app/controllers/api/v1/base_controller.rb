@@ -40,7 +40,8 @@ class Api::V1::BaseController < ApplicationController
     request.headers.each do |key, value|
       Rails.logger.error("#{key} => #{value}")
     end
-    auth_type, jwt = request.headers["HTTP_AUTHORIZATION"].try(:split, ' ')
+    Rails.logger.error(request.headers['Authorization'])
+    auth_type, jwt = request.headers['Authorization'].try(:split, ' ')
     Rails.logger.error(auth_type)
     Rails.logger.error(jwt)
     Rails.logger.error('auth_type&jwt')
