@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create, :show, :update]
       resources :teams, only: [:index, :create, :show, :update]
+      resources :team_users, only: [:create, :destroy]
       resources :sessions, only: [:create]
     end
   end
