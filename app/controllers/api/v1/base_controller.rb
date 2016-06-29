@@ -37,7 +37,7 @@ class Api::V1::BaseController < ApplicationController
 
   def get_current_user!
     # 从请求头获取令牌
-    Rails.logger.error(request.headers)
+    Rails.logger.error(request.headers.authorization)
     auth_type, jwt = request.headers["HTTP_AUTHORIZATION"].try(:split, ' ')
     Rails.logger.error(auth_type)
     Rails.logger.error(jwt)
