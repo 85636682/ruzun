@@ -10,6 +10,7 @@ class Api::V1::BaseController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   attr_reader :current_user
+  helper_method :current_user
 
   def destroy_session
     request.session_options[:skip] = true
@@ -37,14 +38,7 @@ class Api::V1::BaseController < ApplicationController
 
   def get_current_user!
     # 从请求头获取令牌
-    request.headers.each do |key, value|
-      Rails.logger.error("#{key} => #{value}")
-    end
-    Rails.logger.error(request.headers['Authorization'])
     auth_type, jwt = request.headers['Authorization'].try(:split, ' ')
-    Rails.logger.error(auth_type)
-    Rails.logger.error(jwt)
-    Rails.logger.error('auth_type&jwt')
     return false unless jwt
     # 读取令牌携带用户信息，此处不作令牌的验证，不会抛出异常
     payload, header = JWT.decode(jwt, nil, false, verify_expiration: false)
@@ -55,7 +49,5 @@ class Api::V1::BaseController < ApplicationController
     payload, header = JWT.decode(jwt, secret)
     # 验证成功，设置当前用户
     @current_user = user
-    Rails.logger.error(@current_user)
-    Rails.logger.error('@current_user')
   end
 end

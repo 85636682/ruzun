@@ -1,3 +1,3 @@
 json.user do
-  json.(@user, :id, :name, :avatar)
+  json.(current_user, :id, :name, :avatar)
 end
