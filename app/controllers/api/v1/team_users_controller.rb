@@ -1,4 +1,4 @@
-class Api::V1::TeamUsersController < ApplicationController
+class Api::V1::TeamUsersController < Api::V1::BaseController
   before_action :verify_auth_token, only: [:create, :destroy]
 
   def create
