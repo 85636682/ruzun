@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  mount_uploader :logo, UserAvatarUploader
+  mount_uploader :avatar, UserAvatarUploader
   attr_accessor :uploader_secure_token
 
   has_one :team
