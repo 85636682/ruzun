@@ -67,6 +67,9 @@ gem 'whenever'
 
 gem 'puma'
 
+# YAML 配置信息
+gem "settingslogic"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
