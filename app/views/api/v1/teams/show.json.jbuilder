@@ -1,5 +1,5 @@
 json.team do
-  json.(@team, :id, :name, :sign, :created_at, :updated_at)
+  json.(@team, :id, :name, :logo, :sign, :created_at, :updated_at)
   json.users @team.users do |user|
     json.id     user.id
     json.name   user.name
