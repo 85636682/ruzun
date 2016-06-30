@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class TeamLogoUploader < BaseUploader
+class UserAvatarUploader < BaseUploader
 
   def default_url
     "#{Setting.upyun_upload_url}/user_default_avatar.png#{version_name}"
