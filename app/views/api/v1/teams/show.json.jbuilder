@@ -4,5 +4,7 @@ json.team do
     json.id     user.id
     json.name   user.name
     json.avatar user.avatar
+    json.height user.height
+    json.weight user.weight
   end
 end
