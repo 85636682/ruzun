@@ -1,0 +1,37 @@
+defaults: &defaults
+  app_name: "Dingist"
+  foot_html: "&copy; Dingist."
+  domain: "yiguanli.org"
+  email_sender: '85636682@qq.com'
+  upyun_username: "dongqilai"
+  upyun_password: "hs123456"
+  upyun_bucket: "dongqilai-images"
+  upyun_upload_url: "http://dongqilai-images.b0.upaiyun.com"
+  jpush_master_secret_for_courier: "5395df91840b51b2e0970e52"
+  jpush_app_key_for_courier: "a8ba9c152f94146c991f6ebb"
+  jpush_master_secret_for_waiter: "99b2dac8fbe48d9ef7da6c97"
+  jpush_app_key_for_waiter: "15d0fe19dd0e51ae1ed40cf8"
+  baidu_map_ak: "ScOeW4hDG8ZtDeZit8Ie66eG"
+  sms:
+    tui3:
+      username: 'stephen'
+      password: '861117'
+    smsbao:
+      username: 'stephen'
+      password: '861117'
+  alipay:
+    pid: '2088711719216924'
+    key: 'tsq7e7oxxua5pdng7fe2sf4hdlb9s0v8'
+    seller_email: '2200168186@qq.com'
+  admin_emails:
+    - 85636682@qq.com
+    - 251927161@qq.com
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
