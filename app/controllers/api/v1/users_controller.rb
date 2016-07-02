@@ -14,6 +14,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def update
     @user = User.find(params[:id])
+    Rails.logger.info(params[:user])
     if not @user.update_attributes user_params
       api_error(status: 400)
     end
