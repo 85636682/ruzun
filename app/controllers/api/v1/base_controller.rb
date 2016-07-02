@@ -20,6 +20,10 @@ class Api::V1::BaseController < ApplicationController
     render nothing: true, status: opts[:status]
   end
 
+  def unauthenticated!
+    api_error(status: 401)
+  end
+
   private
 
   def verify_auth_token
@@ -29,11 +33,14 @@ class Api::V1::BaseController < ApplicationController
   def handle_signin_excaption
     unless get_current_user!
       # 处理令牌为空
+      unauthenticated!
     end
     rescue JWT::ExpiredSignature => e
       # 处理令牌过期
+      unauthenticated!
     rescue JWT::DecodeError => e
       # 处理令牌非法
+      unauthenticated!
   end
 
   def get_current_user!

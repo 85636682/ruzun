@@ -11,6 +11,7 @@ class Api::V1::TeamsController < Api::V1::BaseController
 
   def create
     @team = Team.new team_params
+    @team.user_id = current_user.id
     if not @team.save
       api_error(status: 400)
     end
@@ -18,7 +19,7 @@ class Api::V1::TeamsController < Api::V1::BaseController
 
   def update
     @team = Team.find(params[:id])
-    if not @team.update_attributes team_params
+    if not @team.user_id == current_user.id && @team.update_attributes team_params
       api_error(status: 400)
     end
   end
