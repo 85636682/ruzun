@@ -10,6 +10,8 @@
 
 .team_logo .logo img {
   z-index: 1000;
+  width: 165px;
+  height: 165px;
 }
 
 .team_logo .logo input {
