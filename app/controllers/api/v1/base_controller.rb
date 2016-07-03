@@ -17,11 +17,11 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def api_error(opts = {})
-    render nothing: true, status: opts[:status]
+    render text: opts[:message], status: opts[:status]
   end
 
   def unauthenticated!
-    api_error(status: 401)
+    api_error(message: "验证失败！", status: 401)
   end
 
   private
