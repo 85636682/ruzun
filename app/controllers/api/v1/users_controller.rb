@@ -16,8 +16,10 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def update
     @user = User.find(params[:id])
-    if not @user.update_attributes user_params
-      api_error(status: 400)
+    if @user == current_user
+      api_error(status: 400) if not @user.update_attributes user_params
+    else
+      api_error(message: "没权限编辑该用户！", status: 400)
     end
   end
 
