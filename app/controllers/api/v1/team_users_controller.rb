@@ -4,7 +4,7 @@ class Api::V1::TeamUsersController < Api::V1::BaseController
   def create
     @team_user = TeamUser.new(user_id: current_user.id, team_id: params[:team_id])
     if not @team_user.save
-      api_error(message: "验证失败！", status: 400)
+      api_error(message: @team_user.errors.full_messages, status: 400)
     end
   end
 

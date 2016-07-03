@@ -13,14 +13,14 @@ class Api::V1::TeamsController < Api::V1::BaseController
     @team = Team.new team_params
     @team.user_id = current_user.id
     if not @team.save
-      api_error(status: 400)
+      api_error(message: @team.errors.full_messages, status: 400)
     end
   end
 
   def update
     @team = Team.find(params[:id])
     if @team.user_id == current_user.id
-      api_error(status: 400) if not @team.update_attributes team_params
+      api_error(message: @team.errors.full_messages, status: 400) if not @team.update_attributes team_params
     else
       api_error(message: "没权限编辑该队伍！", status: 400)
     end
