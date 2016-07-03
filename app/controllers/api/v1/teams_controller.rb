@@ -19,8 +19,11 @@ class Api::V1::TeamsController < Api::V1::BaseController
 
   def update
     @team = Team.find(params[:id])
-    api_error(status: 400) if @team.user_id != current_user.id
-    api_error(status: 400) if not @team.update_attributes team_params
+    if @team.user_id == current_user.id
+      api_error(status: 400) if not @team.update_attributes team_params
+    else
+      api_error(status: 400)
+    end
   end
 
   private
