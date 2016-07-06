@@ -10,7 +10,8 @@ class Api::V1::WechatController < Api::V1::BaseController
   def get_team_logo_from_wechat
     team = Team.find(params[:team_id])
     res = @wechat_client.download_media_url(params[:media_id])
-    Rails.logger.info(team)
+    Rails.logger.info(res)
+    Rails.logger.info(URI.parse(res))
     if team.update_attributes(:logo => URI.parse(res))
       render json: { logo: team.logo.url }
     else
