@@ -7,9 +7,18 @@ class Api::V1::WechatController < Api::V1::BaseController
     render json: sign_package.to_json
   end
 
-  def get_image_from_wechat
+  def get_team_logo_from_wechat
+    team = Team.find(params[:team_id])
     res = @wechat_client.download_media_url(params[:media_id])
-    Rails.logger.info(res)
+    if team.update_attributes(:logo => res)
+      render json: { logo: team.logo.url }
+    else
+      api_error(message: "上传失败！", status: 400)
+    end
+  end
+
+  def get_user_avatar_from_wechat
+
   end
 
   private
