@@ -11,4 +11,8 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
     end
   end
+
+  namespace :admin do
+    resources :games
+  end
 end

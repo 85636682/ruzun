@@ -38,3 +38,5 @@ module RuzunWeb
     end
   end
 end
+
+require 'markdown'

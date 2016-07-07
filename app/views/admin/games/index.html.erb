@@ -1,0 +1,5 @@
+<%= link_to "新建", new_admin_game_path %>
+<% @games.each do |game| %>
+<%= game.name %>
+<%= game.constitution %>
+<% end %>
