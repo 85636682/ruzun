@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :teams, only: [:index, :create, :show, :update]
       resources :team_users, only: [:create, :destroy]
       resources :sessions, only: [:create]
+      resources :games, only: [:index, :show]
     end
   end
 
