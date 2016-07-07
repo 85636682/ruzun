@@ -1,5 +1,5 @@
 json.game do
-  json.(@game, :id, :name, :constitution, :created_at, :updated_at)
+  json.(@game, :id, :name, :constitution, :constitution_html, :created_at, :updated_at)
   json.logo     @game.logo.url
   json.teams @game.teams do |team|
     json.id     team.id
