@@ -1,4 +1,8 @@
+require 'jwt'
+
 class Api::V1::UsersController < Api::V1::BaseController
+  include Concerns::AuthTokenConcern
+  
   before_action :verify_auth_token, only: [:update]
 
   def show
