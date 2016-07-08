@@ -1,5 +1,5 @@
 class Api::V1::WechatController < Api::V1::BaseController
-  before_action :verify_auth_token, only: [:get_image_from_wechat]
+  before_action :verify_auth_token, only: [:get_team_logo_from_wechat, :get_user_avatar_from_wechat]
   before_action :create_wechat_client
 
   def sign_package
@@ -18,7 +18,12 @@ class Api::V1::WechatController < Api::V1::BaseController
   end
 
   def get_user_avatar_from_wechat
-
+    res = @wechat_client.download_media_url(params[:media_id])
+    if current_user.update_attributes(:avatar => res)
+      render json: { avatar: current_user.avatar.url }
+    else
+      api_error(message: "上传失败！", status: 400)
+    end
   end
 
   private
