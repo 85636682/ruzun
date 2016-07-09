@@ -2,5 +2,6 @@
   主队：<%= f.select :home_team_id, Team.all.collect {|t| [ t.name, t.id ] } %></br>
   客队：<%= f.select :guest_team_id, Team.all.collect {|t| [ t.name, t.id ] } %></br>
   所属比赛：<%= f.select :game_id, Game.all.collect {|g| [ g.name, g.id ] } %></br>
-  开始时间：<%= f.datetime_select :start_time, default: Time.now  %>
+  开始时间：<%= f.datetime_select :start_time, default: Time.now  %></br>
+  <%= f.submit "保存" %>
 <% end %>
