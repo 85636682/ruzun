@@ -1,5 +1,5 @@
 class Api::V1::PlayedsController < Api::V1::BaseController
-  before_action set_game, only: [:index]
+  before_action :set_game, only: [:index]
 
   def index
     @playeds = @game.playeds.order("start_time ASC")
