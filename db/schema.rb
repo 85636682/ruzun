@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707032519) do
+ActiveRecord::Schema.define(version: 20160709013444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20160707032519) do
     t.text     "constitution_html"
   end
 
+  create_table "playeds", force: :cascade do |t|
+    t.integer  "home_team_id"
+    t.integer  "guest_team_id"
+    t.integer  "game_id"
+    t.integer  "home_team_score"
+    t.integer  "guest_team_score"
+    t.datetime "start_time"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "team_users", force: :cascade do |t|
     t.integer  "team_id"
     t.integer  "user_id"
@@ -52,6 +63,25 @@ ActiveRecord::Schema.define(version: 20160707032519) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "techstats", force: :cascade do |t|
+    t.integer  "played_id"
+    t.integer  "user_id"
+    t.integer  "pts",        default: 0
+    t.integer  "ast",        default: 0
+    t.integer  "stl",        default: 0
+    t.integer  "blk",        default: 0
+    t.integer  "off",        default: 0
+    t.integer  "reb",        default: 0
+    t.integer  "pm3",        default: 0
+    t.integer  "pm3_a",      default: 0
+    t.integer  "ftm",        default: 0
+    t.integer  "ftm_a",      default: 0
+    t.integer  "fgm",        default: 0
+    t.integer  "fgm_a",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

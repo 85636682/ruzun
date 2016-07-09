@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_one :team
   has_many :team_users
   has_many :teams, :through => :team_users, :dependent => :destroy
+  has_many :techstats
 
   validates_uniqueness_of :mobile
 end
