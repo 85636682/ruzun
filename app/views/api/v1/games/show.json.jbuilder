@@ -5,5 +5,6 @@ json.game do
     json.id     team.id
     json.name   team.name
     json.logo   team.logo.url("300x300")
+    json.lot    GameTeam.where(game_id: @game.id, team_id: team.id).first.lot
   end
 end
