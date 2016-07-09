@@ -55,6 +55,33 @@
   border-radius:50%;
   overflow:hidden;
   -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
-  border-color:rgba(141,39,142,.75); 
+  border-color:rgba(141,39,142,.75);
   -webkit-box-shadow:0 0 18px rgba(111,1,32,3);
+}
+
+.playeds {
+  display: flex;
+  flex-direction: column;
+}
+
+.playeds .played {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.playeds .played .home_team {
+  flex: 1;
+  text-align: center;
+}
+
+.playeds .played .guest_team {
+  flex: 1;
+  text-align: center;
+}
+
+.playeds .played .vs {
+  width: 80px;
+  text-align: center;
 }
