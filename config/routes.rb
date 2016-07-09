@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :games
+    resources :games do
+      member do
+        get :lot
+      end
+    end
     resources :game_teams, only: [:new, :create]
     resources :playeds
     resources :techstats
