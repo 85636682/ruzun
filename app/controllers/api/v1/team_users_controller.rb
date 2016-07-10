@@ -9,7 +9,7 @@ class Api::V1::TeamUsersController < Api::V1::BaseController
   end
 
   def quit
-    @team_user = TeamUser.new(user_id: current_user.id, team_id: params[:team_id])
+    @team_user = TeamUser.where(user_id: current_user.id, team_id: params[:team_id]).first
     if not @team_user.destroy
       api_error(message: @team_user.errors.full_messages, status: 400)
     end
