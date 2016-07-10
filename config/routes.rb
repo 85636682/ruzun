@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       get 'wechat/get_user_avatar_from_wechat'
 
       resources :users, only: [:create, :show, :update]
-      resources :teams, only: [:index, :create, :show, :update]
+      resources :teams, only: [:index, :create, :show, :update] do
+        member do
+          get :playeds
+        end
+      end
       resources :team_users, only: [:create] do
         collection do
           delete :quit
