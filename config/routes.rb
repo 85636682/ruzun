@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
       resources :users, only: [:create, :show, :update]
       resources :teams, only: [:index, :create, :show, :update]
-      resources :team_users, only: [:create, :destroy]
+      resources :team_users, only: [:create] do
+        collection do
+          delete :quit
+        end
+      end
       resources :sessions, only: [:create]
       resources :games, only: [:index, :show] do
         resources :playeds, only: [:index]

@@ -1,12 +1,12 @@
 class Api::V1::TeamsController < Api::V1::BaseController
   before_action :verify_auth_token, only: [:create, :update]
+  before_action :set_team, only: [:show, :update, :playeds]
 
   def index
     @teams = Team.all
   end
 
   def show
-    @team = Team.find(params[:id])
   end
 
   def create
@@ -18,7 +18,6 @@ class Api::V1::TeamsController < Api::V1::BaseController
   end
 
   def update
-    @team = Team.find(params[:id])
     if @team.user_id == current_user.id
       api_error(message: @team.errors.full_messages, status: 400) if not @team.update_attributes team_params
     else
@@ -26,7 +25,15 @@ class Api::V1::TeamsController < Api::V1::BaseController
     end
   end
 
+  def playeds
+    
+  end
+
   private
+
+  def set_team
+    @team = Team.find(params[:id])
+  end
 
   def team_params
     params.require(:team).permit(:name, :logo, :province, :city, :district, :sign)
