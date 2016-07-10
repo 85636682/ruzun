@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :team_users, only: [:create] do
         collection do
           delete :quit
+          delete :kick
         end
       end
       resources :sessions, only: [:create]
