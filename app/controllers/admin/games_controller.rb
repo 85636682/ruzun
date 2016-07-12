@@ -63,7 +63,7 @@ class Admin::GamesController < ApplicationController
   end
 
   def lock
-    if @game.update_attributes(lock: true)
+    if @game.update_attributes(locked: true)
       redirect_to admin_game_path(@game), notice: "锁定成功！"
     else
       redirect_to admin_game_path(@game), notice: "锁定失败！"
