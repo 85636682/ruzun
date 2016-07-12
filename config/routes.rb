@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :games do
       member do
         get :lot
+        get :lock
       end
     end
     resources :game_teams, only: [:new, :create]

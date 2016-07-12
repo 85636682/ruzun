@@ -1,5 +1,5 @@
 class Admin::GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :lot]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :lot, :lock]
 
   def index
     @games = Game.all
@@ -60,6 +60,14 @@ class Admin::GamesController < ApplicationController
       GameTeam.where(game_id: @game.id, team_id: team.id).first.update_attributes(lot: will_use_chars[m])
     end
     redirect_to admin_game_path(@game)
+  end
+
+  def lock
+    if @game.update_attributes(lock: true)
+      redirect_to admin_game_path(@game), notice: "锁定成功！"
+    else
+      redirect_to admin_game_path(@game), notice: "锁定失败！"
+    end
   end
 
   private

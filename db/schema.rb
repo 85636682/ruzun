@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709045348) do
+ActiveRecord::Schema.define(version: 20160710131303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20160709045348) do
     t.string   "name"
     t.string   "logo"
     t.text     "constitution"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.text     "constitution_html"
+    t.boolean  "locked",            default: false
   end
 
   create_table "playeds", force: :cascade do |t|
