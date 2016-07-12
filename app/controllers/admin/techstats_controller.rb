@@ -15,9 +15,9 @@ class Admin::TechstatsController < ApplicationController
           Techstat.create(played_id: @played.id, user_id: user.id)
         end
       end
-      redirect_to admin_game_played_techstats(@played.game, @played)
+      redirect_to admin_game_played_techstats_path(@played.game, @played)
     rescue Exception => e
-      redirect_to admin_game_played(@played.game, @played)
+      redirect_to admin_game_played_path(@played.game, @played)
     end
   end
 

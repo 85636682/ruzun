@@ -3,7 +3,7 @@ class Admin::PlayedsController < ApplicationController
   before_action :set_played, only: [:edit, :update, :destroy]
 
   def index
-    @playeds = @game.playeds
+    @playeds = @game.playeds.order("start_time ASC")
   end
 
   def show
