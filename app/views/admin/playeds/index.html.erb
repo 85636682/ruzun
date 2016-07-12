@@ -5,7 +5,7 @@
       <%= played.home_team.name %> vs <%= played.guest_team.name %>
     </td>
     <td>
-      <%= link_to "生成技术统计数据", admin_game_played_techstats_path(played.game, played), :method => :post %>
+      <%= link_to("生成技术统计数据", admin_game_played_techstats_path(played.game, played), :method => :post) if not played.teched %>
     </td>
   </tr>
   <% end %>
