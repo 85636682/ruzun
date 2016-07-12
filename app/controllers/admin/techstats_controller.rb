@@ -8,11 +8,14 @@ class Admin::TechstatsController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        @played.home_team.users.each do |user|
-          Techstat.create(played_id: @played.id, user_id: user.id)
-        end
-        @played.guest_team.users.each do |user|
-          Techstat.create(played_id: @played.id, user_id: user.id)
+        if not @played.teched
+          @played.home_team.users.each do |user|
+            Techstat.create(played_id: @played.id, user_id: user.id)
+          end
+          @played.guest_team.users.each do |user|
+            Techstat.create(played_id: @played.id, user_id: user.id)
+          end
+          @played.update_attributes(teched: true)
         end
       end
       redirect_to admin_game_played_techstats_path(@played.game, @played)
