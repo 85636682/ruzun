@@ -1,0 +1,12 @@
+<table>
+  <% @playeds.each do |played| %>
+  <tr>
+    <td>
+      <%= played.home_team.name %> vs <%= played.guest_team.name %>
+    </td>
+    <td>
+      <%= link_to "生成技术统计数据", admin_game_played_techstats(played.game, played), :method => :post %>
+    </td>
+  </tr>
+  <% end %>
+</table>

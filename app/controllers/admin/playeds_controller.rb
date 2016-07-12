@@ -1,7 +1,9 @@
 class Admin::PlayedsController < ApplicationController
+  before_action :set_game, only: [:index]
   before_action :set_played, only: [:edit, :update, :destroy]
-  def index
 
+  def index
+    @playeds = @game.playeds
   end
 
   def show
@@ -42,6 +44,10 @@ class Admin::PlayedsController < ApplicationController
   end
 
   private
+
+  def set_game
+    @game = Game.find(params[:game_id])
+  end
 
   def set_played
     @played = Played.find(params[:id])

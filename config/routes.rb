@@ -30,9 +30,10 @@ Rails.application.routes.draw do
         get :lot
         get :lock
       end
+      resources :playeds do
+        resources :techstats, only: [:index, :create]
+      end
     end
     resources :game_teams, only: [:new, :create]
-    resources :playeds
-    resources :techstats
   end
 end

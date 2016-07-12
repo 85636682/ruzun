@@ -1,0 +1,2 @@
+module Admin::TechstatsHelper
+end
