@@ -89,3 +89,27 @@
   text-align: center;
   color: #ea8010;
 }
+
+.techstat_table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.techstat_table .techstat_table_header {
+  display: flex;
+  flex-direction: row;
+}
+
+.weui_dialog_confirm input {
+	display: block;
+	padding: 0.8em;
+	width: 90%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
