@@ -26,7 +26,7 @@ class Api::V1::TeamsController < Api::V1::BaseController
   end
 
   def playeds
-    @playeds = Played.where("home_team_id = ? OR guest_team_id = ?", @team.id, @team.id).order("start_time DESC")
+    @playeds = Played.where("home_team_id = ? OR guest_team_id = ?", @team.id, @team.id).order("start_time ASC")
   end
 
   private
