@@ -6,12 +6,14 @@ json.team do
     json.name   @team.user.name
     json.avatar @team.user.avatar.url("300x300")
   end
-  json.users @team.users do |user|
-    json.id         user.id
-    json.name       user.name
-    json.avatar     user.avatar.url("300x300")
-    json.height     user.height
-    json.weight     user.weight
-    json.position   user.position
+  json.users @team.team_users do |team_user|
+    json.team_user_id   team_user.id
+    json.number         team_user.number
+    json.id             team_user.user.id
+    json.name           team_user.user.name
+    json.avatar         team_user.user.avatar.url("300x300")
+    json.height         team_user.user.height
+    json.weight         team_user.user.weight
+    json.position       team_user.user.position
   end
 end
