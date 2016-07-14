@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
       resources :team_users, only: [:create] do
         collection do
+          put    :update_member
           delete :quit
           delete :kick
         end
