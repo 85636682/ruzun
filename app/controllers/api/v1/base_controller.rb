@@ -17,7 +17,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def api_error(opts = {})
-    render json: { message: opts[:message] }, status: opts[:status]
+    render text: opts[:message], status: opts[:status]
   end
 
   def unauthenticated!
