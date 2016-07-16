@@ -11,7 +11,8 @@ class Api::V1::SessionsController < Api::V1::BaseController
        # respond_with jwt, status: :created
     else
        # 处理验证失败
-       api_error(message: "用户不存在或密码错误！", status: 400)
+       render json: { error: "用户不存在或密码错误！" }, status: 400
+       # api_error(message: "用户不存在或密码错误！", status: 400)
     end
   end
 end
