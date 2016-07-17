@@ -19,7 +19,7 @@
               <tr>
                 <th>场次对手</th>
                 <th>开始时间</th>
-                <th>技术统计</th>
+                <th>技术统计数据</th>
                 <th>操作</th>
               </tr>
             </thead>
@@ -33,7 +33,11 @@
                   <%= formattime(played.start_time, :unit => "hour") %>
                 </td>
                 <td>
-                  <%= link_to("生成技术统计数据", admin_game_played_techstats_path(played.game, played), :method => :post) if not played.teched %>
+                  <%  if played.teched %>
+                    <%= link_to("查看", admin_game_played_techstats_path(played.game, played)) %>
+                  <% else %>
+                    <%= link_to("生成", admin_game_played_techstats_path(played.game, played), :method => :post) %>
+                  <% end %>
                 </td>
                 <td>
                   <%= link_to "修改", edit_admin_game_played_path(@game, played) %>
