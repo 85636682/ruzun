@@ -30,6 +30,12 @@ gem 'rgeo', '0.5.2'
 gem 'rgeo-activerecord'
 gem 'activerecord-postgis-adapter', '3.1.0'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'rails-assets-tether', '>= 1.1.0'
+
+# Font Awesome
+gem 'font-awesome-sass', '~> 4.3.1'
+
 gem 'rails-deprecated_sanitizer'
 
 gem 'responders', '~> 2.0'
