@@ -2,7 +2,7 @@ class Admin::TechstatsController < ApplicationController
   before_action :set_played, only: [:index, :create]
 
   def index
-
+    @techstats = @played.techstats
   end
 
   def create
