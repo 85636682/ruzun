@@ -1,5 +1,5 @@
 class Admin::PlayedsController < ApplicationController
-  before_action :set_game, only: [:index]
+  before_action :set_game
   before_action :set_played, only: [:edit, :update, :destroy]
 
   def index
