@@ -30,7 +30,7 @@
                   <%= played.home_team.name %> vs <%= played.guest_team.name %>
                 </td>
                 <td>
-                  <%= formattime(played.start_time, :unit => :hour) %>
+                  <%= formattime(played.start_time, :unit => "hour") %>
                 </td>
                 <td>
                   <%= link_to("生成技术统计数据", admin_game_played_techstats_path(played.game, played), :method => :post) if not played.teched %>
