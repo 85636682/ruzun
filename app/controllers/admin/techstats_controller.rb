@@ -53,6 +53,6 @@ class Admin::TechstatsController < ApplicationController
   end
 
   def techstat_params
-    params.require(:techstat).permit(:pts, :ast, :stl, :blk, :off, :reb, :pm3, :pm3_a, :ftm, :ftm_a, :fgm, :fgm_a)
+    params.require(:techstat).permit(:pts, :fouls, :to, :ast, :stl, :blk, :off, :reb, :pm3, :pm3_a, :ftm, :ftm_a, :fgm, :fgm_a)
   end
 end

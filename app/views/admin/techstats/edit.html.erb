@@ -15,51 +15,59 @@
       <div class="panel-body">
         <%= form_for [:admin, @game, @played, @techstat] do |f| %>
           <div class="form-group">
-            <label>主队：</label>
+            <label>得分：</label>
             <%= f.text_field :pts, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>犯规次数：</label>
+            <%= f.text_field :fouls, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label>失误次数：</label>
+            <%= f.text_field :to, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label>助攻次数：</label>
             <%= f.text_field :ast, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>抢断次数：</label>
             <%= f.text_field :stl, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>盖帽次数：</label>
             <%= f.text_field :blk, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>篮板：</label>
             <%= f.text_field :off, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>前场篮板：</label>
             <%= f.text_field :reb, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>三分投篮数：</label>
             <%= f.text_field :pm3, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>三分投入数：</label>
             <%= f.text_field :pm3_a, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>罚球投篮数：</label>
             <%= f.text_field :ftm, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>罚球投入数：</label>
             <%= f.text_field :ftm_a, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>投篮总数：</label>
             <%= f.text_field :fgm, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label>主队：</label>
+            <label>投入总数：</label>
             <%= f.text_field :fgm_a, class: "form-control" %>
           </div>
           <%= f.submit "保存", class: "btn btn-primary" %>
