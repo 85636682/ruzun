@@ -5,3 +5,10 @@
 @import "sb-admin-2";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.stats_table {
+  .stats {
+    display: flex;
+    flex-direction: row;
+  }
+}
