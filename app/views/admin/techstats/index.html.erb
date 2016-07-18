@@ -31,47 +31,49 @@
             </tr>
           </thead>
         </table>
-        <div class="stats_content">
+        <div class="stats_list">
           <% @techstats.each do |techstat| %>
-            <div class="members">
-              <%= techstat.user.name %>
-            </div>
-            <div class="stats">
-              <div class="">
-                <%= techstat.pts %>
+            <div class="stats_item">
+              <div class="members">
+                <%= techstat.user.name %>
               </div>
-              <div class="">
-              	<%= techstat.ast %>
-              </div>
-              <div class="">
-                <%= techstat.stl %>
-              </div>
-              <div class="">
-                <%= techstat.blk %>
-              </div>
-              <div class="">
-                <%= techstat.off %>
-              </div>
-              <div class="">
-                <%= techstat.reb %>
-              </div>
-              <div class="">
-                <%= techstat.pm3 %>
-              </div>
-              <div class="">
-                <%= techstat.pm3_a %>
-              </div>
-              <div class="">
-                <%= techstat.ftm %>
-              </div>
-              <div class="">
-                <%= techstat.ftm_a %>
-              </div>
-              <div class="">
-                <%= techstat.fgm %>
-              </div>
-              <div class="">
-                <%= techstat.fgm_a %>
+              <div class="stats">
+                <div class="">
+                  <%= techstat.pts %>
+                </div>
+                <div class="">
+                	<%= techstat.ast %>
+                </div>
+                <div class="">
+                  <%= techstat.stl %>
+                </div>
+                <div class="">
+                  <%= techstat.blk %>
+                </div>
+                <div class="">
+                  <%= techstat.off %>
+                </div>
+                <div class="">
+                  <%= techstat.reb %>
+                </div>
+                <div class="">
+                  <%= techstat.pm3 %>
+                </div>
+                <div class="">
+                  <%= techstat.pm3_a %>
+                </div>
+                <div class="">
+                  <%= techstat.ftm %>
+                </div>
+                <div class="">
+                  <%= techstat.ftm_a %>
+                </div>
+                <div class="">
+                  <%= techstat.fgm %>
+                </div>
+                <div class="">
+                  <%= techstat.fgm_a %>
+                </div>
               </div>
             </div>
           <% end %>

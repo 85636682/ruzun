@@ -7,12 +7,18 @@
 @import "font-awesome";
 
 .stats_table {
-  .stats_content {
+  .stats_list {
     display: flex;
-    flex-direction: row;
-    .stats {
+    flex-direction: column;
+
+    .stats_item {
       display: flex;
       flex-direction: row;
+      
+      .stats {
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }
