@@ -1,4 +1,5 @@
 class Admin::TechstatsController < ApplicationController
+  before_action :set_game
   before_action :set_played, only: [:index, :create]
 
   def index
@@ -25,6 +26,10 @@ class Admin::TechstatsController < ApplicationController
   end
 
   private
+
+  def set_game
+    @game = Game.find(params[:game_id])
+  end
 
   def set_played
     @played = Played.find(params[:played_id])

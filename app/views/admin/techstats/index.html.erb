@@ -48,7 +48,7 @@
               <td><%= techstat.ftm_a %></td>
               <td><%= techstat.fgm %></td>
               <td><%= techstat.fgm_a %></td>
-              <td><%= link_to edit_admin_game_played_techstat_path(techstat) do %><i class="fa fa-edit"></i><% end %></td>
+              <td><%= link_to edit_admin_game_played_techstat_path(@game, @played, techstat) do %><i class="fa fa-edit"></i><% end %></td>
             </tr>
             <% end %>
           </tbody>
