@@ -1,6 +1,6 @@
 class Admin::TechstatsController < ApplicationController
   before_action :set_game
-  before_action :set_played, only: [:index, :create, :edit]
+  before_action :set_played, only: [:index, :create, :edit, :update]
   before_action :set_techstat, only: [:edit, :update]
 
   def index
