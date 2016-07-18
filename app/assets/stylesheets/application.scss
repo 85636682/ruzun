@@ -7,8 +7,12 @@
 @import "font-awesome";
 
 .stats_table {
-  .stats {
+  .stats_content {
     display: flex;
     flex-direction: row;
+    .stats {
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
