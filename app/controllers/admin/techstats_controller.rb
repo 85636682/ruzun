@@ -32,7 +32,7 @@ class Admin::TechstatsController < ApplicationController
 
   def update
     if @techstat.update_attributes techstat_params
-      redirect_to admin_game_played_techstats_path(@techstat), notice: "更新成功！"
+      redirect_to admin_game_played_techstats_path(@game, @played, @techstat), notice: "更新成功！"
     else
       render :edit, notice: "更新失败！"
     end
