@@ -16,14 +16,63 @@
         <table>
           <thead>
             <tr>
-              <th>
-                
-              </th>
+              <th>得分</th>
+              <th>篮板</th>
+              <th>助攻</th>
+              <th>投篮</th>
+              <th>三分</th>
+              <th>罚球</th>
+              <th>前场板</th>
+              <th>后场板</th>
+              <th>抢断</th>
+              <th>盖帽</th>
+              <th>失误</th>
+              <th>犯规</th>
             </tr>
           </thead>
         </table>
         <% @techstats.each do |techstat| %>
-
+          <div class="members">
+            <%= techstat.user.name %>
+          </div>
+          <div class="stats">
+            <div class="">
+              <%= techstat.pts %>
+            </div>
+            <div class="">
+            	<%= ast %>
+            </div>
+            <div class="">
+              <%= stl %>
+            </div>
+            <div class="">
+              <%= blk %>
+            </div>
+            <div class="">
+              <%= off %>
+            </div>
+            <div class="">
+              <%= reb %>
+            </div>
+            <div class="">
+              <%= pm3 %>
+            </div>
+            <div class="">
+              <%= pm3_a %>
+            </div>
+            <div class="">
+              <%= ftm %>
+            </div>
+            <div class="">
+              <%= ftm_a %>
+            </div>
+            <div class="">
+              <%= fgm %>
+            </div>
+            <div class="">
+              <%= fgm_a %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
