@@ -1,6 +1,7 @@
 class Admin::TechstatsController < ApplicationController
   before_action :set_game
-  before_action :set_played, only: [:index, :create]
+  before_action :set_played, only: [:index, :create, :edit]
+  before_action :set_techstat, only: [:edit, :update]
 
   def index
     @techstats = @played.techstats
@@ -25,6 +26,18 @@ class Admin::TechstatsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    if @techstat.update_attributes techstat_params
+      redirect_to admin_game_played_techstats_path(@techstat), notice: "更新成功！"
+    else
+      render :edit, notice: "更新失败！"
+    end
+  end
+
   private
 
   def set_game
@@ -33,5 +46,13 @@ class Admin::TechstatsController < ApplicationController
 
   def set_played
     @played = Played.find(params[:played_id])
+  end
+
+  def set_techstat
+    @techstat = Techstat.find(params[:id])
+  end
+
+  def techstat_params
+    params.require(:techstat).permit(:pts, :ast, :stl, :blk, :off, :reb, :pm3, :pm3_a, :ftm, :ftm_a, :fgm, :fgm_a)
   end
 end
