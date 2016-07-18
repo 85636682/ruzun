@@ -12,10 +12,11 @@
         <%= @played.home_team.name %> vs <%= @played.guest_team.name %>
       </div>
       <!-- /.panel-heading -->
-      <div class="panel-body stats_table">
-        <table>
+      <div class="panel-body">
+        <table class="stats_table">
           <thead>
             <tr>
+              <th>球员</th>
               <th>得分</th>
               <th>篮板</th>
               <th>助攻</th>
@@ -30,54 +31,26 @@
               <th>犯规</th>
             </tr>
           </thead>
+          <tbody>
+            <% @techstats.each do |techstat| %>
+            <tr>
+              <td><%= techstat.user.name %></td>
+              <td><%= techstat.pts %></td>
+              <td><%= techstat.ast %></td>
+              <td><%= techstat.stl %></td>
+              <td><%= techstat.blk %></td>
+              <td><%= techstat.off %></td>
+              <td><%= techstat.reb %></td>
+              <td><%= techstat.pm3 %></td>
+              <td><%= techstat.pm3_a %></td>
+              <td><%= techstat.ftm %></td>
+              <td><%= techstat.ftm_a %></td>
+              <td><%= techstat.fgm %></td>
+              <td><%= techstat.fgm_a %></td>
+            </tr>
+            <% end %>
+          </tbody>
         </table>
-        <div class="stats_list">
-          <% @techstats.each do |techstat| %>
-            <div class="stats_item">
-              <div class="members">
-                <%= techstat.user.name %>
-              </div>
-              <div class="stats">
-                <div class="">
-                  <%= techstat.pts %>
-                </div>
-                <div class="">
-                	<%= techstat.ast %>
-                </div>
-                <div class="">
-                  <%= techstat.stl %>
-                </div>
-                <div class="">
-                  <%= techstat.blk %>
-                </div>
-                <div class="">
-                  <%= techstat.off %>
-                </div>
-                <div class="">
-                  <%= techstat.reb %>
-                </div>
-                <div class="">
-                  <%= techstat.pm3 %>
-                </div>
-                <div class="">
-                  <%= techstat.pm3_a %>
-                </div>
-                <div class="">
-                  <%= techstat.ftm %>
-                </div>
-                <div class="">
-                  <%= techstat.ftm_a %>
-                </div>
-                <div class="">
-                  <%= techstat.fgm %>
-                </div>
-                <div class="">
-                  <%= techstat.fgm_a %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
