@@ -18,17 +18,19 @@
             <tr>
               <th>球员</th>
               <th>得分</th>
-              <th>篮板</th>
+              <th>犯规</th>
+              <th>失误</th>
               <th>助攻</th>
-              <th>投篮</th>
-              <th>三分</th>
-              <th>罚球</th>
-              <th>前场板</th>
-              <th>后场板</th>
               <th>抢断</th>
               <th>盖帽</th>
-              <th>失误</th>
-              <th>犯规</th>
+              <th>篮板</th>
+              <th>前场篮板</th>
+              <th>三分球</th>
+              <th>三分球(入)</th>
+              <th>罚球</th>
+              <th>罚球(入)</th>
+              <th>投篮</th>
+              <th>投篮(入)</th>
               <th>操作</th>
             </tr>
           </thead>
@@ -37,6 +39,8 @@
             <tr>
               <td><%= techstat.user.name %></td>
               <td><%= techstat.pts %></td>
+              <td><%= techstat.fouls %></td>
+              <td><%= techstat.to %></td>
               <td><%= techstat.ast %></td>
               <td><%= techstat.stl %></td>
               <td><%= techstat.blk %></td>
