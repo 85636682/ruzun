@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         get :lock
       end
       resources :playeds do
-        resources :techstats, only: [:index, :create]
+        resources :techstats, only: [:index, :create, :edit, :update]
       end
     end
     resources :game_teams, only: [:new, :create]
