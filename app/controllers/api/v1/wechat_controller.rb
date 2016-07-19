@@ -19,9 +19,7 @@ class Api::V1::WechatController < Api::V1::BaseController
 
   def get_user_avatar_from_wechat
     res = @wechat_client.download_media_url(params[:media_id])
-    if current_user.update_attributes(:avatar => res)
-      render json: { avatar: current_user.avatar.url }
-    else
+    if not current_user.update_attributes(:avatar => res)
       api_error(message: "上传失败！", status: 400)
     end
   end
