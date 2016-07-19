@@ -1,4 +1,5 @@
 json.sundry do
+  json.joined     @team.present?
   json.team do
     json.(@team, :id, :name, :sign, :created_at, :updated_at)
     json.logo     @team.logo.url
