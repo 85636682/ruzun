@@ -33,7 +33,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def sundry
     @team = current_user.teams.first
-    @played = @team.playeds.where(user_id: current_user.id).order("start_time ASC").first
+    @played = current_user.playeds.order("start_time ASC").first
   end
 
   private
