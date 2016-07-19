@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :update] do
         collection do
           get :auth
+          get :sundry
         end
       end
       resources :teams, only: [:index, :create, :show, :update] do

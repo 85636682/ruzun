@@ -3,7 +3,7 @@ require 'jwt'
 class Api::V1::UsersController < Api::V1::BaseController
   include Concerns::AuthTokenConcern
 
-  before_action :verify_auth_token, only: [:update, :auth]
+  before_action :verify_auth_token, only: [:update, :auth, :sundry]
 
   def show
     @user = User.find(params[:id])
@@ -28,7 +28,12 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def auth
-    
+
+  end
+
+  def sundry
+    @team = current_user.teams.first
+    @played = @team.playeds.where(user_id: current_user.id).order("start_time ASC").first
   end
 
   private
