@@ -2,8 +2,8 @@ require 'jwt'
 
 class Api::V1::UsersController < Api::V1::BaseController
   include Concerns::AuthTokenConcern
-  
-  before_action :verify_auth_token, only: [:update]
+
+  before_action :verify_auth_token, only: [:update, :auth]
 
   def show
     @user = User.find(params[:id])
@@ -25,6 +25,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     else
       api_error(message: "没权限编辑该用户！", status: 400)
     end
+  end
+
+  def auth
+    
   end
 
   private
