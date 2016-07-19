@@ -19,6 +19,7 @@
               <tr>
                 <th>场次对手</th>
                 <th>开始时间</th>
+                <th>是否结束</th>
                 <th>技术统计数据</th>
                 <th>操作</th>
               </tr>
@@ -27,10 +28,13 @@
               <% @playeds.each do |played| %>
               <tr>
                 <td>
-                  <%= played.home_team.name %> vs <%= played.guest_team.name %>
+                  <%= played.home_team.name %>（<%= played.home_team_score %>） vs <%= played.guest_team.name %>（<%= played.guest_team_score %>）
                 </td>
                 <td>
                   <%= formattime(played.start_time, :unit => "hour") %>
+                </td>
+                <td>
+                  <%= played.finish %>
                 </td>
                 <td>
                   <%  if played.teched %>
