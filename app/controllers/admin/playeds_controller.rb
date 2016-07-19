@@ -17,7 +17,7 @@ class Admin::PlayedsController < ApplicationController
   def create
     @played = Played.new played_params
     if @played.save
-      redirect_to admin_playeds_path, :notice => "创建成功！"
+      redirect_to admin_game_playeds_path(@game), :notice => "创建成功！"
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::PlayedsController < ApplicationController
 
   def update
     if @played.update_attributes played_params
-      redirect_to admin_playeds_path, :notice => "更新成功！"
+      redirect_to admin_game_playeds_path(@game), :notice => "更新成功！"
     else
       render :edit
     end
@@ -37,9 +37,9 @@ class Admin::PlayedsController < ApplicationController
 
   def destroy
     if @played.destroy
-      redirect_to admin_playeds_path, :notice => "删除成功！"
+      redirect_to admin_game_playeds_path(@game), :notice => "删除成功！"
     else
-      redirect_to admin_playeds_path, :notice => "删除失败！"
+      redirect_to admin_game_playeds_path(@game), :notice => "删除失败！"
     end
   end
 
