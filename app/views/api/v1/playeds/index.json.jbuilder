@@ -3,6 +3,8 @@ json.array! @playeds do |played|
   json.guest_team_score played.guest_team_score
   json.start_day        formattime(played.start_time, :unit => "noYearOnlyDay")
   json.start_time       formattime(played.start_time, :unit => "noDayOnlyHour")
+  json.finish           played.finish
+  json.teched           played.teched
   json.home_team do
     json.id             played.home_team.id
     json.name           played.home_team.name

@@ -54,6 +54,6 @@ class Admin::PlayedsController < ApplicationController
   end
 
   def played_params
-    params.require(:played).permit(:home_team_id, :guest_team_id, :game_id, :start_time, :home_team_score, :guest_team_score)
+    params.require(:played).permit(:finish, :home_team_id, :guest_team_id, :game_id, :start_time, :home_team_score, :guest_team_score)
   end
 end

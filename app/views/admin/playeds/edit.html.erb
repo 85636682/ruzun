@@ -28,7 +28,11 @@
           </div>
           <div class="form-group">
             <label>开始时间：</label>
-            <%= f.datetime_select :start_time, default: Time.now  %>
+            <%= f.datetime_select :start_time, default: Time.now %>
+          </div>
+          <div class="form-group">
+            <label>比赛是否结束：</label>
+            <%= f.check_box :finish %>
           </div>
           <%= f.submit "保存", class: "btn btn-primary" %>
         <% end %>
