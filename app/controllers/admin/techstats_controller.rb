@@ -5,6 +5,9 @@ class Admin::TechstatsController < ApplicationController
 
   def index
     @techstats = @played.techstats
+                        .joins(:team_users)
+                        .joins(:teams)
+                        .group('team_users.user_id')
   end
 
   def create
