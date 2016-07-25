@@ -7,9 +7,8 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, UserAvatarUploader
   attr_accessor :uploader_secure_token
 
-  has_one :team
-  has_many :team_users
-  has_many :teams, :through => :team_users, :dependent => :destroy
+  has_one :my_team, class_name: "Team"
+  belongs_to :team
   has_many :techstats
 
   validates_uniqueness_of :mobile

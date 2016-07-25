@@ -2,20 +2,20 @@ json.team do
   json.(@team, :id, :name, :sign, :created_at, :updated_at)
   json.logo     @team.logo.url
   json.owner do
-    json.id     @team.user.id
-    json.name   @team.user.name
-    json.avatar @team.user.avatar.url("300x300")
+    json.id     @team.owner.id
+    json.name   @team.owner.name
+    json.avatar @team.owner.avatar.url("300x300")
   end
-  json.users @team.team_users do |team_user|
-    json.team_user_id   team_user.id
-    json.number         team_user.number
-    if team_user.user.present?
-      json.id             team_user.user.id
-      json.name           team_user.user.name
-      json.avatar         team_user.user.avatar.url("300x300")
-      json.height         team_user.user.height
-      json.weight         team_user.user.weight
-      json.position       team_user.user.position
+  json.users @team.users do |user|
+    json.user_id        user.id
+    json.number         user.number
+    if user.present?
+      json.id           user.user.id
+      json.name         user.user.name
+      json.avatar       user.user.avatar.url("300x300")
+      json.height       user.user.height
+      json.weight       user.user.weight
+      json.position     user.user.position
     end
   end
 end

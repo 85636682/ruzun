@@ -32,7 +32,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def sundry
-    @team = current_user.teams.first
+    @team = current_user.team
     @played = Played.where(finish: false).where("home_team_id = ? OR guest_team_id = ?", @team.id, @team.id).order("start_time ASC").first
   end
 
