@@ -2,7 +2,7 @@ class Team < ActiveRecord::Base
   mount_uploader :logo, TeamLogoUploader
   attr_accessor :uploader_secure_token
 
-  belongs_to :owner, class_name: "User"
+  belongs_to :user
   has_many :users
 
   has_many :game_teams

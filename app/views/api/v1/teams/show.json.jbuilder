@@ -2,9 +2,9 @@ json.team do
   json.(@team, :id, :name, :sign, :created_at, :updated_at)
   json.logo     @team.logo.url
   json.owner do
-    json.id     @team.owner.id
-    json.name   @team.owner.name
-    json.avatar @team.owner.avatar.url("300x300")
+    json.id     @team.user.id
+    json.name   @team.user.name
+    json.avatar @team.user.avatar.url("300x300")
   end
   json.users @team.users do |user|
     json.user_id        user.id
