@@ -5,7 +5,7 @@ class Admin::TechstatsController < ApplicationController
 
   def index
     @techstats = Techstat.joins(:played)
-                         .group('played.home_team_id')
+                         .group('playeds.home_team_id')
                          .where(played_id: @played.id)
   end
 
