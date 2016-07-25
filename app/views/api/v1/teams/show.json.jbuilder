@@ -8,7 +8,6 @@ json.team do
   end
   json.users @team.users do |user|
     json.user_id        user.id
-    json.number         user.number
     if user.present?
       json.id           user.user.id
       json.name         user.user.name
