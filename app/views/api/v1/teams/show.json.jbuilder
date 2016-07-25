@@ -7,14 +7,11 @@ json.team do
     json.avatar @team.user.avatar.url("300x300")
   end
   json.users @team.users do |user|
-    json.user_id        user.id
-    if user.present?
-      json.id           user.user.id
-      json.name         user.user.name
-      json.avatar       user.user.avatar.url("300x300")
-      json.height       user.user.height
-      json.weight       user.user.weight
-      json.position     user.user.position
-    end
+    json.id           user.id
+    json.name         user.name
+    json.avatar       user.avatar.url("300x300")
+    json.height       user.height
+    json.weight       user.weight
+    json.position     user.position
   end
 end
