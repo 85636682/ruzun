@@ -4,7 +4,7 @@ class Admin::TechstatsController < ApplicationController
   before_action :set_techstat, only: [:edit, :update]
 
   def index
-    @techstats = @played.techstats.joins(:user).group("user.team_id")
+    @techstats = @played.techstats.joins(:user).group("team_id")
   end
 
   def create
