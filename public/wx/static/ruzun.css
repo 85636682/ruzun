@@ -193,15 +193,85 @@
   color: #ea8010;
 }
 
-.techstat_table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
+.techstats {
+  text-align: center;
 }
-
-.techstat_table .techstat_table_header {
+.techstats .techstat_table {
+  width: 90%;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.techstats .techstat_table,
+.techstats .techstat_table--flip tbody {
+  -webkit-overflow-scrolling: touch;
+  background: radial-gradient(left, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 0 center,
+              radial-gradient(right, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 100% center;
+  background-size: 10px 100%, 10px 100%;
+  background-attachment: scroll, scroll;
+  background-repeat: no-repeat;
+}
+.techstats .techstat_table td:first-child,
+.techstats .techstat_table--flip tbody tr:first-child {
+  background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 20px 100%;
+}
+.techstats .techstat_table td:last-child,
+.techstats .techstat_table--flip tbody tr:last-child {
+  background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 20px 100%;
+}
+.techstats .techstat_table th {
+  font-size: 11px;
+  text-align: left;
+  text-transform: uppercase;
+  background: #f2f0e6;
+}
+.techstats .techstat_table th,
+.techstats .techstat_table td {
+  padding: 6px 12px;
+  border: 1px solid #d9d7ce;
+}
+.techstats .techstat_table--flip {
   display: flex;
-  flex-direction: row;
+  overflow: hidden;
+  background: none;
+}
+.techstats .techstat_table--flip thead {
+  display: flex;
+  flex-shrink: 0;
+  min-width: min-content;
+}
+.techstats .techstat_table--flip tbody {
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.techstats .techstat_table--flip tr {
+  display: flex;
+  flex-direction: column;
+  min-width: min-content;
+  flex-shrink: 0;
+}
+.techstats .techstat_table--flip td,
+.techstats .techstat_table--flip th {
+  display: block;
+}
+.techstats .techstat_table--flip td {
+  background-image: none !important;
+  border-left: 0;
+}
+.techstats .techstat_table--flip th:not(:last-child),
+.techstats .techstat_table--flip td:not(:last-child) {
+  border-bottom: 0;
 }
 
 .weui_dialog_confirm input {
