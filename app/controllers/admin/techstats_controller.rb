@@ -10,7 +10,7 @@ class Admin::TechstatsController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        if not @played.teched
+        #if not @played.teched
           @played.home_team.users.each do |user|
             Techstat.create(played_id: @played.id, user_id: user.id)
           end
@@ -18,7 +18,7 @@ class Admin::TechstatsController < ApplicationController
             Techstat.create(played_id: @played.id, user_id: user.id)
           end
           @played.update_attributes(teched: true)
-        end
+        #end
       end
       redirect_to admin_game_played_techstats_path(@played.game, @played)
     rescue Exception => e
