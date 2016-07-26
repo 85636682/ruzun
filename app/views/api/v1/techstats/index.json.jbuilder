@@ -1,4 +1,4 @@
-json.array! @techstats_by_team do |techstats|
+json.array! @techstats_by_team do |team_id, techstats|
   json.array! techstats do |techstat|
     json.id         techstat.id
     json.pts        techstat.pts
