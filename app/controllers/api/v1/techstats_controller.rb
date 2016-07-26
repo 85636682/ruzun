@@ -2,7 +2,7 @@ class Api::V1::TechstatsController < Api::V1::BaseController
   before_action :set_played, only: [:index]
 
   def index
-    @techstats = @played.techstats
+    @techstats_by_team = @played.techstats.group_by{ |t| t.user.team_id }
   end
 
   private
