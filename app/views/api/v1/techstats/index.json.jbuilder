@@ -2,6 +2,8 @@ json.array! @techstats_by_team do |team_id, techstats|
   json.array! techstats do |techstat|
     json.id         techstat.id
     json.pts        techstat.pts
+    json.fouls      techstat.fouls
+    json.to         techstat.to
     json.ast        techstat.ast
     json.stl        techstat.stl
     json.blk        techstat.blk
