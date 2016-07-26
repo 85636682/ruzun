@@ -8,6 +8,6 @@ class Api::V1::TechstatsController < Api::V1::BaseController
   private
 
   def set_played
-    @played = Played.find(params[:id])
+    @played = Played.find(params[:played_id])
   end
 end
