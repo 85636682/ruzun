@@ -25,9 +25,10 @@ Rails.application.routes.draw do
       end
       resources :sessions, only: [:create]
       resources :games, only: [:index, :show] do
-        resources :playeds, only: [:index] do
-          resources :techstats, only: [:index]
-        end
+        resources :playeds, only: [:index]
+      end
+      resources :playeds, only: [] do
+        resources :techstats, only: [:index]
       end
     end
   end
