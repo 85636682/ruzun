@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::V1::WechatController < Api::V1::BaseController
   before_action :verify_auth_token, only: [:get_team_logo_from_wechat, :get_user_avatar_from_wechat]
   before_action :create_wechat_client
@@ -10,8 +12,11 @@ class Api::V1::WechatController < Api::V1::BaseController
   def get_team_logo_from_wechat
     team = Team.find(params[:team_id])
     url = @wechat_client.download_media_url(params[:media_id])
-    Rails.logger.debug(URI.parse(url))
-    if team.update_attributes(:logo => URI.parse(url))
+    open(url, "w") { |f|
+      Rails.logger.debug(f)
+      image = f
+    }
+    if team.update_attributes(:logo => image)
       render json: { logo: team.logo.url }
     else
       api_error(message: "上传失败！", status: 400)
