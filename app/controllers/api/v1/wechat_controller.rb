@@ -10,22 +10,11 @@ class Api::V1::WechatController < Api::V1::BaseController
   def get_team_logo_from_wechat
     team = Team.find(params[:team_id])
     url = @wechat_client.download_media_url(params[:media_id])
-    time = Time.now.to_i.to_s
-    image = "tmp/" + time + "_img.jpg"
-    tmp_file = IO.sysopen(image, "wb+")
-    tmp_img = IO.new(tmp_file, "wb")
-    tmp_img.write open(URI.encode(url)).read
-    if File.exist?(image)
-      if team.update_attributes(:logo => image)
-        render json: { logo: team.logo.url }
-      else
-        api_error(message: "上传失败！", status: 400)
-      end
-      File.delete("tmp/" + time + "_img.jpg")
+    if team.update_attributes(:logo => URI.parse(url))
+      render json: { logo: team.logo.url }
     else
       api_error(message: "上传失败！", status: 400)
     end
-    
   end
 
   def get_user_avatar_from_wechat
