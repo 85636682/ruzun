@@ -17,7 +17,8 @@ class Api::V1::WechatController < Api::V1::BaseController
     open(tmp_file, "wb") do |file|
       file.print open(url).read
     end
-    if team.update_attributes(:logo => tmp_file)
+    image = ActionDispatch::Http::UploadedFile.new(tempfile: tmp_file)
+    if team.update_attributes(:logo => image)
       render json: { logo: team.logo.url }
     else
       api_error(message: "上传失败！", status: 400)
