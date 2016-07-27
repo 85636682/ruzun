@@ -12,8 +12,12 @@ class Api::V1::WechatController < Api::V1::BaseController
   def get_team_logo_from_wechat
     team = Team.find(params[:team_id])
     url = @wechat_client.download_media_url(params[:media_id])
-    image = open(url)
-    if team.update_attributes(:logo => image)
+    time = Time.now.to_i.to_s
+    tmp_file = "tmp/" + time + "_img.jpg"
+    open(tmp_file, "wb") do |file|
+      file.print open(url).read
+    end
+    if team.update_attributes(:logo => tmp_file)
       render json: { logo: team.logo.url }
     else
       api_error(message: "上传失败！", status: 400)
