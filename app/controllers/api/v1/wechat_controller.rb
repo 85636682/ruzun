@@ -15,7 +15,7 @@ class Api::V1::WechatController < Api::V1::BaseController
     tmp_img = IO.new(tmp_file, "wb")
     tmp_img.write open(URI.encode(url)).read
     if File.exist?("tmp/" + time + "_img.jpg")
-      image = ActionDispatch::Http::UploadedFile.new(:tempfile => tmp_img, :filename => File.basename(tmp_img))
+      image = ActionDispatch::Http::UploadedFile.new(:tempfile => tmp_img, :filename => File.basename("tmp/" + time + "_img.jpg"))
       if team.update_attributes(:logo => image)
         render json: { logo: team.logo.url }
       else
