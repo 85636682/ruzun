@@ -11,11 +11,11 @@ class Api::V1::WechatController < Api::V1::BaseController
     team = Team.find(params[:team_id])
     url = @wechat_client.download_media_url(params[:media_id])
     time = Time.now.to_i.to_s
-    tmp_file = IO.sysopen("tmp/" + time + "_img.jpg", "wb+")
+    image = "tmp/" + time + "_img.jpg"
+    tmp_file = IO.sysopen(image, "wb+")
     tmp_img = IO.new(tmp_file, "wb")
     tmp_img.write open(URI.encode(url)).read
-    if File.exist?("tmp/" + time + "_img.jpg")
-      image = ActionDispatch::Http::UploadedFile.new(:tempfile => tmp_img, :filename => File.basename("tmp/" + time + "_img.jpg"))
+    if File.exist?(image)
       if team.update_attributes(:logo => image)
         render json: { logo: team.logo.url }
       else
