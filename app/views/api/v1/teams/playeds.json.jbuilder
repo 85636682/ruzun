@@ -1,7 +1,7 @@
 json.team do
   json.(@team, :id, :name, :sign, :created_at, :updated_at)
 end
-json.played do
+json.playeds do
   json.array! @playeds do |played|
     json.id               played.id
     json.home_team_score  played.home_team_score
