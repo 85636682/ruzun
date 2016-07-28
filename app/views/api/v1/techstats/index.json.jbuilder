@@ -1,4 +1,4 @@
-@techstats_by_team do |team_id, techstats|
+@techstats_by_team.each do |team_id, techstats|
   if team_id == @played.home_team.id
     json.home_team do
       json.id             @played.home_team.id
