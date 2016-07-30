@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">比赛管理</h1>
+    <h1 class="page-header"><%= @game.name %>积分榜</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -17,30 +17,31 @@
           <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
               <tr>
-                <th>比赛名称</th>
-                <th>比赛开始时间</th>
-                <th>比赛锁定</th>
-                <th>赛程</th>
-                <th>积分榜</th>
+                <th>队伍名称</th>
+                <th>胜局数量</th>
+                <th>败局数量</th>
+                <th>积分</th>
+                <th>净胜分</th>
                 <th>操作</th>
               </tr>
             </thead>
             <tbody>
-              <% @games.each do |game| %>
+              <% @game_teams.each do |game_team| %>
               <tr>
                 <td>
-                  <%= game.name %>
+                  <%= game_team.team.name %>
                 </td>
                 <td>
+                  <%= game_team.wins %>
                 </td>
                 <td>
-                  <%= game.locked %>
+                  <%= game_team.losses %>
                 </td>
                 <td>
-                  <%= link_to "查看", admin_game_playeds_path(game) %>
+                  <%= game_team.points %>
                 </td>
-                <td><%= link_to "查看", admin_game_game_teams_path(game) %></td>
-                <td>修改 锁定</td>
+                <td><%= game_team.score_difference %></td>
+                <td><%= link_to "修改", edit_admin_game_game_team_path(@game) %></td>
               </tr>
               <% end %>
             </tbody>

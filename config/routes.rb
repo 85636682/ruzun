@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       resources :playeds do
         resources :techstats, only: [:index, :create, :edit, :update]
       end
+      resources :game_teams, only: [:index, :new, :create, :edit, :update]
     end
-    resources :game_teams, only: [:new, :create]
   end
 end
