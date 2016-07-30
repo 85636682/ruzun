@@ -40,7 +40,7 @@
                   <%= link_to "查看", admin_game_playeds_path(game) %>
                 </td>
                 <td><%= link_to "查看", admin_game_game_teams_path(game) %></td>
-                <td>修改 锁定</td>
+                <td><%= link_to "修改", edit_admin_game_path(game) %> <%= link_to "锁定", lock_admin_game_path(game) %></td>
               </tr>
               <% end %>
             </tbody>
