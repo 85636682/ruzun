@@ -2,7 +2,7 @@ class Api::V1::GameTeamsController < Api::V1::BaseController
   before_action :set_game
 
   def index
-    @game_teams = @game.game_teams
+    @game_teams = @game.game_teams.order("points DESC")
   end
 
   def show
