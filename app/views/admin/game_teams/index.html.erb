@@ -41,7 +41,7 @@
                   <%= game_team.points %>
                 </td>
                 <td><%= game_team.score_difference %></td>
-                <td><%= link_to "修改", edit_admin_game_game_team_path(@game) %></td>
+                <td><%= link_to "修改", edit_admin_game_game_team_path(@game, game_team) %></td>
               </tr>
               <% end %>
             </tbody>
