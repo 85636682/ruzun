@@ -15,7 +15,7 @@ class Admin::PlayedsController < ApplicationController
   end
 
   def create
-    @played = Played.new played_params
+    @played = @game.playeds.build played_params
     if @played.save
       redirect_to admin_game_playeds_path(@game), :notice => "创建成功！"
     else
