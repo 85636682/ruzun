@@ -7,5 +7,5 @@ json.game do
     json.logo   team.logo.url("300x300")
     json.lot    GameTeam.where(game_id: @game.id, team_id: team.id).first.lot
   end
-  json.techstats @scores_order_by_sum
+  json.the_top_ten_users @the_top_ten_users
 end
