@@ -7,10 +7,5 @@ json.game do
     json.logo   team.logo.url("300x300")
     json.lot    GameTeam.where(game_id: @game.id, team_id: team.id).first.lot
   end
-  json.techstats do
-    @scores_order_by_sum.each do |score|
-      json.name         score.user_name
-      json.pts_in_game  score.pts_in_game
-    end
-  end
+  json.techstats @scores_order_by_sum
 end
