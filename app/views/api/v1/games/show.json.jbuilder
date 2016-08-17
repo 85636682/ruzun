@@ -9,8 +9,7 @@ json.game do
   end
   json.techstats do
     @scores_order_by_sum.each do |score|
-      json.id           score.user.id
-      json.name         score.user.name
+      json.name         score.user_name
       json.pts_in_game  score.pts_in_game
     end
   end
