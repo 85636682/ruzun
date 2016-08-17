@@ -5,6 +5,6 @@ class Api::V1::GamesController < Api::V1::BaseController
 
   def show
     @game = Game.find(params[:id])
-    @scores_order_by_sum = @game.techstats.joins(:user).select("user, sum(pts) as pts_in_game").group("user_id").order("pts_in_game DESC").limit(5)
+    @scores_order_by_sum = @game.techstats.joins(:user).select("users.name as user_name, sum(pts) as pts_in_game").group("users.name").order("pts_in_game DESC").limit(5)
   end
 end
