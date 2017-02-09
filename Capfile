@@ -1,10 +1,14 @@
-require 'capistrano/setup'
-require 'capistrano/deploy'
-require 'capistrano/rbenv'
-require 'capistrano/puma'
-require 'capistrano/bundler'
-require 'capistrano/rails'
+require "capistrano/setup"
 
-require "whenever/capistrano"
+require "capistrano/deploy"
 
-Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
+require "capistrano/rbenv"
+require "capistrano/bundler"
+require "capistrano/rails/assets"
+require "capistrano/rails/migrations"
+require "capistrano/puma"
+
+Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

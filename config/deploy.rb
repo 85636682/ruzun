@@ -1,5 +1,5 @@
 
-lock "3.7.1"
+lock "3.7.2"
 
 set :application, "ruzun"
 set :repo_url, "git@git.coding.net:dongqilai/ruzun-web.git"
