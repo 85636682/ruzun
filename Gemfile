@@ -1,51 +1,38 @@
-source 'https://ruby.taobao.org'
-
+source 'https://gems.ruby-china.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '~> 5.0.1'
+# Use postgressql as the database for Active Record
+gem 'pg'
+gem 'activerecord-postgis-adapter'
+# locations
+gem 'rgeo'
+gem 'rgeo-activerecord'
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
+# A Sprockets transformer that converts ES6 code into vanilla ES5 with Babel JS
+gem 'sprockets-es6'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'rails_autolink'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'jbuilder', '~> 2.5'
+gem 'font-awesome-rails'
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 3.0'
 
-gem "pg"
-
-# locations
-gem 'rgeo', '0.5.2'
-gem 'rgeo-activerecord'
-gem 'activerecord-postgis-adapter', '3.1.0'
-
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'rails-assets-tether', '>= 1.1.0'
-
-# Font Awesome
-gem 'font-awesome-sass', '~> 4.3.1'
-
-gem 'rails-deprecated_sanitizer'
-
-gem 'responders', '~> 2.0'
-
-gem 'redis', '~> 3.2.1'
-gem 'hiredis', '~> 0.6.0'
-# Redis 命名空间
-gem 'redis-namespace', '~> 1.5.1'
-# 将一些数据存放入 Redis
-gem 'redis-objects', '1.1.0'
+# 分页
+gem 'will_paginate'
 
 # 用户系统
 gem 'bcrypt'
@@ -57,7 +44,21 @@ gem 'mini_magick'
 gem 'carrierwave-upyun'
 gem 'rest-client'
 gem 'addressable'
+gem 'remotipart', '~> 1.2'
 
+# tags
+gem 'acts-as-taggable-on'
+
+# for api 跨域
+gem 'rack-cors', require: 'rack/cors'
+
+# YAML 配置信息
+gem "settingslogic"
+
+# Faker
+gem "faker"
+
+gem 'rails_autolink'
 gem 'china_city'
 
 gem 'jpush', '~> 4.0.2'
@@ -67,54 +68,35 @@ gem 'redcarpet', '~> 3.3.4'
 gem 'rouge'
 gem 'auto-space'
 
-# 微信开发平台
-gem 'weixin_rails_middleware'
-gem 'weixin_authorize'
-gem 'wx_pay', :git => 'git://github.com/jasl/wx_pay'
-gem 'wechat', '~> 0.7.13'
-
-# 枚举
-gem 'enumerize'
-
-# for api 跨域
-gem 'rack-cors', require: 'rack/cors'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-gem 'whenever'
-
-gem 'puma'
-
-# YAML 配置信息
-gem "settingslogic"
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-gem 'rails_db'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', platform: :mri
+end
 
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
+  gem 'listen'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-watcher-listen'
+
   gem 'capistrano'
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rbenv', require: false
-  gem 'capistrano3-puma'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  # gem 'capistrano-sidekiq'
+  gem 'capistrano3-puma', '1.2.1'
   gem 'memcache-client'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'capybara', :require => false
+  gem 'capybara'
   gem 'letter_opener'
   gem 'thin'
   gem 'better_errors'            #出错提示友好版
   gem 'binding_of_caller'     #出错提示友好版
+  gem 'rubocop', '~> 0.44.1', require: false
 end
 
-group :production do
-  gem 'dalli'
-end
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
