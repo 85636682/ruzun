@@ -6,10 +6,14 @@ default: &default
   host: localhost
   schema_search_path: public
 
+development:
+  <<: *default
+  username: stephen
+  password:
+  database: dql_sports
+
 production:
   <<: *default
-  username: ruzun
+  username: stephen
   password: ljh86wss90
-  su_username: postgres     # a superuser for the database
-  su_password: 7oL-6Zh-Dzw-ZwR  # the superuser's password
-  database: ruzun
+  database: dql_sports
