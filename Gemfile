@@ -85,7 +85,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   # gem 'capistrano-sidekiq'
-  gem 'capistrano3-puma', '1.2.1'
+  gem 'capistrano3-puma'
   gem 'memcache-client'
   gem 'rspec-rails'
   gem 'factory_girl_rails'

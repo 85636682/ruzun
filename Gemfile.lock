@@ -320,7 +320,7 @@ DEPENDENCIES
   capistrano
   capistrano-rails
   capistrano-rbenv
-  capistrano3-puma (= 1.2.1)
+  capistrano3-puma
   capybara
   carrierwave
   carrierwave-upyun
