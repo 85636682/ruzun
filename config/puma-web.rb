@@ -2,9 +2,9 @@ shared_dir = '/home/stephen/opt/apps/dql_sports/shared'
 pidfile "#{shared_dir}/tmp/pids/puma.pid"
 state_path "#{shared_dir}/tmp/pids/puma.state"
 stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
-bind "unix:/#{shared_dir}/tmp/sockets/puma.sock"
+bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
 daemonize true
-port 7000
+port 3000
 workers 4
 threads 8, 16
 preload_app!

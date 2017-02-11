@@ -1,4 +1,4 @@
-class Admin::GamesController < ApplicationController
+class Admin::GamesController < AdminController
   before_action :set_game, only: [:show, :edit, :update, :destroy, :lot, :lock]
 
   def index

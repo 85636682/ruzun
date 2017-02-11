@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   namespace :api do
     namespace :v1 do
       get 'wechat/sign_package'
@@ -46,4 +48,6 @@ Rails.application.routes.draw do
       resources :game_teams, only: [:index, :new, :create, :edit, :update]
     end
   end
+
+  root "home#index"
 end

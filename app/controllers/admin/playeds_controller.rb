@@ -1,4 +1,4 @@
-class Admin::PlayedsController < ApplicationController
+class Admin::PlayedsController < AdminController
   before_action :set_game
   before_action :set_played, only: [:edit, :update, :destroy]
 

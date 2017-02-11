@@ -7,21 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-      <%= render 'admin/shared/navbar_header' %>
-
-      <%= render 'admin/shared/navbar_top_links' %>
-
-      <%= render 'admin/shared/sidebar' %>
-    </nav>
-
-    <div id="page-wrapper">
-      <%= yield %>
-    </div>
-    <!-- /#page-wrapper -->
-  </div>
-  <!-- /#wrapper -->
+  <%= yield %>
 </body>
 </html>

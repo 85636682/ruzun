@@ -1,4 +1,4 @@
-class Admin::TechstatsController < ApplicationController
+class Admin::TechstatsController < AdminController
   before_action :set_game
   before_action :set_played, only: [:index, :create, :edit, :update]
   before_action :set_techstat, only: [:edit, :update]

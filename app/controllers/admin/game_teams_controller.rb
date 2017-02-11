@@ -1,4 +1,4 @@
-class Admin::GameTeamsController < ApplicationController
+class Admin::GameTeamsController < AdminController
   before_action :set_game
   before_action :set_game_team, only: [:edit, :update]
 

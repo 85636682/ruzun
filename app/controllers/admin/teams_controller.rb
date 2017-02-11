@@ -1,2 +1,2 @@
-class Admin::TeamsController < ApplicationController
+class Admin::TeamsController < AdminController
 end
