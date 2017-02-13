@@ -1,20 +1,7 @@
-class Api::V1::BaseController < ApplicationController
-  respond_to :json
-  # disable the CSRF token
-  protect_from_forgery with: :null_session
-
-  # disable cookies (no set-cookies header in response)
-  before_action :destroy_session
-
-  # disable the CSRF token
-  skip_before_action :verify_authenticity_token
+class Api::V1::BaseController < ActionController::API
 
   attr_reader :current_user
   helper_method :current_user
-
-  def destroy_session
-    request.session_options[:skip] = true
-  end
 
   def api_error(opts = {})
     render json: { error: opts[:message] }, status: opts[:status]
