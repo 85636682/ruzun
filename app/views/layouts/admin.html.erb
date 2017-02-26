@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>入樽</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>动起来体育文化有限公司</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-      <%= render 'admin/shared/navbar_header' %>
-
-      <%= render 'admin/shared/navbar_top_links' %>
-
-      <%= render 'admin/shared/sidebar' %>
-    </nav>
-
-    <div id="page-wrapper">
-      <%= yield %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <%= render "admin/shared/sidebar" %>
+      </div>
+      <div class="col">
+        <%= yield %>
+      </div>
     </div>
-    <!-- /#page-wrapper -->
   </div>
-  <!-- /#wrapper -->
 </body>
 </html>

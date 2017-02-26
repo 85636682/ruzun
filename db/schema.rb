@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730004419) do
+ActiveRecord::Schema.define(version: 20170226073256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 20160730004419) do
     t.boolean  "locked",            default: false
   end
 
+  create_table "managers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "orderable_type"
+    t.integer  "orderable_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.integer  "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "sn"
+  end
+
   create_table "playeds", force: :cascade do |t|
     t.integer  "home_team_id"
     t.integer  "guest_team_id"
@@ -50,6 +68,12 @@ ActiveRecord::Schema.define(version: 20160730004419) do
     t.datetime "updated_at",                       null: false
     t.boolean  "teched",           default: false
     t.boolean  "finish",           default: false
+  end
+
+  create_table "sport_fields", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "team_users", force: :cascade do |t|
@@ -92,6 +116,14 @@ ActiveRecord::Schema.define(version: 20160730004419) do
     t.datetime "updated_at",             null: false
     t.integer  "fouls",      default: 0
     t.integer  "to",         default: 0
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.integer  "sport_field_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'home/index'
 
   namespace :api do
@@ -37,6 +38,15 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :sport_fields
+    resources :tickets do
+      collection do
+        get :sell
+      end
+      member do
+        post :sold
+      end
+    end
     resources :games do
       member do
         get :lot
