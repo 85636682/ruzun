@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :m do
+    get 'home/index'
+  end
+
   get 'home/index'
 
   namespace :api do
