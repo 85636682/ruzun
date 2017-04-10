@@ -1,3 +1,3 @@
-class AdminController < ApplicationController
+class MobileController < ApplicationController
     layout "mobile"
 end
