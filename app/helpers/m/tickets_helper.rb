@@ -1,0 +1,2 @@
+module M::TicketsHelper
+end

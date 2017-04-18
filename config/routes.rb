@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   namespace :m do
     get 'home/index'
+
+    resources :tickets, only: [:index, :show]
   end
 
   get 'home/index'

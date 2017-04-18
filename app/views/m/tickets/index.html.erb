@@ -1,0 +1,11 @@
+<%= render './m/shared/header' %>
+<ul class="unstyle">
+    <% @tickets.each do |ticket| %>
+    <li>
+        <div>
+            <%= ticket.name %>
+            <%= ticket.price %>
+        </div>
+    </li>
+    <% end %>
+</ul>
