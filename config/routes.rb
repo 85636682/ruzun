@@ -8,7 +8,13 @@ Rails.application.routes.draw do
       collection do
         get :add
       end
-    end  
+    end
+    resources :users do
+      collection do
+        get :profile
+        get :deposit
+      end
+    end
   end
 
   get 'home/index'

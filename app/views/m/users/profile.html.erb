@@ -1,0 +1,31 @@
+<%= render './m/shared/header', :locals => { title: "个人中心" } %>
+<div class="flex-center">
+  <div class="container-wider">
+    <div class="user">
+        <div class="avatar">
+            <img src="" alt="">
+        </div>
+        <div class="name">
+            <span>LoveLaiLoveCeci</span>
+        </div>
+    </div>
+    <div class="money"><span>账户余额</span><span style="float:right;">￥10</span></div>
+    <div class="divide"></div>
+    <ul class="unstyle operations">
+        <li>
+            <a href="<%= deposit_m_users_path %>">
+                <div>
+                    <i class="zmdi zmdi-money" style="margin-right: 12px;"></i>
+                    马上充值 <small style="font-size:11px;color: red;">充100送50</small>
+                    <i class="zmdi zmdi-chevron-right" style="float:right;margin-top:5px;"></i>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div><i class="zmdi zmdi-email" style="margin-right: 10px;"></i>意见投诉<i class="zmdi zmdi-chevron-right" style="float:right;margin-top:5px;"></i></div>
+            </a>
+        </li>
+    </ul>
+  </div>
+</div>

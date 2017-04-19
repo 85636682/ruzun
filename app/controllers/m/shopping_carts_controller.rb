@@ -1,4 +1,4 @@
-class M::ShoppingCartsController < ApplicationController
+class M::ShoppingCartsController < MobileController
   def index
     @shopping_carts = current_user.shopping_carts
   end
