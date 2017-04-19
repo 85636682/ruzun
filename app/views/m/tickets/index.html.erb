@@ -1,11 +1,33 @@
 <%= render './m/shared/header' %>
-<ul class="unstyle">
-    <% @tickets.each do |ticket| %>
-    <li>
-        <div>
-            <%= ticket.name %>
-            <%= ticket.price %>
-        </div>
-    </li>
-    <% end %>
-</ul>
+<div class="flex-center">
+  <div class="container-wider">
+    <ul class="unstyle">
+        <li>
+            <div class="ticket-wrapper">
+                <div class="ticket-logo">
+                    <%= image_tag("family-ticket.jpg") %>
+                </div>
+                <div class="ticket-info">
+                    <div class="subject">水上乐园单人票</div>
+                    <div class="sale">
+                        <div class="price">
+                            <span>￥23</span>
+                        </div>
+                        <div class="buy">
+                            <button type="button" class="btn btn-danger">马上购买</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <% @tickets.each do |ticket| %>
+        <li>
+            <div>
+                <%= ticket.name %>
+                <%= ticket.price %>
+            </div>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+</div>
