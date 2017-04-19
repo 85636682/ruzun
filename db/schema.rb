@@ -10,13 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226073256) do
+ActiveRecord::Schema.define(version: 20170419033050) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "postgis"
-
-  create_table "game_teams", force: :cascade do |t|
+  create_table "game_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "game_id"
     t.integer  "team_id"
     t.boolean  "confirmed"
@@ -29,24 +25,24 @@ ActiveRecord::Schema.define(version: 20170226073256) do
     t.integer  "score_difference", default: 0
   end
 
-  create_table "games", force: :cascade do |t|
+  create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "logo"
-    t.text     "constitution"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.text     "constitution_html"
-    t.boolean  "locked",            default: false
+    t.text     "constitution",      limit: 65535
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.text     "constitution_html", limit: 65535
+    t.boolean  "locked",                          default: false
   end
 
-  create_table "managers", force: :cascade do |t|
+  create_table "managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "orderable_type"
     t.integer  "orderable_id"
     t.integer  "user_id"
@@ -57,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170226073256) do
     t.string   "sn"
   end
 
-  create_table "playeds", force: :cascade do |t|
+  create_table "playeds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "home_team_id"
     t.integer  "guest_team_id"
     t.integer  "game_id"
@@ -70,13 +66,21 @@ ActiveRecord::Schema.define(version: 20170226073256) do
     t.boolean  "finish",           default: false
   end
 
-  create_table "sport_fields", force: :cascade do |t|
+  create_table "shopping_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sport_fields", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "team_users", force: :cascade do |t|
+  create_table "team_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "team_id"
     t.integer  "user_id"
     t.boolean  "examined",   default: false
@@ -85,7 +89,7 @@ ActiveRecord::Schema.define(version: 20170226073256) do
     t.string   "number"
   end
 
-  create_table "teams", force: :cascade do |t|
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "logo"
     t.string   "province"
@@ -97,7 +101,7 @@ ActiveRecord::Schema.define(version: 20170226073256) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "techstats", force: :cascade do |t|
+  create_table "techstats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "played_id"
     t.integer  "user_id"
     t.integer  "pts",        default: 0
@@ -118,15 +122,15 @@ ActiveRecord::Schema.define(version: 20170226073256) do
     t.integer  "to",         default: 0
   end
 
-  create_table "tickets", force: :cascade do |t|
+  create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.decimal  "price",          precision: 10
     t.integer  "sport_field_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "mobile"
     t.string   "name"
     t.date     "birthday"

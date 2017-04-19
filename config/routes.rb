@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     get 'home/index'
 
     resources :tickets, only: [:index, :show]
+    resources :shopping_carts, only: [:index] do
+      collection do
+        get :add
+      end
+    end  
   end
 
   get 'home/index'

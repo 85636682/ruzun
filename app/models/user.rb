@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_one :my_team, class_name: "Team"
   belongs_to :team
   has_many :techstats
+  has_many :shopping_carts
 
   validates_uniqueness_of :mobile
 end
