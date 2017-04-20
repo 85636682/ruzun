@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>动起来体育文化有限公司</title>
+  <title>蓝精灵水上乐园管理系统</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2">
-        <%= render "admin/shared/sidebar" %>
-      </div>
-      <div class="col">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
-</body>
+<body class="toggled sw-toggled">
+    <%= render 'admin/shared/header' %>
+    <section id="main" data-layout="layout-1">
+      <%= render 'admin/shared/sidebar' %>
+      <section id="content">
+        <div class="container">
+          <div class="block-header"></div>
+          <%= yield %>
+        </div>
+      </section>
+    </section>
+    <%= render 'admin/shared/footer' %>
+  </body>
 </html>

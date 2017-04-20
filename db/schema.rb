@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419033050) do
+ActiveRecord::Schema.define(version: 20170420074249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,23 @@ ActiveRecord::Schema.define(version: 20170419033050) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "team_users", force: :cascade do |t|
+=======
+  create_table "swiming_lessons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "avatar"
+    t.integer  "height"
+    t.string   "phone"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "age"
+  end
+
+  create_table "team_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+>>>>>>> 7343818f1f5c7d0d2aa1807e522348ff68f223e2
     t.integer  "team_id"
     t.integer  "user_id"
     t.boolean  "examined",   default: false
