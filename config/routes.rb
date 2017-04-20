@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         get :deposit
       end
     end
+    resources :swiming_lessons, only: [:new, :create]
   end
 
   get 'home/index'
@@ -55,6 +56,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :swiming_lessons
     resources :sport_fields
     resources :tickets do
       collection do

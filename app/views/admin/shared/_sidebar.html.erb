@@ -1,19 +1,17 @@
-<div class="sidebar">
-  <ul>
-    <li>
-      <a href="#">Dashboard</a>
-    </li>
-    <li>
-      <a href="/admin/sport_fields">场馆管理</a>
-    </li>
-    <li>
-      <a href="/admin/tickets">门票管理</a>
-    </li>
-    <li>
-      <a href="/admin/tickets/sell">门票销售</a>
-    </li>
-    <li>
-      <a href="/admin/games">已有比赛</a>
-    </li>
-  </ul>
-</div>
+<aside id="sidebar" class="sidebar c-overflow">
+  <div class="profile-menu">
+    <a href="">
+      <div class="profile-pic">
+        <%= image_tag 'user.jpg' %>
+      </div>
+
+      <div class="profile-info">
+        <%= 'User Name Here' %>
+        <i class="zmdi zmdi-caret-down"></i>
+      </div>
+    </a>
+
+  </div>
+
+  <%= render_navigation :expand_all => true %>
+</aside>
