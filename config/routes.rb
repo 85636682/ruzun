@@ -57,7 +57,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :swiming_lessons
-    resources :sport_fields
     resources :tickets do
       collection do
         get :sell

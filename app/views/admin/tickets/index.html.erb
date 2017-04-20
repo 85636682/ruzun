@@ -29,7 +29,6 @@
                 <th>#</th>
                 <th>门票名称</th>
                 <th>门票价格</th>
-                <th>所属场馆</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -39,7 +38,6 @@
                 <th scope="row"><%= ticket.id %></th>
                 <td><%= ticket.name %></td>
                 <td><%= ticket.price %></td>
-                <td><%= ticket.sport_field.name %></td>
                 <td>
                     <%= link_to "修改", edit_admin_ticket_path(ticket) %>
                 </td>
