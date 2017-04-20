@@ -84,10 +84,7 @@ ActiveRecord::Schema.define(version: 20170420074249) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "team_users", force: :cascade do |t|
-=======
-  create_table "swiming_lessons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "swiming_lessons", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "avatar"
@@ -99,8 +96,7 @@ ActiveRecord::Schema.define(version: 20170420074249) do
     t.integer  "age"
   end
 
-  create_table "team_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
->>>>>>> 7343818f1f5c7d0d2aa1807e522348ff68f223e2
+  create_table "team_users", force: :cascade do |t|
     t.integer  "team_id"
     t.integer  "user_id"
     t.boolean  "examined",   default: false
