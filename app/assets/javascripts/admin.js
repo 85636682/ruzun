@@ -134,6 +134,15 @@ function domReady() {
     return false;
   });
 
+  $('.js-join-to-sales-list').on('click', function () {
+    var id = $(this).data('id');
+    var name = $(this).data('name');
+    var price = $(this).data('price');
+    $('#sales_list-product-list tbody').append('<tr><td><i class="zmdi zmdi-ticket-star"></i></i><input type="hidden" name="products[]" value="' + 
+                                   id + '" /></td><td>' + name + '</td><td>' + price + '</td></tr>');
+    return false;
+  });
+
 }
 
 $(document).on('turbolinks:load', domReady);

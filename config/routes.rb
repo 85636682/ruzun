@@ -56,6 +56,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :products
+    resources :sales_lists
     resources :admins
     resources :sessions, only: [:new, :create, :destroy]
     resources :orders, only: [:index, :show, :create]

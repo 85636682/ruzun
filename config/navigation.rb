@@ -88,6 +88,16 @@ SimpleNavigation::Configuration.run do |navigation|
       admin_swiming_lessons.item :new, '新建', new_admin_swiming_lesson_path
     end
 
+    primary.item :admin_sales_lists, '<i class="zmdi zmdi-link"></i> 超市零售单', '#', highlights_on: %r{/admin_sales_lists}, html: { class: 'sub-menu' } do |admin_sales_lists|
+      admin_sales_lists.item :index, '列表', admin_sales_lists_path
+      admin_sales_lists.item :new, '新建', new_admin_sales_list_path
+    end
+
+    primary.item :admin_products, '<i class="zmdi zmdi-link"></i> 超市商品', '#', highlights_on: %r{/admin_products}, html: { class: 'sub-menu' } do |admin_products|
+      admin_products.item :index, '列表', admin_products_path
+      admin_products.item :new, '新建', new_admin_product_path
+    end
+
     primary.item :admin_admins, '<i class="zmdi zmdi-link"></i> 管理员', '#', highlights_on: %r{/admin_admins}, html: { class: 'sub-menu' } do |admin_admins|
       admin_admins.item :index, '列表', admin_admins_path
       admin_admins.item :new, '新建', new_admin_admin_path

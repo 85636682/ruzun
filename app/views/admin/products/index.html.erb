@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品库存</th>
+                <th>库存警告线</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @products.each do |product| %>
+            <tr>
+                <th scope="row"><%= product.id %></th>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.stock %></td>
+                <td><%= product.warning_line %></td>
+                <td>
+                    <%= link_to "查看", admin_product_path(product) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

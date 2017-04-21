@@ -1,7 +1,7 @@
 @import "admin/theme-1";
 @import "admin/theme-2";
 
-.sell-tickets-table > tbody > tr > td {
+.sell-tickets-table > tbody > tr > td, .sell-products-table > tbody > tr > td {
   height: 40px;
   line-height: 40px;
 }

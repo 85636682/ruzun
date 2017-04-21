@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>销售单编号</th>
+                <th>销售单总价</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @sales_lists.each do |sales_list| %>
+            <tr>
+                <th scope="row"><%= sales_list.sn %></th>
+                <td><%= sales_list.total_price %></td>
+                <td>
+                    <%= link_to "查看", admin_sales_list_path(sales_list) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

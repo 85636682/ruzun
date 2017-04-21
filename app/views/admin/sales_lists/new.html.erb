@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table sell-products-table">
+      <% Product.all.each do |product| %>
+        <tbody>
+          <tr>
+            <td scope="row">
+              <%= product.id %>
+            </td>
+            <td><%= product.name %></td>
+            <td><%= product.price %></td>
+            <td>
+              <a href="#" class="js-join-to-sales-list btn btn-primary" data-id="<%= product.id %>" data-name="<%= product.name %>" data-price="<%= product.price %>">添加</a>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body card-padding">
+    <%= form_tag admin_sales_lists_path do %>
+      <table id="sales_list-product-list" class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>商品名称</th>
+            <th>商品价格</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <input type="submit" value="出票" class="btn btn-primary btn-sm" />
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    <% end %>
+  </div>
+</div>
