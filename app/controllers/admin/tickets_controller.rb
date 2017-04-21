@@ -33,21 +33,6 @@ class Admin::TicketsController < AdminController
     @tickets = Ticket.all
   end
 
-  def sold
-    @ticket = Ticket.find params[:id]
-    @order = Order.new
-    @order.sn = DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s
-    @order.orderable_type = @ticket.class.name
-    @order.orderable_id = @ticket.id
-    @order.amount = params[:sell_count].to_i
-    @order.status = "done"
-    if @order.save
-      redirect_to sell_admin_tickets_path, notice: "出售成功！"
-    else
-      redirect_to sell_admin_tickets_path, notice: "出售失败！"
-    end
-  end
-
   private
 
   def ticket_params

@@ -1,5 +1,14 @@
 class Order < ApplicationRecord
-    enum status: [:pending, :processing, :done]
+    enum status: [:pending, :checkouted, :completed]
 
-    belongs_to :orderable, polymorphic: true
+    has_many :order_tickets
+
+    def total_price
+        total_price = 0
+        self.order_tickets.each do |order_ticket|
+            total_price += order_ticket.ticket.price
+        end
+        total_price
+    end
+    
 end

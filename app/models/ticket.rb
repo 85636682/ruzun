@@ -1,3 +1,3 @@
 class Ticket < ApplicationRecord
-    has_many :orders, as: :orderable
+    has_many :order_tickets
 end

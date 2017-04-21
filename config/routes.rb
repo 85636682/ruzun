@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'orders/create'
+  end
+
+  namespace :admin do
+    get 'orders/index'
+  end
+
+  namespace :admin do
+    get 'orders/show'
+  end
+
   namespace :m do
     get 'home/index'
 
@@ -56,13 +68,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :orders, only: [:index, :show, :create]
     resources :swiming_lessons
     resources :tickets do
       collection do
         get :sell
-      end
-      member do
-        post :sold
       end
     end
     resources :games do
