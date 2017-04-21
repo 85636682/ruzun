@@ -1,2 +1,29 @@
-<h1>Admin::SwimingLessons#index</h1>
-<p>Find me in app/views/admin/swiming_lessons/index.html.erb</p>
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>学生名称</th>
+                <th>电话</th>
+                <th>年龄</th>
+                <th>身高</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @swiming_lessons.each do |lesson| %>
+            <tr>
+                <th scope="row"><%= lesson.id %></th>
+                <td><%= lesson.name %></td>
+                <td><%= lesson.phone %></td>
+                <td><%= lesson.age %></td>
+                <td><%= lesson.height %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_swiming_lesson_path(lesson) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
