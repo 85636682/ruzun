@@ -3,6 +3,10 @@ class Admin::TicketsController < AdminController
     @tickets = Ticket.all
   end
 
+  def new
+    @ticket = Ticket.new
+  end
+
   def create
     @ticket = Ticket.new ticket_params
     if @ticket.save
@@ -47,6 +51,6 @@ class Admin::TicketsController < AdminController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:name, :sport_field_id, :price)
+    params.require(:ticket).permit(:name, :price)
   end
 end

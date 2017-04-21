@@ -1,30 +1,7 @@
-<%= render "admin/shared/searchbar" %>
-<div class="header-control-field">
-    <%= form_for [:admin, Ticket.new], html: { class: "form-inline" } do |f| %>
-
-        <label class="sr-only" for="inlineFormInputGroup">门票名称</label>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">@</div>
-            <%= f.text_field :name, class: "form-control", placeholder: "门票名称" %>
-        </div>
-
-        <label class="sr-only" for="inlineFormInputGroup">门票价格</label>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">¥</div>
-            <%= f.number_field :price, class: "form-control", placeholder: "门票价格" %>
-        </div>
-
-        <label class="sr-only" for="inlineFormInputGroup">场馆名称</label>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <%= f.select :sport_field_id, SportField.all.collect{|c|[ c.name, c.id ]}, {}, class: "custom-select" %>
-        </div>
-
-        <button type="submit" class="btn btn-primary">保存</button>
-    <% end %>
-</div>
-<div class="object-list-field">
+<div class="card">
+  <div class="card-body card-padding">
     <table class="table">
-        <thead class="thead-default">
+        <thead>
             <tr>
                 <th>#</th>
                 <th>门票名称</th>
@@ -43,6 +20,6 @@
                 </td>
             </tr>
         <% end %>
-        </tbody>
     </table>
+  </div>
 </div>
