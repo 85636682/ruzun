@@ -1,15 +1,13 @@
 default: &default
   encoding: utf8
-  adapter: postgis
+  adapter: mysql2
   pool: 5
-  timeout: 5000
   host: localhost
-  schema_search_path: public
+  username: root
+  password: 861117
 
 development:
   <<: *default
-  username: stephen
-  password:
   database: dql_sports
 
 production:

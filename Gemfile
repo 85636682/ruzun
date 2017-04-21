@@ -4,6 +4,7 @@ source 'https://gems.ruby-china.org/'
 gem 'rails', '~> 5.0.1'
 # Use postgressql as the database for Active Record
 gem 'pg'
+gem 'mysql2'
 gem 'activerecord-postgis-adapter'
 # locations
 gem 'rgeo'
@@ -30,6 +31,16 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-awesome-rails'
+
+# Slim progress bars for Ajax'y applications. Inspired by Google, YouTube,
+# and Medium for the Rails Asset Pipeline (and some turbolinks/pjax/angular love)
+# https://github.com/caarlos0/nprogress-rails
+gem 'nprogress-rails'
+
+# A ruby gem for creating navigations
+# https://github.com/codeplant/simple-navigation
+gem 'simple-navigation'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
