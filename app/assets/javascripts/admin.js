@@ -125,6 +125,15 @@ function domReady() {
     }
   });
 
+  $('.js-join-to-order').on('click', function () {
+    var id = $(this).data('id');
+    var name = $(this).data('name');
+    var price = $(this).data('price');
+    $('#order-ticket-list tbody').append('<tr><td><i class="zmdi zmdi-ticket-star"></i></i><input type="hidden" name="tickets[]" value="' + 
+                                   id + '" /></td><td>' + name + '</td><td>' + price + '</td></tr>');
+    return false;
+  });
+
 }
 
 $(document).on('turbolinks:load', domReady);

@@ -76,11 +76,21 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :admin_tickets, '<i class="zmdi zmdi-link"></i> 门票', '#', highlights_on: %r{/admin_tickets}, html: { class: 'sub-menu' } do |admin_tickets|
       admin_tickets.item :index, '列表', admin_tickets_path
       admin_tickets.item :new, '新建', new_admin_ticket_path
+      admin_tickets.item :sell, '销售', sell_admin_tickets_path
+    end
+
+    primary.item :admin_orders, '<i class="zmdi zmdi-link"></i> 订单', '#', highlights_on: %r{/admin_orders}, html: { class: 'sub-menu' } do |admin_orders|
+      admin_orders.item :index, '列表', admin_orders_path
     end
 
     primary.item :admin_swiming_lessons, '<i class="zmdi zmdi-link"></i> 培训班', '#', highlights_on: %r{/admin_swiming_lessons}, html: { class: 'sub-menu' } do |admin_swiming_lessons|
       admin_swiming_lessons.item :index, '列表', admin_swiming_lessons_path
       admin_swiming_lessons.item :new, '新建', new_admin_swiming_lesson_path
+    end
+
+    primary.item :admin_admins, '<i class="zmdi zmdi-link"></i> 管理员', '#', highlights_on: %r{/admin_admins}, html: { class: 'sub-menu' } do |admin_admins|
+      admin_admins.item :index, '列表', admin_admins_path
+      admin_admins.item :new, '新建', new_admin_admin_path
     end
 
   end

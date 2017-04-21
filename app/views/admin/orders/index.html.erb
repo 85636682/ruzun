@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>订单编号</th>
+                <th>订单总价</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+            <tr>
+                <th scope="row"><%= order.sn %></th>
+                <td><%= order.total_price %></td>
+                <td>
+                    <%= link_to "查看", admin_order_path(order) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

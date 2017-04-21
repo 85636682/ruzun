@@ -17,4 +17,6 @@ class M::SwimingLessonsController < MobileController
 
   def params_swiming_lesson
     params.require(:swiming_lesson).permit(:name, :avatar, :phone, :height, :age)
+  end
+  
 end

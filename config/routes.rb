@@ -56,14 +56,13 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :admins
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :orders, only: [:index, :show, :create]
     resources :swiming_lessons
-    resources :sport_fields
     resources :tickets do
       collection do
         get :sell
-      end
-      member do
-        post :sold
       end
     end
     resources :games do

@@ -1,31 +1,44 @@
-<%= render "admin/shared/searchbar" %>
-<div class="object-list-field">
-    <table class="table">
-        <thead class="thead-default">
-            <tr>
-                <th>#</th>
-                <th>门票名称</th>
-                <th>门票价格</th>
-                <th>所属场馆</th>
-                <th width="150">数量</th>
-                <th>操作</th>
-            </tr>
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table sell-tickets-table">
+      <% @tickets.each do |ticket| %>
+        <tbody>
+          <tr>
+            <td scope="row">
+              <%= ticket.id %>
+            </td>
+            <td><%= ticket.name %></td>
+            <td><%= ticket.price %></td>
+            <td>
+              <a href="#" class="js-join-to-order btn btn-primary" data-id="<%= ticket.id %>" data-name="<%= ticket.name %>" data-price="<%= ticket.price %>">添加</a>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body card-padding">
+    <%= form_tag admin_orders_path do %>
+      <table id="order-ticket-list" class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>门票名称</th>
+            <th>门票价格</th>
+          </tr>
         </thead>
         <tbody>
-        <% @tickets.each do |ticket| %>
-            <%= form_tag sold_admin_ticket_path(ticket) do %>
-            <tr>
-                <th scope="row"><%= ticket.id %></th>
-                <td><%= ticket.name %></td>
-                <td><%= ticket.price %></td>
-                <td><%= ticket.sport_field.name %></td>
-                <td><input type="number" name="sell_count" value="1" class="form-control form-control-sm" /></td>
-                <td>
-                    <input type="submit" value="售票" class="btn btn-primary btn-sm" />
-                </td>
-            </tr>
-            <% end %>
-        <% end %>
         </tbody>
-    </table>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <input type="submit" value="出票" class="btn btn-primary btn-sm" />
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    <% end %>
+  </div>
 </div>

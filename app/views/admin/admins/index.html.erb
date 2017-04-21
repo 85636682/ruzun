@@ -4,19 +4,19 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>门票名称</th>
-                <th>门票价格</th>
+                <th>员工名称</th>
+                <th>联系电话</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
-        <% @tickets.each do |ticket| %>
+        <% @admins.each do |admin| %>
             <tr>
-                <th scope="row"><%= ticket.id %></th>
-                <td><%= ticket.name %></td>
-                <td><%= ticket.price %></td>
+                <th scope="row"><%= admin.id %></th>
+                <td><%= admin.name %></td>
+                <td><%= admin.phone %></td>
                 <td>
-                    <%= link_to "修改", edit_admin_ticket_path(ticket) %>
+                    <%= link_to "修改", edit_admin_admin_path(admin) %>
                 </td>
             </tr>
         <% end %>

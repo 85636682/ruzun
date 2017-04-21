@@ -1,4 +1,3 @@
 class Ticket < ApplicationRecord
-    belongs_to :sport_field
-    has_many :orders, as: :orderable
+    has_many :order_tickets
 end
