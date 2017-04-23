@@ -1,13 +1,13 @@
-class M::SwimingLessonsController < MobileController
+class M::StudentsController < MobileController
   def new
-    @swiming_lesson = SwimingLesson.new
+    @student = Student.new
   end
 
   def create
-    @swiming_lesson = SwimingLesson.new params_swiming_lesson
-    @swiming_lesson.status = :pending
-    if @swiming_lesson.save
-      redirect_to m_swiming_lesson(@swiming_lesson)
+    @student = Student.new params_student
+    @student.status = :pending
+    if @student.save
+      redirect_to m_student(@student)
     else
       render :new
     end
@@ -15,8 +15,8 @@ class M::SwimingLessonsController < MobileController
   
   private
 
-  def params_swiming_lesson
-    params.require(:swiming_lesson).permit(:name, :avatar, :phone, :height, :age)
+  def params_student
+    params.require(:student).permit(:name, :avatar, :phone, :height, :age)
   end
   
 end

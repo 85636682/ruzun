@@ -1,4 +1,14 @@
-<%= form_for [:admin, @swiming_lesson], html: { class: "form-horizontal" } do |f| %>
+<%= form_for [:admin, @student], html: { class: "form-horizontal" } do |f| %>
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">报班</label>
+        <div class="col-sm-10">
+            <% Lesson.all.each do |lesson| %>
+            <label class="radio-inline">
+                <%= f.radio_button :lesson_id, lesson.id %> <%= lesson.subject %>
+            </label>
+            <% end %>
+        </div>
+    </div>
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">学生名称</label>
         <div class="col-sm-10">

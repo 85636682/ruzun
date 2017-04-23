@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421095503) do
+ActiveRecord::Schema.define(version: 20170423012327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20170421095503) do
     t.datetime "updated_at",                        null: false
     t.text     "constitution_html"
     t.boolean  "locked",            default: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "subject"
+    t.decimal  "price"
+    t.text     "summary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "managers", force: :cascade do |t|
@@ -118,7 +126,7 @@ ActiveRecord::Schema.define(version: 20170421095503) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "swiming_lessons", force: :cascade do |t|
+  create_table "students", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "avatar"
@@ -128,6 +136,7 @@ ActiveRecord::Schema.define(version: 20170421095503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "age"
+    t.integer  "lesson_id"
   end
 
   create_table "team_users", force: :cascade do |t|

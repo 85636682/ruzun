@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'lessons/index'
+  end
+
+  namespace :admin do
+    get 'lessons/show'
+  end
+
+  namespace :admin do
+    get 'lessons/new'
+  end
+
+  namespace :admin do
+    get 'lessons/edit'
+  end
+
   namespace :m do
     get 'home/index'
 
@@ -15,7 +31,7 @@ Rails.application.routes.draw do
         get :deposit
       end
     end
-    resources :swiming_lessons, only: [:new, :create]
+    resources :students, only: [:new, :create]
   end
 
   get 'home/index'
@@ -61,7 +77,8 @@ Rails.application.routes.draw do
     resources :admins
     resources :sessions, only: [:new, :create, :destroy]
     resources :orders, only: [:index, :show, :create]
-    resources :swiming_lessons
+    resources :lessons
+    resources :students
     resources :tickets do
       collection do
         get :sell

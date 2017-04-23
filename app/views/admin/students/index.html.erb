@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>所报课程</th>
                 <th>学生名称</th>
                 <th>电话</th>
                 <th>年龄</th>
@@ -12,15 +13,16 @@
             </tr>
         </thead>
         <tbody>
-        <% @swiming_lessons.each do |lesson| %>
+        <% @students.each do |student| %>
             <tr>
-                <th scope="row"><%= lesson.id %></th>
-                <td><%= lesson.name %></td>
-                <td><%= lesson.phone %></td>
-                <td><%= lesson.age %></td>
-                <td><%= lesson.height %></td>
+                <th scope="row"><%= student.id %></th>
+                <td><%= student.lesson.subject if student.lesson.present? %></td>
+                <td><%= student.name %></td>
+                <td><%= student.phone %></td>
+                <td><%= student.age %></td>
+                <td><%= student.height %></td>
                 <td>
-                    <%= link_to "修改", edit_admin_swiming_lesson_path(lesson) %>
+                    <%= link_to "修改", edit_admin_student_path(student) %>
                 </td>
             </tr>
         <% end %>

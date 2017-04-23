@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>培训班名称</th>
+                <th>培训班价格</th>
+                <th>在班学生</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @lessons.each do |lesson| %>
+            <tr>
+                <th scope="row"><%= lesson.id %></th>
+                <td><%= lesson.subject %></td>
+                <td><%= lesson.price %></td>
+                <td><%= lesson.students.count %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_lesson_path(lesson) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
