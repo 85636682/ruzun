@@ -1,0 +1,27 @@
+<%= render './m/shared/header', :locals => { title: "参加游泳培训班" } %>
+<div class="flex-center">
+  <div class="container-wider">
+    <ul class="unstyle">
+        <% @lessons.each do |lesson| %>
+        <li>
+            <div class="ticket-wrapper">
+                <div class="ticket-logo">
+                    <%= image_tag("family-ticket.jpg") %>
+                </div>
+                <div class="ticket-info">
+                    <div class="subject"><%= lesson.subject %></div>
+                    <div class="sale">
+                        <div class="price">
+                            <span>￥<%= lesson.price %></span>
+                        </div>
+                        <div class="buy">
+                            <%= link_to "报名", new_m_lesson_student_path(lesson), class: "btn btn-danger" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+</div>

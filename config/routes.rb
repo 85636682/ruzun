@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :m do
+    get 'lessons/index'
+  end
+
+  namespace :m do
+    get 'lessons/show'
+  end
+
   namespace :admin do
     get 'lessons/index'
   end
@@ -31,7 +39,9 @@ Rails.application.routes.draw do
         get :deposit
       end
     end
-    resources :students, only: [:new, :create]
+    resources :lessons, only: [:index, :show] do
+      resources :students, only: [:new, :create]
+    end
   end
 
   get 'home/index'

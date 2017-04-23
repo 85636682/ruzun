@@ -1,0 +1,2 @@
+module M::LessonsHelper
+end

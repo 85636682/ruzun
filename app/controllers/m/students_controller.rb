@@ -1,11 +1,14 @@
 class M::StudentsController < MobileController
   def new
+    @lesson = Lesson.find params[:lesson_id]
     @student = Student.new
   end
 
   def create
-    @student = Student.new params_student
+    @lesson = Lesson.find params[:lesson_id]
+    @student = Student.new student_params
     @student.status = :pending
+    @student.lesson_id = @lesson.id
     if @student.save
       redirect_to m_student(@student)
     else
@@ -15,7 +18,7 @@ class M::StudentsController < MobileController
   
   private
 
-  def params_student
+  def student_params
     params.require(:student).permit(:name, :avatar, :phone, :height, :age)
   end
   
