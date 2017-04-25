@@ -1,30 +1,6 @@
 Rails.application.routes.draw do
 
   namespace :m do
-    get 'lessons/index'
-  end
-
-  namespace :m do
-    get 'lessons/show'
-  end
-
-  namespace :admin do
-    get 'lessons/index'
-  end
-
-  namespace :admin do
-    get 'lessons/show'
-  end
-
-  namespace :admin do
-    get 'lessons/new'
-  end
-
-  namespace :admin do
-    get 'lessons/edit'
-  end
-
-  namespace :m do
     get 'home/index'
 
     resources :tickets, only: [:index, :show]
@@ -42,6 +18,7 @@ Rails.application.routes.draw do
     resources :lessons, only: [:index, :show] do
       resources :students, only: [:new, :create]
     end
+    resources :students, only: [:show]
   end
 
   get 'home/index'
