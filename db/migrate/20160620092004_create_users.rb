@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :province
       t.string :city
       t.string :district
+      t.string :password_digest
+      t.integer :team_id
 
       t.timestamps null: false
     end

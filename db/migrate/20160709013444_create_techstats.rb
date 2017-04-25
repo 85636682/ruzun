@@ -15,6 +15,8 @@ class CreateTechstats < ActiveRecord::Migration
       t.integer :ftm_a, default: 0
       t.integer :fgm,   default: 0
       t.integer :fgm_a, default: 0
+      t.integer :fouls, default: 0
+      t.integer :to,    default: 0
 
       t.timestamps null: false
     end

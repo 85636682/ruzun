@@ -4,6 +4,7 @@ class CreateTeamUsers < ActiveRecord::Migration
       t.integer :team_id
       t.integer :user_id
       t.boolean :examined, default: false
+      t.string :number
 
       t.timestamps null: false
     end

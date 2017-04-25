@@ -7,6 +7,8 @@ class CreatePlayeds < ActiveRecord::Migration
       t.integer :home_team_score
       t.integer :guest_team_score
       t.datetime :start_time
+      t.boolean :teched, default: false
+      t.boolean :finish, default: false
 
       t.timestamps null: false
     end
