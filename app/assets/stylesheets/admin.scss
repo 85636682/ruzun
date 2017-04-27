@@ -5,3 +5,47 @@
   height: 40px;
   line-height: 40px;
 }
+
+/*
+  *  登录和注册页面
+  */
+ .sign-page {
+   width: 100%;
+   height: 100%;
+ }
+ .sign-box {
+   margin: 5rem auto;
+   padding-bottom: 3rem;
+   text-align: center;
+   width: 30rem;
+   height: auto;
+   border: solid .1rem #ccc;
+   display: flex;
+   flex-direction: column;
+ }
+ .sign-box .title {
+   height: auto;
+   width: 100%;
+ }
+ .sign-box .title h1 {
+   margin: 3rem auto;
+   text-align: center;
+ }
+ .sign-box .title a:hover {
+   text-decoration: none;
+ }
+ .sign-box .method {
+   width: 100%;
+   margin: 1rem auto;
+   text-align: center;
+ }
+ .sign-box .method ul {
+   display: inline-block;
+ }
+ .sign-box .form {
+   height: auto;
+   margin: 0 2rem;
+ }
+ .sign-box .form input {
+   padding: 1rem;
+ }
