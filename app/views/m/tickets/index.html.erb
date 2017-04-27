@@ -1,33 +1,23 @@
-<%= render './m/shared/header', :locals => { title: "售票口" } %>
-<div class="flex-center">
-  <div class="container-wider">
-    <ul class="unstyle">
-        <li>
-            <div class="ticket-wrapper">
-                <div class="ticket-logo">
-                    <%= image_tag("family-ticket.jpg") %>
-                </div>
-                <div class="ticket-info">
-                    <div class="subject">水上乐园单人票</div>
-                    <div class="sale">
-                        <div class="price">
-                            <span>￥23</span>
-                        </div>
-                        <div class="buy">
-                            <%= link_to "加入购物车", add_m_shopping_carts_path(ticket_id: 1), class: "btn btn-danger" %>
-                        </div>
+<%= render './m/shared/header', :locals => { title: "售票窗口" } %>
+<ul class="list-unstyled" style="margin-top: 60px;">
+    <% @tickets.each do |ticket| %>
+    <li style="background-color:#fff;">
+        <div class="ticket-wrapper">
+            <div class="ticket-logo">
+                <%= image_tag("family-ticket.jpg") %>
+            </div>
+            <div class="ticket-info">
+                <div class="subject"><%= ticket.name %></div>
+                <div class="sale">
+                    <div class="price">
+                        <span>￥<%= ticket.price %></span>
+                    </div>
+                    <div class="buy">
+                        <%= link_to "加入购物车", add_m_shopping_carts_path(ticket_id: 1), class: "btn btn-raised btn-danger" %>
                     </div>
                 </div>
             </div>
-        </li>
-        <% @tickets.each do |ticket| %>
-        <li>
-            <div>
-                <%= ticket.name %>
-                <%= ticket.price %>
-            </div>
-        </li>
-        <% end %>
-    </ul>
-  </div>
-</div>
+        </div>
+    </li>
+    <% end %>
+</ul>

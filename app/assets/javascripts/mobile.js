@@ -1,4 +1,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require materialize-sprockets
+//= require m/material.min
+//= require m/ripples.min
+
+function domReady () {
+    $.material.init();
+}
+
+$(document).on('turbolinks:load', domReady);

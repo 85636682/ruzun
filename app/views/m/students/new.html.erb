@@ -1,43 +1,39 @@
 <%= render './m/shared/header', :locals => { title: "报名培训班" } %>
-<div class="flex-center">
-  <div class="container-wider">
-  <%= form_for [:m, @lesson, @student] do |f| %>
-    <div class="row">
-      <div class="col s12">
-        <div class="card-panel teal">
-          <span class="white-text">
-            <%= @lesson.subject %>
-          </span>
+<div class="container-fluid">
+  <div class="well bs-component" style="margin-top: 80px;">
+    <%= form_for [:m, @lesson, @student], { :html => { class: "form-horizontal" } } do |f| %>
+      <fieldset>
+        <legend><%= @lesson.subject %> - 报名表格</legend>
+        <div class="form-group">
+          <label for="inputEmail" class="col-md-2 control-label">学员名字</label>
+          <div class="col-md-10">
+            <%= f.text_field :name, class: "form-control", placeholder: "" %>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.text_field :name, class: "validate" %>
-        <label for="email">名字</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.text_field :phone, class: "validate" %>
-        <label for="email">电话</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <%= f.text_field :height, class: "validate" %>
-        <label for="email">身高</label>
-      </div>
-      <div class="input-field col s6">
-        <%= f.text_field :age, class: "validate" %>
-        <label for="email">年龄</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <%= f.submit "确认报名", class: "btn btn-block" %>
-      </div>
-    </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-md-2 control-label">联系电话</label>
+          <div class="col-md-10">
+            <%= f.text_field :phone, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-md-2 control-label">学员身高</label>
+          <div class="col-md-10">
+            <%= f.text_field :height, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-md-2 control-label">学员年龄</label>
+          <div class="col-md-10">
+            <%= f.text_field :age, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-10 col-md-offset-2">
+            <%= f.submit "确认报名", class: "btn btn-raised btn-primary" %>
+          </div>
+        </div>
+      </fieldset>    
     <% end %>
   </div>
 </div>

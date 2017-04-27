@@ -1,5 +1,5 @@
-wechat_app_id: "AppID"
-wechat_secret: "AppSecret"
+wechat_app_id: "wx7ed25ed89db628bd"
+wechat_secret: "e60dfaa4f3118db66c42c61bf53dfd93"
 wechat_token:  "Token"
 wechat_encoding_aes_key: "EncodingAESKey"
 wechat_trusted_domain_fullname: "http://your_dev.proxy.qqbrowser.cc"

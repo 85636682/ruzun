@@ -6,6 +6,14 @@ body {
   background: linear-gradient(90deg,#1584df,#1dafe9);
 }
 
+.bg-transparent {
+  background: transparent;
+}
+.navbar-nav .nav-item {
+  .nav-link {
+    color: #fff;
+  }
+}
 .container-fluid {
   position: fixed;
   _position: absolute;
