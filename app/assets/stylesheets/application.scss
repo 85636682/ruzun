@@ -1,30 +1,32 @@
 @import "bootstrap";
-@import "materialize";
-@import "material_icons";
+@import "bootstrap-material-design.min";
 
 body {
   background: -webkit-linear-gradient(left,#1584df,#1dafe9);
   background: linear-gradient(90deg,#1584df,#1dafe9);
 }
-nav {
-  background: transparent;
-}
-.brand-logo {
-  margin-left: 50px;
-}
-.summary {
+
+.container-fluid {
   position: fixed;
   _position: absolute;
   height: 100%;
+  width: 100%;
+}
+
+.summary {
+  height: 100%;
   color: #fff;
 
-  h1 {
-    margin-top: -200px;
+  .col {
+    padding-left: 100px;
+    margin-top: -300px;
+
+    h1 {
+      font-size: 60px;
+    }
+
+    a {
+      color: #fff;
+    }
   }
-  h1, h3 {
-    margin-left: 100px;
-  }
-}
-.stats_table {
-  width: 100%;
 }
