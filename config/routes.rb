@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   namespace :m do
     get 'home/index'
 
+    resources :orders, only: [:index, :show, :create]
     resources :tickets, only: [:index, :show]
-    resources :shopping_carts, only: [:index] do
+    resources :shopping_carts, only: [:index, :destroy] do
       collection do
         get :add
       end

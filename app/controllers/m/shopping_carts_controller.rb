@@ -14,7 +14,8 @@ class M::ShoppingCartsController < MobileController
   end
   
   def destroy
-
+    @shopping_cart = ShoppingCart.find params[:id]
+    @shopping_cart.destroy
   end
   
 end
