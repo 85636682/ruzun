@@ -1,4 +1,4 @@
-class M::OrdersController < ApplicationController
+class M::OrdersController < MobileController
   def index
     @orders = current_user.orders.order("created_at DESC")
   end
