@@ -11,10 +11,12 @@ class UsersController < ApplicationController
     Rails.logger.info @user.persisted?
     # 是否是新增cord
     if @user.persisted?
+      Rails.logger.info @user.nickname
       session[:user_id] = @user.id
       # redirect_to profile_m_users_path
     else
-      @user.save
+      @user.save!
+      Rails.logger.info @user.sex
       session[:user_id] = @user.id
       # redirect_to profile_m_users_path
     end
