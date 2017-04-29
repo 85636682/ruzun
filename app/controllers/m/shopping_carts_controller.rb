@@ -16,6 +16,7 @@ class M::ShoppingCartsController < MobileController
   def destroy
     @shopping_cart = ShoppingCart.find params[:id]
     @shopping_cart.destroy
+    redirect_to m_shopping_carts_path
   end
   
 end
