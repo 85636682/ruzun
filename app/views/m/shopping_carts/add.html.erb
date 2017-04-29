@@ -1,14 +1,16 @@
 <%= render './m/shared/header', :locals => { title: "操作提示" } %>
-<% if @result %>
-<div class="alert alert-dismissible alert-success">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <strong>门票已成功加入购物车.</strong>
+<div class="container-fluid">
+  <% if @result %>
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>门票已成功加入购物车.</strong>
+    </div>
+  <% else %>
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>加入购物车失败.</strong>
+    </div>
+  <% end %>
+  <a href="<%= m_tickets_path %>" class="btn btn-raised btn-info">继续购票</a>
+  <a href="<%= m_shopping_carts_path %>" class="btn btn-raised btn-danger">去购物车结算</a>
 </div>
-<% else %>
-<div class="alert alert-dismissible alert-danger">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <strong>加入购物车失败.</strong>
-</div>
-<% end %>
-<a href="<%= m_tickets_path %>" class="btn btn-raised btn-info">继续购票</a>
-<a href="<%= m_shopping_carts_path %>" class="btn btn-raised btn-danger">去购物车结算</a>
