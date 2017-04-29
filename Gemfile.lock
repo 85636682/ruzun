@@ -383,6 +383,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-rails
+  http
   jbuilder (~> 2.5)
   jpush (~> 4.0.2)
   jquery-rails

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/omniauth_callbacks'
+  get 'auth/wechat/callback' => 'users#omniauth_callbacks'
 
   namespace :m do
     get 'home/index'
