@@ -1,2 +1,21 @@
-<h1>M::ShoppingCarts#index</h1>
-<p>Find me in app/views/m/shopping_carts/index.html.erb</p>
+<%= render './m/shared/header', :locals => { title: "购物车" } %>
+<ul class="list-unstyled" style="margin-top: 60px;">
+    <% @shopping_carts.each do |shopping_cart| %>
+    <li style="background-color:#fff;">
+        <div class="ticket-wrapper">
+            <div class="ticket-logo">
+                <%= image_tag("family-ticket.jpg") %>
+            </div>
+            <div class="ticket-info">
+                <div class="subject"><%= shopping_cart.ticket.name %></div>
+                <div class="sale">
+                    <div class="price">
+                        <span>￥<%= shopping_cart.ticket.price %></span>
+                    </div>
+                    <div class="buy"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <% end %>
+</ul>
