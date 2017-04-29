@@ -1,2 +1,39 @@
-<h1>M::Orders#show</h1>
-<p>Find me in app/views/m/orders/show.html.erb</p>
+<%= render './m/shared/header', :locals => { title: "订单详情" } %>
+<div class="container-fluid">
+  <div class="row" style="margin-top: 80px;">
+    <div class="col-md-12">
+      <div class="well well-sm">
+        编号：<%= @order.sn %>
+      </div>
+      <div class="well well-sm">
+        总价：<%= @order.total_price %>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="list-unstyled" style="margin-top: 60px;">
+  <% @order.order_tickets.each do |order_ticket| %>
+  <li style="background-color:#fff;">
+    <div class="ticket-wrapper">
+      <div class="ticket-logo">
+        <%= image_tag("family-ticket.jpg") %>
+      </div>
+      <div class="ticket-info">
+        <div class="subject"><%= order_ticket.ticket.name %></div>
+        <div class="sale">
+          <div class="price">
+            <span>￥<%= order_ticket.ticket.price %></span>
+          </div>
+          <div class="buy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
+<div class="row">
+  <div class="col-md-12">
+    <a href="<%= m_shopping_carts_path %>" class="btn btn-block btn-raised btn-danger">马上付款</a>
+  </div>
+</div>
