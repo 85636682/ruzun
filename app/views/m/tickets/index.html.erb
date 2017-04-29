@@ -13,7 +13,7 @@
                         <span>￥<%= ticket.price %></span>
                     </div>
                     <div class="buy">
-                        <%= link_to "加入购物车", add_m_shopping_carts_path(ticket_id: 1), class: "btn btn-raised btn-danger" %>
+                        <%= link_to "加入购物车", add_m_shopping_carts_path(ticket_id: ticket.id), class: "btn btn-raised btn-danger" %>
                     </div>
                 </div>
             </div>
