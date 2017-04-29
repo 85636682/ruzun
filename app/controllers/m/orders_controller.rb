@@ -4,7 +4,7 @@ class M::OrdersController < MobileController
   end
 
   def show
-    @order = Order.find param[:id]
+    @order = Order.find params[:id]
   end
 
   def create
