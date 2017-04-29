@@ -5,8 +5,10 @@ class UsersController < ApplicationController
 
   def omniauth_callbacks
     @user = User.from_omniauth(request.env['omniauth.auth'])
-    session['user_id'] = @user.id
-    Rails.logger.info session['current_url']
+    session[:user_id] = @user.id
+    Rails.logger.info @user.id
+    Rails.logger.info session[:user_id]
+    Rails.logger.info session[:current_url]
     # 是否是新增cord
     if @user.persisted?
       redirect_to profile_m_users_path

@@ -4,7 +4,7 @@ class MobileController < ApplicationController
 
   def authenticate_user!
     if current_user.blank?
-      session['current_url'] = request.url
+      session[:current_url] = request.url
       redirect_to "http://bluefairypark.cn/auth/wechat"
     end
   end
