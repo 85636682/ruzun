@@ -105,7 +105,6 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
       admin_users.item :index, '列表', admin_users_path
-      admin_users.item :new, '新建', new_admin_user_path
     end
 
     primary.item :admin_admins, '<i class="zmdi zmdi-link"></i> 管理员', '#', highlights_on: %r{/admin_admins}, html: { class: 'sub-menu' } do |admin_admins|
