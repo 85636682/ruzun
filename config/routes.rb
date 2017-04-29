@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :users, only: [:index]
     resources :products
     resources :sales_lists
     resources :admins
