@@ -11,7 +11,7 @@
     </div>
   </div>
 </div>
-<ul class="list-unstyled" style="margin-top: 60px;">
+<ul class="list-unstyled">
   <% @order.order_tickets.each do |order_ticket| %>
   <li style="background-color:#fff;">
     <div class="ticket-wrapper">
@@ -33,7 +33,7 @@
   <% end %>
 </ul>
 <div class="row">
-  <div class="col-md-12">
-    <a href="<%= m_shopping_carts_path %>" class="btn btn-block btn-raised btn-danger">马上付款</a>
+  <div class="col-md-12" style="text-align: center;">
+    <a href="<%= m_shopping_carts_path %>" class="btn btn-raised btn-danger">马上付款</a>
   </div>
 </div>
