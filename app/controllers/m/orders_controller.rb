@@ -13,6 +13,7 @@ class M::OrdersController < MobileController
       @order = Order.create(user_id: current_user.id)
       @shopping_carts.each do |shopping_cart|
         order_ticket = OrderTicket.create(order_id: @order.id, ticket_id: shopping_cart.ticket_id)
+        shopping_cart.destroy
       end
       redirect_to m_order_path(@order), notice: "订单生成成功."
     rescue
