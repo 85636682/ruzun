@@ -3,7 +3,10 @@ class MobileController < ApplicationController
   before_action :authenticate_user!
 
   def authenticate_user!
-    redirect_to "http://bluefairypark.cn/auth/wechat" if current_user.blank?
+    if current_user.blank?
+      session['current_url'] = request.url
+      redirect_to "http://bluefairypark.cn/auth/wechat"
+    end
   end
 
   private

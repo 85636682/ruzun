@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   layout false
 
   def omniauth_callbacks
-    #response = HTTP.get("https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{Figaro.env.wechat_app_id}&secret=#{Figaro.env.wechat_secret}&code=#{params[:code]}&grant_type=authorization_code")
-    Rails.logger.info request.env['omniauth.auth']
+    @user = User.from_omniauth(request.env['omniauth.auth'])
+    session['user_id'] = @user.id
+    # 是否是新增cord
+    if @user.persisted?
+      redirect_to session['current_url'] ||= profile_m_users_path
+    else
+      redirect_to session['current_url'] ||= profile_m_users_path
+    end
   end
 end
