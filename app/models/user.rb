@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   has_many :techstats
   has_many :shopping_carts
 
-  validates_uniqueness_of :mobile
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.nickname = auth.info.nickname
