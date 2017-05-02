@@ -1,39 +1,25 @@
 <%= render './m/shared/header', :locals => { title: "报名培训班" } %>
-<div class="container-fluid">
-  <div class="well bs-component" style="margin-top: 80px;">
-    <%= form_for [:m, @lesson, @student], { :html => { class: "form-horizontal" } } do |f| %>
-      <fieldset>
-        <legend><%= @lesson.subject %> - 报名表格</legend>
-        <div class="form-group">
-          <label for="inputEmail" class="col-md-2 control-label">学员名字</label>
-          <div class="col-md-10">
-            <%= f.text_field :name, class: "form-control", placeholder: "" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail" class="col-md-2 control-label">联系电话</label>
-          <div class="col-md-10">
-            <%= f.text_field :phone, class: "form-control", placeholder: "" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail" class="col-md-2 control-label">学员身高</label>
-          <div class="col-md-10">
-            <%= f.text_field :height, class: "form-control", placeholder: "" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail" class="col-md-2 control-label">学员年龄</label>
-          <div class="col-md-10">
-            <%= f.text_field :age, class: "form-control", placeholder: "" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-10 col-md-offset-2">
-            <%= f.submit "确认报名", class: "btn btn-raised btn-primary" %>
-          </div>
-        </div>
-      </fieldset>    
-    <% end %>
-  </div>
+<div class="mdui-container-fluid">
+  <%= form_for [:m, @lesson, @student], { :html => { class: "form-horizontal" } } do |f| %>
+    <fieldset>
+      <legend><%= @lesson.subject %> - 报名表格</legend>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label">学员名字</label>
+        <%= f.text_field :name, class: "mdui-textfield-input" %>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label">联系电话</label>
+        <%= f.text_field :phone, class: "mdui-textfield-input" %>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label">学员身高</label>
+        <%= f.text_field :height, class: "mdui-textfield-input" %>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label">学员年龄</label>
+        <%= f.text_field :age, class: "mdui-textfield-input" %>
+      </div>
+      <%= f.submit "确认报名", class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
+    </fieldset>    
+  <% end %>
 </div>
