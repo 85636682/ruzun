@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-awesome-rails'
-gem 'materialize-sass'
 gem 'material_icons'
 
 # Slim progress bars for Ajax'y applications. Inspired by Google, YouTube,
