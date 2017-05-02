@@ -8,10 +8,4 @@ Rails.application.config.assets.version = '2.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( manifest.js admin.js admin.css mobile.js mobile.css )
-
-Rails.application.config.assets.precompile << Proc.new { |path|
-  if path =~ /\.(eot|svg|ttf|woff)\z/
-    true
-  end
-}
+Rails.application.config.assets.precompile += %w( admin.js admin.css mobile.js mobile.css )
