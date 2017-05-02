@@ -10,6 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="mdui-bottom-nav-fixed">
+  <%= render './m/shared/header', :locals => { title: header_title } %>
   <%= yield %>
   <%= render './m/shared/footer' %>
 </body>
