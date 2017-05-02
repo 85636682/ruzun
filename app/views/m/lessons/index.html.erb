@@ -1,5 +1,5 @@
 <%= render './m/shared/header', :locals => { title: "游泳培训班" } %>
-<ul class="list-unstyled" style="margin-top: 60px;">
+<ul class="list-unstyled">
     <% @lessons.each do |lesson| %>
     <li style="background-color:#fff;">
         <div class="ticket-wrapper">
@@ -8,6 +8,7 @@
             </div>
             <div class="ticket-info">
                 <div class="subject"><%= lesson.subject %></div>
+                <div class="summary"><%= lesson.summary %></div>
                 <div class="sale">
                     <div class="price">
                         <span>￥<%= lesson.price %></span>

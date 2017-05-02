@@ -9,7 +9,8 @@
   <%= javascript_include_tag 'mobile', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="mdui-bottom-nav-fixed">
   <%= yield %>
+  <%= render './m/shared/footer' %>
 </body>
 </html>
