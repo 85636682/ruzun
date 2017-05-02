@@ -1,6 +1,6 @@
 class MobileController < ApplicationController
   layout "mobile"
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def authenticate_user!
     if current_user.blank?
@@ -9,8 +9,12 @@ class MobileController < ApplicationController
     end
   end
 
-  def active_bottom_nav(c_name)
-    return 'mdui-bottom-nav-active' if c_name == controller_name
+  def active_bottom_nav(c_name, a_name = '')
+    if a_name == ''
+      return 'mdui-bottom-nav-active' if c_name == controller_name
+    else
+      return 'mdui-bottom-nav-active' if c_name == controller_name && a_name == action_name
+    end
   end
 
   def header_title
