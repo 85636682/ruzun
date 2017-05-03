@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :lessons, only: [:index, :show] do
       resources :students, only: [:new, :create]
     end
-    resources :students, only: [:show]
+    resources :students, only: [:index, :show]
   end
 
   get 'home/index'

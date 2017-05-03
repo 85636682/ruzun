@@ -1,4 +1,8 @@
 class M::StudentsController < MobileController
+  def index
+    @students = current_user.students
+  end
+  
   def show
     @student = Student.find params[:id]
   end
