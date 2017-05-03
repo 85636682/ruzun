@@ -6,10 +6,8 @@
                 <%= image_tag("family-ticket.jpg") %>
             </div>
             <div class="ticket-info">
-                <a href="<%= m_lesson_path(lesson) %>">
-                    <div class="subject"><%= ticket.name %></div>
-                    <div class="summary"><%= ticket.summary %></div>
-                </a>
+                <div class="subject"><%= ticket.name %></div>
+                <div class="summary"><%= ticket.summary %></div>
                 <div class="sale">
                     <div class="price">
                         <span>￥<%= ticket.price %></span>
