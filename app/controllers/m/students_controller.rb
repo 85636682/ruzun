@@ -17,6 +17,7 @@ class M::StudentsController < MobileController
     @student = Student.new student_params
     @student.status = :pending
     @student.lesson_id = @lesson.id
+    @student.user_id = current_user.id
     if @student.save
       redirect_to m_student_path(@student)
     else
