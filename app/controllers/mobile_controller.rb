@@ -26,6 +26,10 @@ class MobileController < ApplicationController
     elsif controller_name == 'students'
       if action_name == 'new'
         header_title = '报名培训班'
+      elsif action_name == 'index'
+        header_title = '所报培训班'
+      elsif action_name == 'show'
+        header_title = '学员'
       end
     elsif controller_name == 'tickets'
       header_title = '购票'
