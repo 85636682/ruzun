@@ -1,24 +1,19 @@
 <div class="mdui-container">
-  <ul class="list-unstyled" style="margin-bottom: 10px;">
+  <ul class="mdui-list">
     <% @shopping_carts.each do |shopping_cart| %>
-    <li style="background-color:#fff;">
-      <div class="ticket-wrapper">
-        <div class="ticket-logo">
-          <%= image_tag("family-ticket.jpg") %>
-        </div>
-        <div class="ticket-info">
-          <div class="subject"><%= shopping_cart.ticket.name %></div>
-          <div class="sale">
-            <div class="price">
-              <span>￥<%= shopping_cart.ticket.price %></span>
-            </div>
-            <div class="buy">
-              <%= link_to "移除", m_shopping_cart_path(shopping_cart), method: :delete, class: "mdui-btn mdui-color-pink-accent mdui-ripple" %>
-            </div>
-          </div>
-        </div>
+    <li class="mdui-list-item mdui-ripple">
+      <div class="mdui-list-item-avatar">
+        <%= image_tag("family-ticket.jpg") %>
       </div>
+      <div class="mdui-list-item-content">
+        <div class="mdui-list-item-title"><%= shopping_cart.ticket.name %></div>
+        <div class="mdui-list-item-text mdui-list-item-one-line"><span class="mdui-text-color-theme-text">￥<%= shopping_cart.ticket.price %></span> </div>
+      </div>
+      <%= link_to m_shopping_cart_path(shopping_cart), method: :delete, class: "mdui-btn mdui-color-pink-accent mdui-ripple" do %>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-red-accent">&#xE315;</i>
+      <% end %>
     </li>
+    <li class="mdui-divider-inset mdui-m-y-0"></li>
     <% end %>
   </ul>
   <div class="mdui-row-xs-1">
