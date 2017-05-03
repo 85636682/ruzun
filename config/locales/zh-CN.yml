@@ -1,4 +1,10 @@
 "zh-CN":
+  student:
+    status:
+      pending: "已报名"
+      checkouted: "已缴费"
+      completed: "毕业"
+      canceled: "退学"
   date:
     order:
     - :year
@@ -9,6 +15,7 @@
       merchant: "商家"
       admin: "管理员"
       order: "订单"
+      student: "学员"
     attributes:
       merchant:
         email: "邮箱"
