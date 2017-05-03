@@ -1,52 +1,50 @@
-<div class="flex-center">
-  <div class="container-wider">
-    <div class="user">
-        <div class="avatar">
-          <%= image_tag(user_avatar, class: "mdui-img-circle") %>
-        </div>
-        <div class="name">
-            <span><%= current_user.nickname %></span>
-        </div>
-    </div>
-    <div class="money"><span>账户余额</span><span style="float:right;">￥10</span></div>
-    <div class="mdui-divider"></div>
-    <ul class="mdui-list">
-      <a href="<%= deposit_m_users_path %>" >
-        <li class="mdui-list-item mdui-ripple">
-          <div class="mdui-list-item-avatar">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
-          </div>
-          <div class="mdui-list-item-content">充值 <small style="font-size:11px;color: red;">充100送50</small></div>
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
-        </li>
-      </a>
-      <li class="mdui-divider-inset mdui-m-y-0"></li>
-      <a href="<%= m_orders_path %>">
-        <li class="mdui-list-item mdui-ripple">
-          <div class="mdui-list-item-avatar">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
-          </div>
-          <div class="mdui-list-item-content">订单</div>
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
-        </li>
-      </a>
-      <a href="<%= m_students_path %>">
-        <li class="mdui-list-item mdui-ripple">
-          <div class="mdui-list-item-avatar">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
-          </div>
-          <div class="mdui-list-item-content">培训班</div>
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
-        </li>
-      </a>
-      <li class="mdui-divider-inset mdui-m-y-0"></li>
+<div class="mdui-container-fluid">
+  <div class="user">
+      <div class="avatar">
+        <%= image_tag(user_avatar, class: "mdui-img-circle") %>
+      </div>
+      <div class="name">
+          <span><%= current_user.nickname %></span>
+      </div>
+  </div>
+  <div class="money"><span>账户余额</span><span style="float:right;">￥10</span></div>
+  <div class="mdui-divider"></div>
+  <ul class="mdui-list">
+    <a href="<%= deposit_m_users_path %>" >
       <li class="mdui-list-item mdui-ripple">
         <div class="mdui-list-item-avatar">
           <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
         </div>
-        <div class="mdui-list-item-content">意见投诉</div>
+        <div class="mdui-list-item-content">充值 <small style="font-size:11px;color: red;">充100送50</small></div>
         <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
       </li>
-    </ul>
-  </div>
+    </a>
+    <li class="mdui-divider-inset mdui-m-y-0"></li>
+    <a href="<%= m_orders_path %>">
+      <li class="mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-avatar">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
+        </div>
+        <div class="mdui-list-item-content">订单</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
+      </li>
+    </a>
+    <a href="<%= m_students_path %>">
+      <li class="mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-avatar">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
+        </div>
+        <div class="mdui-list-item-content">培训班</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
+      </li>
+    </a>
+    <li class="mdui-divider-inset mdui-m-y-0"></li>
+    <li class="mdui-list-item mdui-ripple">
+      <div class="mdui-list-item-avatar">
+        <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
+      </div>
+      <div class="mdui-list-item-content">意见投诉</div>
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
+    </li>
+  </ul>
 </div>
