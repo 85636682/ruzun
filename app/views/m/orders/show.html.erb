@@ -1,38 +1,33 @@
-<div class="container-fluid">
-  <div class="row" style="margin-top: 80px;">
-    <div class="col-md-12">
-      <div class="well well-sm">
-        编号：<%= @order.sn %>
+<div class="mdui-container">
+  <div class="mdui-row-xs-1">
+    <div class="mdui-col">
+      <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+        <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+        <span class="mdui-chip-title">编号：<%= @order.sn %></span>
       </div>
-      <div class="well well-sm">
-        总价：<%= @order.total_price %>
+      <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+        <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+        <span class="mdui-chip-title">总价：<%= @order.total_price %></span>
       </div>
     </div>
   </div>
 </div>
-<ul class="list-unstyled">
+<ul class="mdui-list">
   <% @order.order_tickets.each do |order_ticket| %>
-  <li style="background-color:#fff;">
-    <div class="ticket-wrapper">
-      <div class="ticket-logo">
-        <%= image_tag("family-ticket.jpg") %>
-      </div>
-      <div class="ticket-info">
-        <div class="subject"><%= order_ticket.ticket.name %></div>
-        <div class="sale">
-          <div class="price">
-            <span>￥<%= order_ticket.ticket.price %></span>
-          </div>
-          <div class="buy">
-          </div>
-        </div>
-      </div>
+  <li class="mdui-list-item mdui-ripple">
+    <div class="mdui-list-item-avatar">
+      <%= image_tag("family-ticket.jpg") %>
+    </div>
+    <div class="mdui-list-item-content">
+      <div class="mdui-list-item-title"><%= order_ticket.ticket.name %></div>
+      <div class="mdui-list-item-text mdui-list-item-one-line"><span class="mdui-text-color-theme-text">￥<%= order_ticket.ticket.price %></span> </div>
     </div>
   </li>
+  <li class="mdui-divider-inset mdui-m-y-0"></li>
   <% end %>
 </ul>
-<div class="row">
-  <div class="col-md-12" style="text-align: center;">
-    <a href="<%= m_shopping_carts_path %>" class="btn btn-raised btn-danger">马上付款</a>
+<div class="mdui-row-xs-1">
+  <div class="mdui-col">
+    <%= link_to "马上付款", m_orders_path, class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
   </div>
 </div>
