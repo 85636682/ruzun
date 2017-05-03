@@ -1,2 +1,16 @@
-<h1>M::Orders#index</h1>
-<p>Find me in app/views/m/orders/index.html.erb</p>
+<div class="mdui-container">
+  <ul class="mdui-list">
+  <% @orders.each do |order| %>
+    <a href="<%= m_student_path(student) %>">
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-avatar mdui-icon material-icons">&#xe2c7;</i>
+        <div class="mdui-list-item-content">
+        <div class="mdui-list-item-title"><%= order.sn %></div>
+        <div class="mdui-list-item-text"><%= order.total_price %></div>
+        </div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88e;</i>
+      </li>
+    </a>
+  <% end %>
+    </ul>
+</div>
