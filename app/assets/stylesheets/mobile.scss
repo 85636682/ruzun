@@ -27,15 +27,19 @@ ul.list-unstyled {
             width: 100%;
             flex: 1;
         }
+        .summary {
+            width: 100%;
+            flex: 1;
+        }
         .sale {
-            height: 50px;
+            height: 37px;
             width: 100%;
             display: flex;
             flex-direction: row;
 
             .price {
-                line-height: 60px;
-                width: 40px;
+                line-height: 37px;
+                flex: 1;
             }
 
             .buy {
