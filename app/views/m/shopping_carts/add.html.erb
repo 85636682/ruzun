@@ -1,24 +1,31 @@
-<%= render './m/shared/header', :locals => { title: "操作提示" } %>
-<div class="container-fluid">
-  <div class="row" style="margin-top: 80px;">
-    <div class="col-md-12">
-    <% if @result %>
-      <div class="alert alert-dismissible alert-success">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>门票已成功加入购物车.</strong>
+<div class="mdui-container">
+  <div class="mdui-row-xs-1">
+    <div class="mdui-col">
+    <% if true %>
+      <div class="mdui-center">
+        <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+          <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+          <span class="mdui-chip-title">门票已成功加入购物车.</span>
+        </div>
+        <%= image_tag("bluefairy2.jpg") %>
       </div>
     <% else %>
-      <div class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>加入购物车失败.</strong>
+      <div class="mdui-center">
+        <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+          <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+          <span class="mdui-chip-title">加入购物车失败.</span>
+        </div>
+        <%= image_tag("bluefairy1.jpg") %>
       </div>
     <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <a href="<%= m_tickets_path %>" class="btn btn-raised btn-info">继续购票</a>
-      <a href="<%= m_shopping_carts_path %>" class="btn btn-raised btn-danger">去购物车结算</a>
+  <div class="mdui-row-xs-2">
+    <div class="mdui-col">
+      <a href="<%= m_tickets_path %>" class="mdui-btn mdui-btn-block mdui-color-blue mdui-ripple">继续购票</a>
+    </div>
+    <div class="mdui-col">
+      <a href="<%= m_shopping_carts_path %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">去购物车结算</a>
     </div>
   </div>
 </div>

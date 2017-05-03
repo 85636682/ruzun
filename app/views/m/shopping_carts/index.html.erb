@@ -12,7 +12,7 @@
             <span>￥<%= shopping_cart.ticket.price %></span>
           </div>
           <div class="buy">
-            <%= link_to "移除", m_shopping_cart_path(shopping_cart), method: :delete, class: "btn btn-raised btn-danger" %>
+            <%= link_to "移除", m_shopping_cart_path(shopping_cart), method: :delete, class: "mdui-btn mdui-color-pink-accent mdui-ripple" %>
           </div>
         </div>
       </div>
@@ -22,6 +22,6 @@
 </ul>
 <div class="row">
   <div class="col-md-12" style="text-align: center;">
-    <%= link_to "结算", m_orders_path, method: :post, class: "btn btn-raised btn-danger" %>
+    <%= link_to "结算", m_orders_path, method: :post, class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
   </div>
 </div>

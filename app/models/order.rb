@@ -2,6 +2,7 @@ class Order < ApplicationRecord
     enum status: [:pending, :checkouted, :completed]
 
     has_many :order_tickets
+    belongs_to :user
 
     def total_price
         total_price = 0

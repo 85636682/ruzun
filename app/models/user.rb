@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   belongs_to :team
   has_many :techstats
   has_many :shopping_carts
+  has_many :orders
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
