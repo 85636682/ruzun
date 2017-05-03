@@ -10,7 +10,7 @@
         <div class="mdui-list-item-text mdui-list-item-one-line"><span class="mdui-text-color-theme-text">￥<%= shopping_cart.ticket.price %></span> </div>
       </div>
       <%= link_to m_shopping_cart_path(shopping_cart), method: :delete do %>
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-red-accent mdui-ripple">&#xE928;</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons" style="color: #FF5252;">&#xE928;</i>
       <% end %>
     </li>
     <li class="mdui-divider-inset mdui-m-y-0"></li>
@@ -22,3 +22,4 @@
     </div>
   </div>
 </div>
+<%= link_to "结算", m_orders_path, method: :post, class: "mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink-accent" %>
