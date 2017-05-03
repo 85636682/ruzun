@@ -2,7 +2,7 @@
   <div class="container-wider">
     <div class="user">
         <div class="avatar">
-            <img class="mdui-img-circle" src="<%= current_user.wechat_avatar %>" alt="">
+          <%= image_tag(user_avatar, class: "mdui-img-circle") %>
         </div>
         <div class="name">
             <span><%= current_user.nickname %></span>

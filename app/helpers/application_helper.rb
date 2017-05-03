@@ -27,4 +27,9 @@ module ApplicationHelper
       DateTime.parse(time.iso8601).strftime('%Y%m%d%H%M') if time
     end
   end
+
+  def user_avatar
+    current_user.wechat_avatar.blank? ? 'bluefairy2.jpg' : current_user.wechat_avatar
+  end
+  
 end
