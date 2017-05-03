@@ -11,23 +11,23 @@
       </div>
     </div>
   </div>
-</div>
-<ul class="mdui-list">
-  <% @order.order_tickets.each do |order_ticket| %>
-  <li class="mdui-list-item mdui-ripple">
-    <div class="mdui-list-item-avatar">
-      <%= image_tag("family-ticket.jpg") %>
+  <ul class="mdui-list">
+    <% @order.order_tickets.each do |order_ticket| %>
+    <li class="mdui-list-item mdui-ripple">
+      <div class="mdui-list-item-avatar">
+        <%= image_tag("family-ticket.jpg") %>
+      </div>
+      <div class="mdui-list-item-content">
+        <div class="mdui-list-item-title"><%= order_ticket.ticket.name %></div>
+        <div class="mdui-list-item-text mdui-list-item-one-line"><span class="mdui-text-color-theme-text">￥<%= order_ticket.ticket.price %></span> </div>
+      </div>
+    </li>
+    <li class="mdui-divider-inset mdui-m-y-0"></li>
+    <% end %>
+  </ul>
+  <div class="mdui-row-xs-1">
+    <div class="mdui-col">
+      <%= link_to "马上付款", m_orders_path, class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
     </div>
-    <div class="mdui-list-item-content">
-      <div class="mdui-list-item-title"><%= order_ticket.ticket.name %></div>
-      <div class="mdui-list-item-text mdui-list-item-one-line"><span class="mdui-text-color-theme-text">￥<%= order_ticket.ticket.price %></span> </div>
-    </div>
-  </li>
-  <li class="mdui-divider-inset mdui-m-y-0"></li>
-  <% end %>
-</ul>
-<div class="mdui-row-xs-1">
-  <div class="mdui-col">
-    <%= link_to "马上付款", m_orders_path, class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
   </div>
 </div>
