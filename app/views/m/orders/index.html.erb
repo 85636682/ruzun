@@ -2,15 +2,17 @@
   <ul class="mdui-list">
   <% @orders.each do |order| %>
     <li class="mdui-list-item mdui-ripple">
-      <div class="mdui-list-item-avatar">
-        <%= image_tag("family-ticket.jpg") %>
-      </div>
-      <div class="mdui-list-item-content">
-        <div class="mdui-list-item-title"><%= order.sn %></div>
-        <div class="mdui-list-item-text mdui-list-item-one-line">
-          <span class="mdui-text-color-theme-text">￥<%= order.total_price %></span> 
+      <a href="<%= m_order_path(order) %>">
+        <div class="mdui-list-item-avatar">
+          <%= image_tag("family-ticket.jpg") %>
         </div>
-      </div>
+        <div class="mdui-list-item-content">
+          <div class="mdui-list-item-title"><%= order.sn %></div>
+          <div class="mdui-list-item-text mdui-list-item-one-line">
+            <span class="mdui-text-color-theme-text">￥<%= order.total_price %></span> 
+          </div>
+        </div>
+      </a>
       <a href="javascript:;" class="mdui-btn mdui-btn-icon" onclick="alert('尚未开通');return;">
         <i class="mdui-list-item-icon mdui-icon material-icons">&#xe2c7;</i>
       </a>
