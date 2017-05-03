@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.nickname = auth.info.nickname
       user.sex = auth.info.sex
-      user.avatar = auth.info.headimgurl
+      user.wechat_avatar = auth.info.headimgurl
       user.open_id = auth.info.openid
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429021719) do
+ActiveRecord::Schema.define(version: 20170503005130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,6 +213,7 @@ ActiveRecord::Schema.define(version: 20170429021719) do
     t.string   "uid"
     t.string   "nickname"
     t.integer  "sex"
+    t.string   "wechat_avatar"
   end
 
 end
