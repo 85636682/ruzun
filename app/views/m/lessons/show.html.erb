@@ -1,2 +1,29 @@
-<h1>M::Lessons#show</h1>
-<p>Find me in app/views/m/lessons/show.html.erb</p>
+<div class="mdui-container" style="margin-top: 10px;">
+  <div class="mdui-table-fluid">
+    <table class="mdui-table">
+      <tbody>
+        <tr>
+          <td>课程</td>
+          <td><%= @lesson.subject %></td>
+        </tr>
+        <tr>
+          <td>价格</td>
+          <td><%= @lesson.price %></td>
+        </tr>
+        <tr>
+          <td>简介</td>
+          <td><%= @lesson.summary %></td>
+        </tr>
+        <tr>
+          <td>报班累计人数</td>
+          <td><%= @lesson.students.count %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdui-row-xs-1">
+    <div class="mdui-col">
+      <%= link_to "马上报名", new_m_lesson_student_path(lesson), class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
+    </div>
+  </div>
+</div>
