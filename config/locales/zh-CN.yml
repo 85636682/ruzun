@@ -1,10 +1,4 @@
 "zh-CN":
-  student:
-    status:
-      pending: "已报名"
-      checkouted: "已缴费"
-      completed: "毕业"
-      canceled: "退学"
   date:
     order:
     - :year
@@ -30,6 +24,12 @@
         takeout:
           true: "外卖"
           false: "本店"
+      student:
+        status:
+          pending: "已报名"
+          checkouted: "已缴费"
+          completed: "毕业"
+          canceled: "退学"
     errors:
       models:
         user: 用户
