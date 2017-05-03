@@ -8,7 +8,7 @@
         <div class="mdui-list-item-title"><%= order.sn %></div>
         <div class="mdui-list-item-text"><%= order.total_price %></div>
         </div>
-        <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88e;</i>
+        <a href="javascript:;" onclick="alert('尚未开通');return;" class="mdui-btn mdui-color-pink-accent mdui-ripple">付款</a>
       </li>
     </a>
   <% end %>
