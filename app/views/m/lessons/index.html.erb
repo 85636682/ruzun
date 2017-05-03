@@ -1,14 +1,18 @@
 <div class="mdui-container">
   <ul class="list-unstyled">
     <% @lessons.each do |lesson| %>
-    <li style="background-color:#fff;">
+    <li>
       <div class="ticket-wrapper">
-        <div class="ticket-logo">
-          <%= image_tag("family-ticket.jpg") %>
-        </div>
+        <a href="<%= m_lesson_path(lesson) %>">
+          <div class="ticket-logo">
+            <%= image_tag("family-ticket.jpg") %>
+          </div>
+        </a>
         <div class="ticket-info">
-          <div class="subject"><%= lesson.subject %></div>
-          <div class="summary"><%= lesson.summary %></div>
+          <a href="<%= m_lesson_path(lesson) %>">
+            <div class="subject"><%= lesson.subject %></div>
+            <div class="summary"><%= lesson.summary %></div>
+          </a>
           <div class="sale">
             <div class="price">
               <span>￥<%= lesson.price %></span>

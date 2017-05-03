@@ -21,7 +21,7 @@
       </tbody>
     </table>
   </div>
-  <% if @student.status.pending? %>
+  <% if @student.pending? %>
   <div class="mdui-row-xs-1">
     <div class="mdui-col">
       <%= link_to "马上付款", m_orders_path, class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
