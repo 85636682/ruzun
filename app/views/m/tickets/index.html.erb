@@ -1,23 +1,25 @@
-<ul class="list-unstyled">
+<div class="mdui-container">
+  <ul class="list-unstyled">
     <% @tickets.each do |ticket| %>
-    <li style="background-color:#fff;">
-        <div class="ticket-wrapper">
-            <div class="ticket-logo">
-                <%= image_tag("family-ticket.jpg") %>
-            </div>
-            <div class="ticket-info">
-                <div class="subject"><%= ticket.name %></div>
-                <div class="summary"><%= ticket.summary %></div>
-                <div class="sale">
-                    <div class="price">
-                        <span>￥<%= ticket.price %></span>
-                    </div>
-                    <div class="buy">
-                        <%= link_to "加入购物车", add_m_shopping_carts_path(ticket_id: ticket.id), class: "mdui-btn mdui-color-pink-accent mdui-ripple" %>
-                    </div>
-                </div>
-            </div>
+    <li>
+      <div class="ticket-wrapper">
+        <div class="ticket-logo">
+          <%= image_tag("family-ticket.jpg") %>
         </div>
+        <div class="ticket-info">
+          <div class="subject"><%= ticket.name %></div>
+          <div class="summary"><%= ticket.summary %></div>
+          <div class="sale">
+            <div class="price">
+              <span>￥<%= ticket.price %></span>
+            </div>
+            <div class="buy">
+              <%= link_to "加入购物车", add_m_shopping_carts_path(ticket_id: ticket.id), class: "mdui-btn mdui-color-pink-accent mdui-ripple" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </li>
     <% end %>
-</ul>
+  </ul>
+</div>

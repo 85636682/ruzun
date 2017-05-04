@@ -1,6 +1,10 @@
 @import "material_icons";
 @import "mdui";
 
+ul  {
+    margin: 0px;
+    padding: 0px;
+}
 ul.list-unstyled {
     list-style: none;
 }
@@ -73,14 +77,4 @@ ul.list-unstyled {
     width: 100%;
     height: 50px;
     line-height: 50px;
-}
-
-.operations {
-    width: 100%;
-
-    li  {
-        height: 50px;
-        padding: 15px 0;
-        border-bottom: solid 1px #ddd;
-    }
 }

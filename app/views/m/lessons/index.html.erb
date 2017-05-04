@@ -9,10 +9,12 @@
           </div>
         </a>
         <div class="ticket-info">
-          <a href="<%= m_lesson_path(lesson) %>">
-            <div class="subject"><%= lesson.subject %></div>
-            <div class="summary"><%= lesson.summary %></div>
-          </a>
+          <div class="subject">
+            <a href="<%= m_lesson_path(lesson) %>"><%= lesson.subject %></a>
+          </div>
+          <div class="summary">
+            <a href="<%= m_lesson_path(lesson) %>"><%= lesson.summary %></a>
+          </div>
           <div class="sale">
             <div class="price">
               <span>￥<%= lesson.price %></span>
