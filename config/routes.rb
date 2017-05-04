@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :m do
     get 'home/index'
+    get 'home/water'
 
     resources :orders, only: [:index, :show, :create]
     resources :tickets, only: [:index, :show]

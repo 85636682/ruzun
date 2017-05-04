@@ -18,7 +18,6 @@ class MobileController < ApplicationController
   end
 
   def header_title
-    header_title = ''
     if controller_name == 'lessons'
       header_title = '游泳培训班'
     elsif controller_name == 'shopping_carts'
@@ -43,6 +42,13 @@ class MobileController < ApplicationController
       if action_name == 'deposit'
         header_title = '充值'
       end
+    elsif controller_name == 'home'
+      header_title = '首页'
+      if action_name == 'water'
+        header_title = '水质检测'
+      end
+    else
+      header_title = ''
     end
     header_title
   end
