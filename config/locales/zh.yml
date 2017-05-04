@@ -1,9 +1,4 @@
-"zh-CN":
-  date:
-    order:
-    - :year
-    - :month
-    - :day
+zh:
   activerecord:
     models:
       merchant: "商家"
