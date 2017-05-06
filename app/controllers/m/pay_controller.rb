@@ -8,13 +8,13 @@ class M::PayController < MobileController
       return
     end
     
-    if params[:name] == 'order'
+    if params[:name].downcase == 'order'
       order = Order.find(params[:id])
       body = '蓝精灵水上乐园-门票'
       out_trade_no = order.sn
       total_fee = order.total_price
       attach = "order"
-    elsif params[:name] == 'student'
+    elsif params[:name].downcase == 'student'
       student = Student.find(params[:id])
       body = "蓝精灵水上乐园-#{student.lesson.subject}培训费"
       out_trade_no = "trade-#{student.id}-#{Time.now.to_i}"
