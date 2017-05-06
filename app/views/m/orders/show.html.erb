@@ -15,6 +15,10 @@
         <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
         <span class="mdui-chip-title">总价：<%= @order.total_price %></span>
       </div>
+      <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+        <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+        <span class="mdui-chip-title">状态：<%= @order.status %></span>
+      </div>
     </div>
   </div>
   <ul class="mdui-list">
@@ -31,11 +35,13 @@
     <li class="mdui-divider-inset mdui-m-y-0"></li>
     <% end %>
   </ul>
+  <% if @order.pending? %>
   <div class="mdui-row-xs-1">
     <div class="mdui-col">
       <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= @order.id %>" data-pname="<%= @order.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">付款</a>
     </div>
   </div>
+  <% end %>
 </div>
 
 <% if Figaro.env.wechat_pay_mch_id %>
@@ -54,7 +60,7 @@
           alert(JSON.stringify(res));
         },
         error: function(e) {
-          alert(JSON.stringify(e));
+          alert('支付发生错误，请联系客服。');
         }
       });
     });
