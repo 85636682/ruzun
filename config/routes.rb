@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'home/water'
 
+    post 'wx_pay' => 'pay#wx_pay'
+    post 'wx_notify' => 'pay#wx_notify'
+
     resources :orders, only: [:index, :show, :create]
     resources :tickets, only: [:index, :show]
     resources :shopping_carts, only: [:index, :destroy] do

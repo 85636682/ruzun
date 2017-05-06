@@ -5,6 +5,6 @@ wechat_encoding_aes_key: "EncodingAESKey"
 wechat_trusted_domain_fullname: "http://your_dev.proxy.qqbrowser.cc"
 
 # following is optional if you don't need wechat pay
-wechat_pay_mch_id: "merchant id"
-wechat_pay_api_key: "32 bits api key configured in pay.weixin.qq.com"
-wechat_pay_notify_url: "url to accept pay result notification"
+wechat_pay_mch_id: "1461671802"
+wechat_pay_api_key: "7db23d0870fbc5631ef6b4db781b1670"
+wechat_pay_notify_url: "http://bluefairypark.cn/m/wx_notify"

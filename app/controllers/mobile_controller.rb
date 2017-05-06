@@ -2,6 +2,8 @@ class MobileController < ApplicationController
   layout "mobile"
   before_action :authenticate_user!
 
+  wechat_api
+
   def authenticate_user!
     if current_user.blank?
       session[:current_url] = request.url

@@ -1,3 +1,10 @@
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<%= wechat_config_js debug: true, api: %w(hideMenuItems closeWindow chooseWXPay) -%>
+<script type="application/javascript">
+  wx.ready(function() {
+    wx.hideOptionMenu();
+  });
+</script>
 <div class="mdui-container" style="margin-top: 10px;">
   <div class="mdui-table-fluid">
     <table class="mdui-table">
@@ -24,8 +31,32 @@
   <% if @student.pending? %>
   <div class="mdui-row-xs-1" style="margin-top: 10px;">
     <div class="mdui-col">
-      <%= link_to "马上付款", m_orders_path, class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
+      <a href="javascript:wxpay(this);" data-pid="<%= @student.id %>" data-pname="<%= @student.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">付款</a>
     </div>
   </div>
   <% end %>
 </div>
+
+<% if Figaro.env.wechat_pay_mch_id %>
+<script>
+  function wxpay(e) {
+    var pid = $(e).data('pid');
+    var pname = $(e).data('pname');
+    $.post('/m/wx_pay?id=' + pid + '&name='+ pname, function(data) {
+      wx.chooseWXPay({
+        timestamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: function (res) {
+          alert(JSON.stringify(res));
+        },
+        error: function(e) {
+          alert(JSON.stringify(e));
+        }
+      });
+    });
+  }
+</script>
+<% end %>

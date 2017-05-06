@@ -1,3 +1,10 @@
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<%= wechat_config_js debug: true, api: %w(hideMenuItems closeWindow chooseWXPay) -%>
+<script type="application/javascript">
+  wx.ready(function() {
+    wx.hideOptionMenu();
+  });
+</script>
 <div class="mdui-container">
   <div class="mdui-row-xs-1">
     <div class="mdui-col">
@@ -27,7 +34,31 @@
   </ul>
   <div class="mdui-row-xs-1">
     <div class="mdui-col">
-      <a href="javascript:;" onclick="alert('尚未开通');return;" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">付款</a>
+      <a href="javascript:wxpay(this);" data-id="<%= @order.id %>" data-name="<%= @order.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">付款</a>
     </div>
   </div>
 </div>
+
+<% if Figaro.env.wechat_pay_mch_id %>
+<script>
+  function wxpay(e) {
+    var pid = $(e).data('pid');
+    var pname = $(e).data('pname');
+    $.post('/m/wx_pay?id=' + pid + '&name='+ pname, function(data) {
+      wx.chooseWXPay({
+        timestamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: function (res) {
+          alert(JSON.stringify(res));
+        },
+        error: function(e) {
+          alert(JSON.stringify(e));
+        }
+      });
+    });
+  }
+</script>
+<% end %>
