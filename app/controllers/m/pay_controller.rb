@@ -12,13 +12,13 @@ class M::PayController < MobileController
       order = Order.find(params[:id])
       body = '蓝精灵水上乐园-门票'
       out_trade_no = order.sn
-      total_fee = order.total_price
+      total_fee = order.total_price.to_i * 100
       attach = "order"
     elsif params[:name].downcase == 'student'
       student = Student.find(params[:id])
       body = "蓝精灵水上乐园-#{student.lesson.subject}培训费"
       out_trade_no = "trade-#{student.id}-#{Time.now.to_i}"
-      total_fee = student.lesson.price
+      total_fee = student.lesson.price.to_i * 100
       attach = "student"
     end
     
