@@ -52,10 +52,11 @@ class M::PayController < MobileController
     result = Hash.from_xml(request.body.read)['xml']
     logger.info result.inspect
     if WxPay::Sign.verify?(result)
-      if result.attach == "order"
-        order = Order.find_by_sn(result.out_trade_no)
+      r = result.inspect
+      if r.attach == "order"
+        order = Order.find_by_sn(r.out_trade_no)
         order.update_attributes(status: :checkouted)
-      elsif result.attach == 'student'
+      elsif r.attach == 'student'
       end
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else
