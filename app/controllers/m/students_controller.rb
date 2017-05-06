@@ -18,6 +18,7 @@ class M::StudentsController < MobileController
     @student.status = :pending
     @student.lesson_id = @lesson.id
     @student.user_id = current_user.id
+    @student.trade_no = 'STN' + rand(999).to_s + DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S')
     if @student.save
       redirect_to m_student_path(@student)
     else

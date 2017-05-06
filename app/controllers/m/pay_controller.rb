@@ -17,7 +17,7 @@ class M::PayController < MobileController
     elsif params[:name].downcase == 'student'
       student = Student.find(params[:id])
       body = "蓝精灵水上乐园-#{student.lesson.subject}培训费"
-      out_trade_no = "trade-#{student.id}-#{Time.now.to_i}"
+      out_trade_no = student.trade_no
       total_fee = student.lesson.price.to_i * 100
       attach = "student"
     end
@@ -55,6 +55,8 @@ class M::PayController < MobileController
         order = Order.find_by_sn(result["out_trade_no"])
         order.update_attributes(status: :checkouted)
       elsif result["attach"] == 'student'
+        student = Student.find_by_trade_no(result["out_trade_no"])
+        student.update_attributes(status: :checkouted)
       end
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else

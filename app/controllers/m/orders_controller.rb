@@ -20,5 +20,11 @@ class M::OrdersController < MobileController
       redirect_to m_shopping_carts_path, notice: "生成订单失败."
     end
   end
+
+  def destroy
+    @order = Order.find params[:id]
+    @order.destroy
+    redirect_to m_orders_path
+  end
   
 end

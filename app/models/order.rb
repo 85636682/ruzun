@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
     enum status: [:pending, :checkouted, :completed]
 
-    has_many :order_tickets
+    has_many :order_tickets, :dependent => :destroy
     belongs_to :user
 
     def total_price

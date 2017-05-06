@@ -71,7 +71,7 @@ Rails.application.routes.draw do
     resources :sales_lists
     resources :admins
     resources :sessions, only: [:new, :create, :destroy]
-    resources :orders, only: [:index, :show, :create]
+    resources :orders, only: [:index, :show, :create, :destroy]
     resources :lessons
     resources :students
     resources :tickets do
