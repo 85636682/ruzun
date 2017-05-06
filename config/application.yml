@@ -2,7 +2,7 @@ wechat_app_id: "wx7ed25ed89db628bd"
 wechat_secret: "e60dfaa4f3118db66c42c61bf53dfd93"
 wechat_token:  "Token"
 wechat_encoding_aes_key: "EncodingAESKey"
-wechat_trusted_domain_fullname: "http://your_dev.proxy.qqbrowser.cc"
+wechat_trusted_domain_fullname: "http://bluefairypark.cn"
 
 # following is optional if you don't need wechat pay
 wechat_pay_mch_id: "1461671802"
