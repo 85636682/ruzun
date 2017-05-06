@@ -37,7 +37,7 @@
   <% end %>
 </div>
 
-<% if Figaro.env.wechat_pay_mch_id %>
+<% if @student.pending? && Figaro.env.wechat_pay_mch_id %>
 <script>
   function wxpay(e) {
     var pid = $(e).data('pid');
@@ -50,7 +50,7 @@
         signType: data.signType,
         paySign: data.paySign,
         success: function (res) {
-          alert(JSON.stringify(res));
+          location.reload();
         },
         error: function(e) {
           alert('支付发生错误，请联系客服。');
