@@ -17,6 +17,7 @@
                 <td><%= ticket.price %></td>
                 <td>
                     <%= link_to "修改", edit_admin_ticket_path(ticket) %>
+                    <%= link_to '删除', admin_ticket_path(ticket), method: :delete %>
                 </td>
             </tr>
         <% end %>

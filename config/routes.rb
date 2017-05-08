@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :roles
     resources :users, only: [:index]
     resources :products
     resources :sales_lists
@@ -89,6 +90,9 @@ Rails.application.routes.draw do
       end
       resources :game_teams, only: [:index, :new, :create, :edit, :update]
     end
+
+    get 'dashboard/index'
+    root "dashboard#index"
   end
 
   root "home#index"

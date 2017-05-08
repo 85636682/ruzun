@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>角色名称</th>
+                <th>拥有该角色的人数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @roles.each do |role| %>
+            <tr>
+                <th scope="row"><%= role.id %></th>
+                <td><%= role.name %></td>
+                <td><%= role.admins.count %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_role_path(role) %>
+                    <%= link_to '删除', admin_role_path(role), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

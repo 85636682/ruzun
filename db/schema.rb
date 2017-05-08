@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506032711) do
+ActiveRecord::Schema.define(version: 20170508115103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170506032711) do
     t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "role_id"
   end
 
   create_table "game_teams", force: :cascade do |t|
@@ -64,9 +65,11 @@ ActiveRecord::Schema.define(version: 20170506032711) do
 
   create_table "order_tickets", force: :cascade do |t|
     t.string   "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "ticket_id"
+    t.string   "serial_number"
+    t.boolean  "used",          default: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -75,6 +78,14 @@ ActiveRecord::Schema.define(version: 20170506032711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "sn"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.string   "resource"
+    t.string   "action"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "playeds", force: :cascade do |t|
@@ -97,6 +108,12 @@ ActiveRecord::Schema.define(version: 20170506032711) do
     t.integer  "warning_line"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sales_list_products", force: :cascade do |t|

@@ -94,19 +94,10 @@ gem 'omniauth-wechat-oauth2'
 
 gem "http"
 
-# Slim progress bars for Ajax'y applications. Inspired by Google, YouTube,
-# and Medium for the Rails Asset Pipeline (and some turbolinks/pjax/angular love)
-# https://github.com/caarlos0/nprogress-rails
-gem 'nprogress-rails'
-
-# A ruby gem for creating navigations
-# https://github.com/codeplant/simple-navigation
-gem 'simple-navigation'
-
 gem 'rails-i18n', '~> 5.0.0'
 gem 'enum_help'
 
-gem 'cancancan'
+gem "pundit"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

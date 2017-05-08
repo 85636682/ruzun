@@ -15,6 +15,7 @@
                 <td><%= sales_list.total_price %></td>
                 <td>
                     <%= link_to "查看", admin_sales_list_path(sales_list) %>
+                    <%= link_to '删除', admin_sales_list_path(sales_list), method: :delete %>
                 </td>
             </tr>
         <% end %>

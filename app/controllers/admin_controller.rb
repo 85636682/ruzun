@@ -1,17 +1,27 @@
 class AdminController < ApplicationController
-    before_action :authenticate_admin!
+  include Pundit
 
-    layout "admin"
+  before_action :authenticate_admin!
 
-    def authenticate_admin!
-        redirect_to new_admin_session_path if current_admin.blank?
-    end
+  layout "admin"
 
-    private
-    def current_admin
-        @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
-    end
+  helper_method :current_admin
 
-    helper_method :current_admin
+  def authenticate_admin!
+    redirect_to new_admin_session_path if current_admin.blank?
+  end
+
+  rescue_from Pundit::NotAuthorizedError, with: :unauthorized
+
+  private
+
+  def current_admin
+    @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
+  end
+  alias_method :pundit_user, :current_admin
+
+  def unauthorized
+    redirect_to request.referrer || admin_dashboard_path, alert: 'You are not authorized to perform this action.'
+  end
 
 end

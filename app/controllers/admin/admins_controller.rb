@@ -43,7 +43,7 @@ class Admin::AdminsController < AdminController
   end
 
   def params_admin
-    params.require(:admin).permit(:name, :phone, :password, :password_confirmation)
+    params.require(:admin).permit(:name, :phone, :role_id, :password, :password_confirmation)
   end
   
 end

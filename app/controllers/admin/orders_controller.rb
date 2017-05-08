@@ -6,7 +6,7 @@ class Admin::OrdersController < AdminController
                     status: :completed)
       params["tickets"].each do |i|
         puts i
-        OrderTicket.create!(order_id: @order.id, ticket_id: i.to_i)
+        OrderTicket.create!(order_id: @order.id, ticket_id: i.to_i, serial_number: 'TN' + DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s)
         puts i
       end
     rescue

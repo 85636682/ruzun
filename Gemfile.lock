@@ -70,7 +70,6 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
-    cancancan (1.16.0)
     capistrano (3.7.2)
       airbrussh (>= 1.0.0)
       capistrano-harrow
@@ -219,6 +218,8 @@ GEM
     powerpack (0.1.1)
     public_suffix (2.0.5)
     puma (3.7.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-cors (0.4.1)
     rack-test (0.6.3)
@@ -373,7 +374,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap (~> 4.0.0.alpha6)
   byebug
-  cancancan
   capistrano
   capistrano-rails
   capistrano-rbenv
@@ -404,6 +404,7 @@ DEPENDENCIES
   omniauth-wechat-oauth2
   pg
   puma (~> 3.0)
+  pundit
   rack-cors
   rails (~> 5.0.1)
   rails-assets-tether (>= 1.3.3)!

@@ -10,9 +10,9 @@ class M::OrdersController < MobileController
   def create
     @shopping_carts = current_user.shopping_carts
     begin
-      @order = Order.create(user_id: current_user.id, sn: DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s, status: :pending)
+      @order = Order.create!(user_id: current_user.id, sn: DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s, status: :pending)
       @shopping_carts.each do |shopping_cart|
-        order_ticket = OrderTicket.create(order_id: @order.id, ticket_id: shopping_cart.ticket_id)
+        order_ticket = OrderTicket.create!(order_id: @order.id, ticket_id: shopping_cart.ticket_id, serial_number: 'TN' + DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s)
         shopping_cart.destroy
       end
       redirect_to m_order_path(@order), notice: "订单生成成功."

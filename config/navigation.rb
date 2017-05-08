@@ -112,6 +112,11 @@ SimpleNavigation::Configuration.run do |navigation|
       admin_admins.item :new, '新建', new_admin_admin_path
     end
 
+    primary.item :admin_roles, '<i class="zmdi zmdi-link"></i> 角色权限', '#', highlights_on: %r{/admin_roles}, html: { class: 'sub-menu' } do |admin_roles|
+      admin_roles.item :index, '列表', admin_roles_path
+      admin_roles.item :new, '新建', new_admin_role_path
+    end
+
   end
 end
 

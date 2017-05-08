@@ -23,6 +23,7 @@
                 <td><%= student.height %></td>
                 <td>
                     <%= link_to "修改", edit_admin_student_path(student) %>
+                    <%= link_to '删除', admin_student_path(student), method: :delete %>
                 </td>
             </tr>
         <% end %>

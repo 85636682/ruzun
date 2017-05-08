@@ -1,5 +1,6 @@
 class MobileController < ApplicationController
   layout "mobile"
+  
   before_action :authenticate_user!
 
   wechat_api
