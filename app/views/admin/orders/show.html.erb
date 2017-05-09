@@ -11,16 +11,25 @@
                 <td></td>
                 <td>门票</td>
                 <td>价格</td>
+                <td>票号</td>
+                <td>已入场</td>
+                <td>操作</td>
             </tr>
         <% @order.order_tickets.each do |order_ticket| %>
             <tr>
                 <td><i class="zmdi zmdi-ticket-star"></i></i></td>
                 <td scope="row"><%= order_ticket.ticket.name %></td>
                 <td><%= order_ticket.ticket.price %></td>
+                <td><%= order_ticket.serial_number %></td>
+                <td><%= order_ticket.used %></td>
+                <td>
+                    <%= link_to "查看", admin_order_ticket_path(order_ticket) %>
+                    <%= link_to "修改", edit_admin_order_ticket_path(order_ticket) %>
+                </td>
             </tr>
         <% end %>
         <tfoot>
-            <td colspan="3">总价 ¥<%= @order.total_price %></td>
+            <td colspan="6">总价 ¥<%= @order.total_price %></td>
         </tfoot>
     </table>
   </div>
