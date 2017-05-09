@@ -1,24 +1,19 @@
 <div class="mdui-container">
   <ul class="mdui-list">
   <% @orders.each do |order| %>
-    <li class="mdui-list-item mdui-ripple">
-      <div class="mdui-list-item-avatar">
-        <a href="<%= m_order_path(order) %>">
+    <a href="<%= m_order_path(order) %>">
+      <li class="mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-avatar">
           <%= image_tag("family-ticket.jpg") %>
-        </a>
-      </div>
-      <div class="mdui-list-item-content">
-        <div class="mdui-list-item-title">
-          <a href="<%= m_order_path(order) %>"><%= order.sn %></a>
         </div>
-        <div class="mdui-list-item-text mdui-list-item-one-line">
-          <span class="mdui-text-color-theme-text">￥<%= order.total_price %></span> 
+        <div class="mdui-list-item-content">
+          订单编号：<%= order.sn %>
+          <div class="mdui-list-item-text mdui-list-item-one-line">
+            <span class="mdui-text-color-theme-text">￥<%= order.total_price %></span> 
+          </div>
         </div>
-      </div>
-      <a href="javascript:;" class="mdui-btn mdui-btn-icon" onclick="alert('尚未开通');return;">
-        <i class="mdui-list-item-icon mdui-icon material-icons">&#xE227;</i>
-      </a>
-    </li>
+      </li>
+    </a>
     <li class="mdui-divider-inset mdui-m-y-0"></li>
   <% end %>
   </ul>
