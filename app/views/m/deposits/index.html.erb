@@ -1,2 +1,20 @@
-<h1>M::Deposits#index</h1>
-<p>Find me in app/views/m/deposits/index.html.erb</p>
+<div class="mdui-container">
+  <ul class="mdui-list">
+  <% @deposits.each do |deposit| %>
+    <a href="<%= m_deposit_path(deposit) %>">
+      <li class="mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-avatar">
+          <%= image_tag("family-ticket.jpg") %>
+        </div>
+        <div class="mdui-list-item-content">
+          充值单号：<%= deposit.trade_no %>
+          <div class="mdui-list-item-text mdui-list-item-one-line">
+            <span class="mdui-text-color-theme-text">￥<%= deposit.fee %></span> 
+          </div>
+        </div>
+      </li>
+    </a>
+    <li class="mdui-divider-inset mdui-m-y-0"></li>
+  <% end %>
+  </ul>
+</div>
