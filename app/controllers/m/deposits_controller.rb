@@ -1,4 +1,4 @@
-class M::DepositsController < ApplicationController
+class M::DepositsController < MobileController
   def index
     @deposits = current_user.deposits.order("created_at DESC")
   end
