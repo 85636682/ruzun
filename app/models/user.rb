@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :shopping_carts
   has_many :orders
   has_many :students
+  has_many :deposits
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|

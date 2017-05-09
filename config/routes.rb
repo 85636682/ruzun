@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'wx_pay' => 'pay#wx_pay'
     post 'wx_notify' => 'pay#wx_notify'
 
+    resources :deposits, only: [:index, :show, :new, :create]
     resources :orders, only: [:index, :show, :create]
     resources :tickets, only: [:index, :show]
     resources :shopping_carts, only: [:index, :destroy] do
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get :profile
-        get :deposit
       end
     end
     resources :lessons, only: [:index, :show] do

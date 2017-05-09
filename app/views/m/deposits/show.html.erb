@@ -1,0 +1,56 @@
+<%= wechat_config_js debug: false, api: %w(hideMenuItems closeWindow chooseWXPay) -%>
+<script type="application/javascript">
+  wx.ready(function() {
+    wx.hideOptionMenu();
+  });
+</script>
+<div class="mdui-container" style="margin-top: 10px;">
+  <div class="mdui-table-fluid">
+    <table class="mdui-table">
+      <tbody>
+        <tr>
+          <td>充值单号</td>
+          <td><%= @deposit.trade_no %></td>
+        </tr>
+        <tr>
+          <td>充值金额</td>
+          <td><%= @deposit.fee %></td>
+        </tr>
+        <tr>
+          <td>状态</td>
+          <td><%= @deposit.checkouted %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <% unless @deposit.checkouted %>
+  <div class="mdui-row-xs-1" style="margin-top: 10px;">
+    <div class="mdui-col">
+      <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= @deposit.id %>" data-pname="<%= @deposit.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">付款</a>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% unless @deposit.checkouted %>
+<script>
+  function wxpay(e) {
+    var pid = $(e).data('pid');
+    var pname = $(e).data('pname');
+    $.post('/m/wx_pay?id=' + pid + '&name='+ pname, function(data) {
+      wx.chooseWXPay({
+        timestamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: function (res) {
+          location.reload();
+        },
+        error: function(e) {
+          alert('支付发生错误，请联系客服。');
+        }
+      });
+    });
+  }
+</script>
+<% end %>

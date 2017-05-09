@@ -20,6 +20,12 @@ class M::PayController < MobileController
       out_trade_no = student.trade_no
       total_fee = student.lesson.price.to_i * 100
       attach = "student"
+    elsif params[:name].downcase == 'deposit'
+      deposit = Deposit.find(params[:id])
+      body = "蓝精灵水上乐园-充值"
+      out_trade_no = deposit.trade_no
+      total_fee = deposit.fee.to_i * 100
+      attach = "deposit"
     end
     
     pay_params = {
@@ -57,6 +63,11 @@ class M::PayController < MobileController
       elsif result["attach"] == 'student'
         student = Student.find_by_trade_no(result["out_trade_no"])
         student.update_attributes(status: :checkouted)
+      elsif result["attach"] == 'deposit'
+        deposit = Deposit.find_by_trade_no(result["out_trade_no"])
+        deposit.update_attributes(checkouted: true)
+        total_fee = deposit.fee.to_i
+        deposit.user.update_attributes(fairy_coins: deposit.user.fairy_coins + total_fee)
       end
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else

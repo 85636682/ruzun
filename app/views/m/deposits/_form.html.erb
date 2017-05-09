@@ -1,0 +1,10 @@
+<%= form_for [:m, @deposit], { :html => { class: "form-horizontal" } } do |f| %>
+  <fieldset>
+    <legend>会员充值</legend>
+    <div class="mdui-textfield mdui-textfield-floating-label">
+      <label class="mdui-textfield-label">充值金额</label>
+      <%= f.text_number :fee, class: "mdui-textfield-input" %>
+    </div>
+    <%= f.submit "充值", class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
+  </fieldset>    
+<% end %>
