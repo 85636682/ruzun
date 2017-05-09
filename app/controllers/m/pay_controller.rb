@@ -66,8 +66,8 @@ class M::PayController < MobileController
       elsif result["attach"] == 'deposit'
         deposit = Deposit.find_by_trade_no(result["out_trade_no"])
         deposit.update_attributes(checkouted: true)
-        total_fee = deposit.fee.to_i
-        deposit.user.update_attributes(fairy_coins: deposit.user.fairy_coins + total_fee)
+        user = deposit.user
+        user.update_attributes(fairy_coins: user.fairy_coins.to_i + deposit.fee.to_i)
       end
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else
