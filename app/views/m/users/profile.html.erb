@@ -10,12 +10,22 @@
   <div class="money"><span>账户余额</span><span style="float:right;">￥10</span></div>
   <div class="mdui-divider"></div>
   <ul class="mdui-list">
-    <a href="<%= deposit_m_users_path %>" >
+    <a href="<%= new_m_deposit_path %>" >
       <li class="mdui-list-item mdui-ripple">
         <div class="mdui-list-item-avatar">
           <i class="mdui-list-item-icon mdui-icon material-icons">&#xE227;</i>
         </div>
-        <div class="mdui-list-item-content">充值 <small style="font-size:11px;color: red;">充100送50</small></div>
+        <div class="mdui-list-item-content">我要充值 <small style="font-size:11px;color: red;">充100送50</small></div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
+      </li>
+    </a>
+    <li class="mdui-divider-inset mdui-m-y-0"></li>
+    <a href="<%= m_deposits_path %>" >
+      <li class="mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-avatar">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xE227;</i>
+        </div>
+        <div class="mdui-list-item-content">充值记录</div>
         <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
       </li>
     </a>
