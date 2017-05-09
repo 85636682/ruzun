@@ -7,7 +7,7 @@
           <span><%= current_user.nickname %></span>
       </div>
   </div>
-  <div class="money"><span>账户余额</span><span style="float:right;">￥10</span></div>
+  <div class="money"><span>账户余额</span><span style="float:right;">￥<%= current_user.fairy_coins %></span></div>
   <div class="mdui-divider"></div>
   <ul class="mdui-list">
     <a href="<%= new_m_deposit_path %>" >
