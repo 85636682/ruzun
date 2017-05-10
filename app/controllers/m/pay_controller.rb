@@ -7,7 +7,7 @@ class M::PayController < MobileController
     order = Order.find_by_sn params[:trade_no]
     redirect_to m_orders_path and return if order.blank?
     total_fee = order.total_price
-    redirect_to m_order_path(order) if total_fee.to_i > current_user.fairy_coins.to_i
+    redirect_to m_order_path(order) and return if total_fee.to_i > current_user.fairy_coins.to_i
     begin
       order.update_attributes!(status: :checkouted)
       current_user.update_attributes!(fairy_coins: current_user.fairy_coins.to_i - total_fee.to_i)
