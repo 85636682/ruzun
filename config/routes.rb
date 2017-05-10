@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'home/water'
 
+    get 'fairy_coins_pay' => 'pay#fairy_coins_pay'
     post 'wx_pay' => 'pay#wx_pay'
     post 'wx_notify' => 'pay#wx_notify'
 

@@ -2,6 +2,21 @@ class M::PayController < MobileController
   before_action :authenticate_user!, except: [:wx_notify]
   skip_before_action :verify_authenticity_token, only: [:wx_notify]
 
+  def fairy_coins_pay
+    params[:trade_no] ||= ""
+    order = Order.find_by_sn params[:trade_no]
+    redirect_to m_orders_path and return if order.blank?
+    total_fee = order.total_price
+    redirect_to m_order_path(order) if total_fee.to_i > current_user.fairy_coins.to_i
+    begin
+      order.update_attributes!(status: :checkouted)
+      current_user.update_attributes!(fairy_coins: current_user.fairy_coins.to_i - total_fee.to_i)
+      redirect_to m_order_path(order)
+    rescue
+      redirect_to m_order_path(order)
+    end
+  end
+
   def wx_pay
     if params[:id].blank? || params[:name].blank?
       render json: { error: 'id & name is nil' }

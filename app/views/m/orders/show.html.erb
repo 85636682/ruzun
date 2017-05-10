@@ -36,9 +36,12 @@
     <% end %>
   </ul>
   <% if @order.pending? %>
-  <div class="mdui-row-xs-1">
-    <div class="mdui-col">
-      <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= @order.id %>" data-pname="<%= @order.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">付款</a>
+  <div class="mdui-row">
+    <div class="mdui-col-xs-6">
+      <a href="javascript:;" class="<%= 'disabled' if @order.total_price.to_i > current_user.fairy_coins.to_i %> mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">余额支付</a>
+    </div>
+    <div class="mdui-col-xs-6">
+      <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= @order.id %>" data-pname="<%= @order.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">微信支付</a>
     </div>
   </div>
   <% end %>
