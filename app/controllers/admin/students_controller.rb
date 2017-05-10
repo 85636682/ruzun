@@ -1,5 +1,5 @@
 class Admin::StudentsController < AdminController
-  before_action :set_student, only: [:show, :edit, :update]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
     @students = Student.all.order("created_at DESC").paginate(:page => params[:page])
@@ -31,6 +31,11 @@ class Admin::StudentsController < AdminController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @student.destroy
+    redirect_to admin_students_path
   end
   
   private
