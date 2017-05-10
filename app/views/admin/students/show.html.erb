@@ -2,7 +2,26 @@
   <div class="card-body card-padding">
     <table class="table">
         <tbody>
+          <tr>
+            <td>学员</td>
             <td><%= @student.name %></td>
+          </tr>
+          <tr>
+            <td>电话</td>
+            <td><%= @student.phone %></td>
+          </tr>
+          <tr>
+            <td>班级</td>
+            <td><%= @student.lesson.subject %></td>
+          </tr>
+          <tr>
+            <td>时间</td>
+            <td><%= @student.timeline.subject %></td>
+          </tr>
+          <tr>
+            <td>状态</td>
+            <td><%= @student.status %></td>
+          </tr>
         </tbody>
     </table>
   </div>
