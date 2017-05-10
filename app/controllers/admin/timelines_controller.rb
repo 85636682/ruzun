@@ -1,4 +1,4 @@
-class Admin::TimelinesController < ApplicationController
+class Admin::TimelinesController < AdminController
   before_action :set_timeline, only: [:edit, :update]
   def index
     @timelines = Timeline.all
