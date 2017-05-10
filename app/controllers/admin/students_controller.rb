@@ -45,6 +45,6 @@ class Admin::StudentsController < AdminController
   end
 
   def student_params
-    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :lesson_id)
+    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :lesson_id, :timeline_id)
   end
 end
