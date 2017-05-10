@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>时间段名称</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @timelines.each do |timeline| %>
+            <tr>
+                <th scope="row"><%= timeline.id %></th>
+                <td><%= timeline.subject %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_timeline_path(timeline) %>
+                    <%= link_to '删除', admin_timeline_path(timeline), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

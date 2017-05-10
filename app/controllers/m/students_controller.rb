@@ -29,7 +29,7 @@ class M::StudentsController < MobileController
   private
 
   def student_params
-    params.require(:student).permit(:name, :avatar, :phone, :height, :age)
+    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :timeline_id)
   end
   
 end

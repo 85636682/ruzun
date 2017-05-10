@@ -3,4 +3,5 @@ class Student < ApplicationRecord
 
     belongs_to :lesson
     belongs_to :user, optional: true
+    belongs_to :timeline
 end

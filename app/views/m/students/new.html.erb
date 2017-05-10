@@ -18,6 +18,19 @@
         <label class="mdui-textfield-label">学员年龄</label>
         <%= f.text_field :age, class: "mdui-textfield-input" %>
       </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <div class="mdui-row">
+          <% @lesson.timelines.each do |timeline| %>
+          <div class="mdui-col-xs-12">
+            <label class="mdui-radio">
+              <%= f.radio_button :timeline_id, timeline.id %> 
+              <i class="mdui-radio-icon"></i>
+              <%= timeline.subject %>
+            </label>
+          </div>
+          <% end %>
+        </div>
+      </div>
       <%= f.submit "确认报名", class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
     </fieldset>    
   <% end %>

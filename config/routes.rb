@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :timelines
     resources :roles
     resources :users, only: [:index]
     resources :products
