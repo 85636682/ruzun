@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510015451) do
+ActiveRecord::Schema.define(version: 20170511062053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(version: 20170510015451) do
     t.integer  "lesson_id"
     t.string   "trade_no"
     t.integer  "timeline_id"
+    t.string   "remark"
   end
 
   create_table "team_users", force: :cascade do |t|
