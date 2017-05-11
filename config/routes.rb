@@ -76,8 +76,10 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     resources :orders, only: [:index, :show, :create, :destroy]
     resources :order_tickets, only: [:show, :edit, :update]
-    resources :lessons
-    resources :students
+    resources :lessons do
+      resources :students, only: [:new, :create]
+    end
+    resources :students, only: [:index, :show, :edit, :update]
     resources :tickets do
       collection do
         get :sell

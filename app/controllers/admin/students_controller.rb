@@ -9,11 +9,14 @@ class Admin::StudentsController < AdminController
   end
 
   def new
+    @lesson = Lesson.find params[:lesson_id]
     @student = Student.new
   end
 
   def create
+    @lesson = Lesson.find params[:lesson_id]
     @student = Student.new student_params
+    @student.lesson_id = @lesson.id
     @student.status = :pending
     if @student.save
       redirect_to admin_student_path(@student)

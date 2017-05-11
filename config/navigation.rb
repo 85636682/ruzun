@@ -95,7 +95,6 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :admin_students, '<i class="zmdi zmdi-link"></i> 学生', '#', highlights_on: %r{/admin_students}, html: { class: 'sub-menu' } do |admin_students|
       admin_students.item :index, '列表', admin_students_path
-      admin_students.item :new, '新建', new_admin_student_path
     end
 
     primary.item :admin_sales_lists, '<i class="zmdi zmdi-link"></i> 超市零售单', '#', highlights_on: %r{/admin_sales_lists}, html: { class: 'sub-menu' } do |admin_sales_lists|
