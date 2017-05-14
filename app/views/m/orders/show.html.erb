@@ -23,7 +23,7 @@
   </div>
   <ul class="mdui-list">
     <% @order.order_tickets.each do |order_ticket| %>
-    <li class="mdui-list-item mdui-ripple">
+    <li class="mdui-list-item mdui-ripple" onclick="showQRCode(<%= order_ticket.id %>)">
       <div class="mdui-list-item-avatar">
         <%= image_tag("family-ticket.jpg") %>
       </div>
@@ -42,6 +42,16 @@
     </div>
     <div class="mdui-col-xs-6">
       <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= @order.id %>" data-pname="<%= @order.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">微信支付</a>
+    </div>
+  </div>
+  <% else %>
+  <div class="mdui-dialog" id="qrcode-dialog">
+    <div class="mdui-dialog-title">向验票员二维码出示</div>
+    <div class="mdui-dialog-content">
+      <div id="qrcode"></div>
+    </div>
+    <div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>关闭</button>
     </div>
   </div>
   <% end %>
@@ -67,6 +77,18 @@
         }
       });
     });
+  }
+  function showQRCode(order_ticket) {
+    return false;
+  }
+</script>
+<% else %>
+<script>
+  var inst = new mdui.Dialog('#qrcode-dialog');
+  
+  function showQRCode(order_ticket) {
+    $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + order_ticket + '/check');
+    inst.open();
   }
 </script>
 <% end %>
