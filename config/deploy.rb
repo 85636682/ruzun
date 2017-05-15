@@ -18,6 +18,14 @@ append :linked_files, "config/database.yml", "config/secrets.yml"
 
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
+desc 'Restart application'
+task :restart do
+  on roles(:app), in: :sequence, wait: 5 do
+    invoke 'puma:restart'
+  end
+end
+
 namespace :deploy do
   after :finishing, 'deploy:cleanup'
+  after :finishing, :restart
 end
