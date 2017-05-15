@@ -23,7 +23,7 @@
   </div>
   <ul class="mdui-list">
     <% @order.order_tickets.each do |order_ticket| %>
-    <li class="mdui-list-item mdui-ripple order-ticket-item">
+    <li class="mdui-list-item mdui-ripple order-ticket-item" data-id="<%= order_ticket.id %>">
       <div class="mdui-list-item-avatar">
         <%= image_tag("family-ticket.jpg") %>
       </div>
@@ -49,7 +49,9 @@
 <div class="bfui-dialog-box" id="qrcode-dialog">
   <div class="bfui-dialog">
     <div class="bfui-dialog-title"></div>
-    <div class="bfui-dialog-content"></div>
+    <div class="bfui-dialog-content">
+      <div id="qrcode"></div>
+    </div>
     <div class="bfui-dialog-actions">
       <button onclick="javascript:$('#qrcode-dialog').hide();" class="mdui-btn mdui-color-pink-accent mdui-btn-raised mdui-btn-block mdui-ripple">余额支付</button>
     </div>
@@ -81,6 +83,9 @@
 <% else %>
 <script>
   $('.order-ticket-item').click(function() {
+    var _id = $(this).data('id');
+    $('#qrcode').empty();
+    $('#qrcode').qrcode("http://bluefairypark.cn/m/order_ticket/" + _id + "/check");
     $('#qrcode-dialog').show();
   })
 </script>
