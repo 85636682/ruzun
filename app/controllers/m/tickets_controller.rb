@@ -1,6 +1,6 @@
 class M::TicketsController < MobileController
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all.order("created_at DESC")
   end
 
   def show
