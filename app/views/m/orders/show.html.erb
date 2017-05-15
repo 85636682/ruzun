@@ -85,7 +85,7 @@
   $('.order-ticket-item').click(function() {
     var _id = $(this).data('id');
     $('#qrcode').empty();
-    $('#qrcode').qrcode("http://bluefairypark.cn/m/order_ticket/" + _id + "/check");
+    $('#qrcode').qrcode("http://bluefairypark.cn/m/order_tickets/" + _id + "/check");
     $('#qrcode-dialog').show();
   })
 </script>
