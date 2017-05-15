@@ -83,13 +83,11 @@
 </script>
 <% else %>
 <script>
-  var inst = new mdui.Dialog('#qrcode-dialog');
-
   document.getElementByClassName('order-ticket-item').addEventListener('click', function () {
     var _id = $(this).data('id');
     $('#qrcode').empty();
     $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + _id + '/check');
-    inst.open();
+    $('#qrcode-dialog').show();
   });
 </script>
 <% end %>
