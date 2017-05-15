@@ -23,7 +23,7 @@
   </div>
   <ul class="mdui-list">
     <% @order.order_tickets.each do |order_ticket| %>
-    <li class="mdui-list-item mdui-ripple" onclick="showQRCode(<%= order_ticket.id %>)">
+    <li class="mdui-list-item mdui-ripple order-ticket-item" data-id="<%= order_ticket.id %>">
       <div class="mdui-list-item-avatar">
         <%= image_tag("family-ticket.jpg") %>
       </div>
@@ -84,11 +84,12 @@
 <% else %>
 <script>
   var inst = new mdui.Dialog('#qrcode-dialog');
-  
-  function showQRCode(order_ticket) {
+
+  document.getElementByClassName('order-ticket-item').addEventListener('click', function () {
+    var _id = $(this).data('id');
     $('#qrcode').empty();
-    $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + order_ticket + '/check');
+    $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + _id + '/check');
     inst.open();
-  }
+  });
 </script>
 <% end %>
