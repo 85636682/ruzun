@@ -129,10 +129,11 @@ ul.list-unstyled {
   flex-direction: column;
 
   .bfui-dialog-title, .bfui-dialog-actions {
-    height: 30px;
+    height: 40px;
   }
   .bfui-dialog-content {
     flex: 1;
+    display: flex;
     justify-content: center;
     align-content: center;
   }
