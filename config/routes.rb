@@ -79,7 +79,7 @@ Rails.application.routes.draw do
     resources :lessons do
       resources :students, only: [:new, :create, :update]
     end
-    resources :students, only: [:index, :show, :edit]
+    resources :students, only: [:index, :show, :edit, :destroy]
     resources :tickets do
       collection do
         get :sell
