@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :m do
+    get 'order_tickets/check'
+  end
+
   get 'auth/wechat/callback' => 'users#omniauth_callbacks'
 
   namespace :m do
@@ -12,6 +16,12 @@ Rails.application.routes.draw do
 
     resources :deposits, only: [:index, :show, :new, :create]
     resources :orders, only: [:index, :show, :create]
+    resources :order_tickets, only: [] do
+      member do
+        get :check
+        post :checkin
+      end
+    end
     resources :tickets, only: [:index, :show]
     resources :shopping_carts, only: [:index, :destroy] do
       collection do
