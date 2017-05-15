@@ -46,6 +46,15 @@
   </div>
   <% end %>
 </div>
+<div class="bfui-dialog-box" id="qrcode-dialog">
+  <div class="bfui-dialog">
+    <div class="bfui-dialog-title"></div>
+    <div class="bfui-dialog-content"></div>
+    <div class="bfui-dialog-actions">
+      <button onclick="javascript:$('#qrcode-dialog').hide();" class="mdui-btn mdui-color-pink-accent mdui-btn-raised mdui-btn-block mdui-ripple">余额支付</button>
+    </div>
+  </div>
+</div>
 
 <% if @order.pending? && Figaro.env.wechat_pay_mch_id %>
 <script>
@@ -68,5 +77,11 @@
       });
     });
   }
+</script>
+<% else %>
+<script>
+  $('.order-ticket-item').click(function() {
+    $('#qrcode-dialog').show();
+  })
 </script>
 <% end %>
