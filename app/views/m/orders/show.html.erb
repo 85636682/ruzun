@@ -83,10 +83,11 @@
 </script>
 <% else %>
 <script>
+  var inst = new mdui.Dialog('#qrcode-dialog');
+  
   function showQRCode(order_ticket) {
     $('#qrcode').empty();
     $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + order_ticket + '/check');
-    var inst = new mdui.Dialog('#qrcode-dialog');
     inst.open();
   }
 </script>
