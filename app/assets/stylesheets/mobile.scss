@@ -132,6 +132,12 @@ ul.list-unstyled {
     height: 40px;
     text-align: center;
   }
+  .bfui-dialog-title {
+      margin-top: 10px;
+  }
+  .bfui-dialog-actions {
+      margin-bottom: 10px;
+  }
   .bfui-dialog-content {
     flex: 1;
     display: flex;
