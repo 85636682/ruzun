@@ -50,6 +50,8 @@ class MobileController < ApplicationController
       if action_name == 'water'
         header_title = '水质检测'
       end
+    elsif controller_name == 'order_tickets'
+      header_title = '验票'
     else
       header_title = ''
     end
