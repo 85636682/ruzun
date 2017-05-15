@@ -83,7 +83,7 @@
 </script>
 <% else %>
 <script>
-  document.getElementByClassName('order-ticket-item').addEventListener('click', function () {
+  $('.order-ticket-item').click(function () {
     var _id = $(this).data('id');
     $('#qrcode').empty();
     $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + _id + '/check');
