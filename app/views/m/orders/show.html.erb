@@ -86,8 +86,8 @@
 <script>
   function showQRCode(order_ticket) {
     $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + order_ticket + '/check');
-    // var inst = new mdui.Dialog('#qrcode-dialog');
-    // inst.open();
+    var inst = new mdui.Dialog('#qrcode-dialog');
+    inst.open();
   }
 </script>
 <% end %>
