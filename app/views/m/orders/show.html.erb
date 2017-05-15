@@ -23,7 +23,7 @@
   </div>
   <ul class="mdui-list">
     <% @order.order_tickets.each do |order_ticket| %>
-    <li class="mdui-list-item mdui-ripple order-ticket-item" data-id="<%= order_ticket.id %>">
+    <li class="mdui-list-item mdui-ripple order-ticket-item">
       <div class="mdui-list-item-avatar">
         <%= image_tag("family-ticket.jpg") %>
       </div>
@@ -46,13 +46,6 @@
   </div>
   <% end %>
 </div>
-<div class="cd-popup" role="alert">
-	<div class="cd-popup-container">
-		<p>向验票员二维码出示</p>
-    <div id="qrcode"></div>
-		<a href="#0" style="display: block;" class="cd-popup-close img-replace">Close</a>
-	</div> <!-- cd-popup-container -->
-</div> <!-- cd-popup -->
 
 <% if @order.pending? && Figaro.env.wechat_pay_mch_id %>
 <script>
@@ -75,17 +68,5 @@
       });
     });
   }
-  function showQRCode(order_ticket) {
-    return false;
-  }
-</script>
-<% else %>
-<script>
-  $('.order-ticket-item').click(function () {
-    var _id = $(this).data('id');
-    $('#qrcode').empty();
-    $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + _id + '/check');
-    $('#cd-popup').show();
-  });
 </script>
 <% end %>
