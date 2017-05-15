@@ -44,17 +44,16 @@
       <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= @order.id %>" data-pname="<%= @order.class.name %>" class="mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple">微信支付</a>
     </div>
   </div>
-  <% else %>
-  <div class="mdui-dialog" id="qrcode-dialog">
-    <div class="mdui-dialog-title">向验票员二维码出示</div>
-    <div class="mdui-dialog-content">
-      <div id="qrcode"></div>
-    </div>
-    <div class="mdui-dialog-actions">
-      <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>关闭</button>
-    </div>
-  </div>
   <% end %>
+</div>
+<div class="mdui-dialog" id="qrcode-dialog">
+  <div class="mdui-dialog-title">向验票员二维码出示</div>
+  <div class="mdui-dialog-content">
+    <div id="qrcode"></div>
+  </div>
+  <div class="mdui-dialog-actions">
+    <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>关闭</button>
+  </div>
 </div>
 
 <% if @order.pending? && Figaro.env.wechat_pay_mch_id %>
@@ -85,6 +84,7 @@
 <% else %>
 <script>
   function showQRCode(order_ticket) {
+    $('#qrcode').empty();
     $('#qrcode').qrcode('http://bluefariypark.cn/m/order_ticket/' + order_ticket + '/check');
     var inst = new mdui.Dialog('#qrcode-dialog');
     inst.open();
