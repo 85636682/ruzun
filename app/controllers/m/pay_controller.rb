@@ -47,6 +47,8 @@ class M::PayController < MobileController
       out_trade_no = user_membership_card.trade_no
       total_fee = user_membership_card.membership_card.fee.to_i * 100
       attach = "usermembershipcard"
+      Rails.logger.info out_trade_no
+      Rails.logger.info total_fee
     end
     
     pay_params = {
