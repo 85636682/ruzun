@@ -176,8 +176,9 @@ ul.list-unstyled {
   }
   .action {
     flex: 1;
-    text-align: center;
-    line-height: 140px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 
     input[type="submit"] {
       color: #fff;
