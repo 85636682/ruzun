@@ -41,6 +41,12 @@ class M::PayController < MobileController
       out_trade_no = deposit.trade_no
       total_fee = deposit.fee.to_i * 100
       attach = "deposit"
+    elsif params[:name].downcase == 'usermembershipcard'
+      user_membership_card = UserMembershipCard.find(params[:id])
+      body = "蓝精灵水上乐园-会员卡"
+      out_trade_no = user_membership_card.trade_no
+      total_fee = user_membership_card.fee.to_i * 100
+      attach = "usermembershipcard"
     end
     
     pay_params = {
@@ -84,6 +90,10 @@ class M::PayController < MobileController
         user = deposit.user
         award_fee = (deposit.fee.to_i / 100).to_i * 30
         user.update_attributes(fairy_coins: user.fairy_coins.to_i + deposit.fee.to_i + award_fee)
+      elsif result["attach"] == 'usermembershipcard'
+        user_membership_card = UserMembershipCard.find_by_trade_no(result["out_trade_no"])
+        user_membership_card.update_attributes(status: :checkouted)
+        # 设置实效日期
       end
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else

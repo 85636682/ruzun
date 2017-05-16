@@ -1,3 +1,9 @@
+<%= wechat_config_js debug: false, api: %w(hideMenuItems closeWindow chooseWXPay) -%>
+<script type="application/javascript">
+  wx.ready(function() {
+    wx.hideOptionMenu();
+  });
+</script>
 <div class="mdui-container">
   <ul class="list-unstyled bfui-membership-card-list">
     <% @user_membership_cards.each_with_index do |user_card, index| %>
@@ -9,9 +15,35 @@
                 <span><%= user_card.membership_card.fee %></span>
             </div>
             <div class="action">
+                <% if user_card.pending? %>
+                <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= user_card.id %>" data-pname="<%= user_card.class.name %>" class="mdui-btn">支付</a>
+                <% end %>
             </div>
         </div>
     </li>
     <% end %>
   </ul>
 </div>
+<% if Figaro.env.wechat_pay_mch_id %>
+<script>
+  function wxpay(e) {
+    var pid = $(e).data('pid');
+    var pname = $(e).data('pname');
+    $.post('/m/wx_pay?id=' + pid + '&name='+ pname, function(data) {
+      wx.chooseWXPay({
+        timestamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: function (res) {
+          location.reload();
+        },
+        error: function(e) {
+          alert('支付发生错误，请联系客服。');
+        }
+      });
+    });
+  }
+</script>
+<% end %>
