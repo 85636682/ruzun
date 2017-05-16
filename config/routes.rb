@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :m do
-    get 'order_tickets/check'
-  end
-
   get 'auth/wechat/callback' => 'users#omniauth_callbacks'
 
   namespace :m do
@@ -77,6 +73,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :membership_cards
     resources :timelines
     resources :roles
     resources :users, only: [:index]

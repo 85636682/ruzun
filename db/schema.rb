@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511062053) do
+ActiveRecord::Schema.define(version: 20170516002544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20170511062053) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "membership_cards", force: :cascade do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.integer  "fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_tickets", force: :cascade do |t|
@@ -224,6 +232,17 @@ ActiveRecord::Schema.define(version: 20170511062053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "lesson_id"
+  end
+
+  create_table "user_membership_cards", force: :cascade do |t|
+    t.string   "trade_no"
+    t.integer  "user_id"
+    t.integer  "membership_card_id"
+    t.date     "disabled"
+    t.integer  "days"
+    t.integer  "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
