@@ -1,4 +1,9 @@
 zh:
+  order:
+    status:
+      pending: "代付款"
+      checkouted: "已付款"
+      completed: "完成"
   activerecord:
     models:
       merchant: "商家"
