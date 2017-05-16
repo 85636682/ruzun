@@ -160,21 +160,12 @@ ul.list-unstyled {
   padding: 0 10px;
   position: relative;
   overflow: hidden;
-
-  i { 
-    position: absolute;
-    left: 20%;
-    top: 45px;
-    height: 190px;
-    width: 390px;
-    background-color: rgba(255,255,255,.15);
-    transform: rotate(-30deg);
-  }
+  display: flex;
+  flex-direction: row;
 
   .par {
-    float: left;
+    flex: 2;
     padding: 10px;
-    width: 180px;
     border-right:2px dashed rgba(255,255,255,.3);
     text-align: left;
 
@@ -184,6 +175,7 @@ ul.list-unstyled {
     sub { position: relative; top:-5px;color:rgba(255,255,255,.8); }
   }
   .action {
+    flex: 1;
     text-align: center;
     line-height: 140px;
     color: #fff;
@@ -192,17 +184,6 @@ ul.list-unstyled {
     input[type="submit"] {
       color: #fff;
     }
-  }
-
-  .copy {
-    display: inline-block;
-    padding: 21px 14px;
-    width: 100px;
-    vertical-align: text-bottom;
-    font-size: 30px;
-    color:rgb(255,255,255);
-
-    p { font-size: 16px; margin-top: 15px; }
   }
 }
 .bfui-stamp:before {
