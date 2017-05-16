@@ -108,8 +108,8 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :membership_cards, '<i class="zmdi zmdi-link"></i> 会员卡', '#', highlights_on: %r{/membership_cards}, html: { class: 'sub-menu' } do |membership_cards|
-      membership_cards.item :index, '列表', membership_cards_path
-      membership_cards.item :new, '新建', new_membership_card_path
+      membership_cards.item :index, '列表', admin_membership_cards_path
+      membership_cards.item :new, '新建', new_admin_membership_card_path
     end
 
     primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
