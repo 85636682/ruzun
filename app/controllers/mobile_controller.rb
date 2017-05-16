@@ -52,6 +52,8 @@ class MobileController < ApplicationController
       end
     elsif controller_name == 'order_tickets'
       header_title = '验票'
+    elsif controller_name == 'membership_cards'
+      header_title = '会员卡'
     else
       header_title = ''
     end

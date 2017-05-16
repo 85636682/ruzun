@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'wx_pay' => 'pay#wx_pay'
     post 'wx_notify' => 'pay#wx_notify'
 
+    resources :membership_cards, only: [:index, :show, :new]
     resources :deposits, only: [:index, :show, :new, :create]
     resources :orders, only: [:index, :show, :create]
     resources :order_tickets, only: [] do
