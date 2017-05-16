@@ -31,5 +31,9 @@ module ApplicationHelper
   def user_avatar
     current_user.wechat_avatar.blank? ? 'bluefairy2.jpg' : current_user.wechat_avatar
   end
+
+  def i18n_enum model, type
+    I18n.t "#{model.class.model_name.i18n_key}.#{type}.#{model.send(type)}" if model.respond_to?(type)
+  end
   
 end
