@@ -11,7 +11,7 @@
             <div class="action">
                 <%= form_for [:m, UserMembershipCard.new] do |f| %>
                     <%= f.hidden_field :membership_card_id, value: card.id %>
-                    <%= f.submit "购买", class: "mdui-btn", style: "color:#fff;" %>
+                    <%= f.submit "购买", class: "mdui-btn", style: "color:#fff;font-size:24px;" %>
                 <% end %>
             </div>
         </div>
