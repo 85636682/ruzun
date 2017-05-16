@@ -45,7 +45,7 @@ class M::PayController < MobileController
       user_membership_card = UserMembershipCard.find(params[:id])
       body = "蓝精灵水上乐园-会员卡"
       out_trade_no = user_membership_card.trade_no
-      total_fee = user_membership_card.fee.to_i * 100
+      total_fee = user_membership_card.membership_card.fee.to_i * 100
       attach = "usermembershipcard"
     end
     
