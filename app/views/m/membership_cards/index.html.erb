@@ -1,2 +1,17 @@
-<h1>M::MembershipCards#index</h1>
-<p>Find me in app/views/m/membership_cards/index.html.erb</p>
+<div class="mdui-container">
+  <ul class="list-unstyled bfui-membership-card-list">
+    <% @user_membership_cards.each_with_index do |user_card, index| %>
+    <li>
+        <div class="bfui-stamp bfui-stamp-<%= index + 1 %>">
+            <div class="par">
+                <p>蓝精灵 <%= user_card.membership_card.name %></p>
+                <sub class="sign">￥</sub>
+                <span><%= user_card.membership_card.fee %></span>
+            </div>
+            <div class="action">
+            </div>
+        </div>
+    </li>
+    <% end %>
+  </ul>
+</div>

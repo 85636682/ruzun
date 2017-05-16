@@ -146,6 +146,14 @@ ul.list-unstyled {
   }
 }
 
+.bfui-membership-card-list {
+  margin-top: 10px;
+
+  li {
+    height: 140px;
+    margin-bottom: 10px;
+  }
+}
 .bfui-stamp {
   width: 100%;
   height: 140px;
@@ -165,15 +173,25 @@ ul.list-unstyled {
 
   .par {
     float: left;
-    padding: 16px 15px;
-    width: 220px;
+    padding: 10px;
+    width: 180px;
     border-right:2px dashed rgba(255,255,255,.3);
     text-align: left;
 
-    p { color:#fff; }
+    p { color:#fff; font-size: 24px; }
     span { font-size: 50px; color:#fff; margin-right: 5px; }
     .sign { font-size: 34px; }
     sub { position: relative; top:-5px;color:rgba(255,255,255,.8); }
+  }
+  .action {
+    text-align: center;
+    line-height: 140px;
+    color: #fff;
+    font-size: 20px;
+
+    input[type="submit"] {
+      color: #fff;
+    }
   }
 
   .copy {

@@ -1,5 +1,5 @@
 <div class="mdui-container">
-  <ul>
+  <ul class="list-unstyled bfui-membership-card-list">
     <% @membership_cards.each_with_index do |card, index| %>
     <li>
         <div class="bfui-stamp bfui-stamp-<%= index + 1 %>">
@@ -7,11 +7,13 @@
                 <p>蓝精灵 <%= card.name %></p>
                 <sub class="sign">￥</sub>
                 <span><%= card.fee %></span>
-                <sub>优惠券</sub>
-                <p>订单满100.00元</p>
             </div>
-            <div class="copy">副券<p>2015-08-13<br>2016-08-13</p></div>
-            <i></i>
+            <div class="action">
+                <%= form_for [:m, UserMembershipCard.new] do |f| %>
+                    <%= f.hidden_field :membership_card_id, value: card.id %>
+                    <%= f.submit "购买" %>
+                <% end %>
+            </div>
         </div>
     </li>
     <% end %>
