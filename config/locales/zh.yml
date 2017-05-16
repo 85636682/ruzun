@@ -4,6 +4,12 @@ zh:
       pending: "代付款"
       checkouted: "已付款"
       completed: "完成"
+  student:
+    status:
+      pending: "代付款"
+      checkouted: "已付款"
+      completed: "完成"
+      canceled: "取消"
   activerecord:
     models:
       merchant: "商家"
