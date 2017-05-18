@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516002544) do
+ActiveRecord::Schema.define(version: 20170518020406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20170516002544) do
     t.text     "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lockers", force: :cascade do |t|
+    t.string   "serial_number"
+    t.integer  "state"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "managers", force: :cascade do |t|
@@ -234,6 +241,15 @@ ActiveRecord::Schema.define(version: 20170516002544) do
     t.integer  "lesson_id"
   end
 
+  create_table "user_lockers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "locker_id"
+    t.boolean  "used",        default: true
+    t.datetime "returned_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "user_membership_cards", force: :cascade do |t|
     t.string   "trade_no"
     t.integer  "user_id"
@@ -256,8 +272,8 @@ ActiveRecord::Schema.define(version: 20170516002544) do
     t.string   "province"
     t.string   "city"
     t.string   "district"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "password_digest"
     t.integer  "teams_count"
     t.integer  "team_id"
@@ -271,6 +287,7 @@ ActiveRecord::Schema.define(version: 20170516002544) do
     t.integer  "sex"
     t.string   "wechat_avatar"
     t.integer  "fairy_coins"
+    t.integer  "foregift",        default: 0
   end
 
 end

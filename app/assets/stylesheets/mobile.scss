@@ -77,7 +77,13 @@ ul.list-unstyled {
 .money {
     width: 100%;
     height: 50px;
-    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+
+    .coins, .foregift {
+      display: flex;
+      flex-direction: column;
+    }
 }
 
 .water {

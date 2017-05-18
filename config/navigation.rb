@@ -112,6 +112,11 @@ SimpleNavigation::Configuration.run do |navigation|
       membership_cards.item :new, '新建', new_admin_membership_card_path
     end
 
+    primary.item :lockers, '<i class="zmdi zmdi-link"></i> 储物柜', '#', highlights_on: %r{/lockers}, html: { class: 'sub-menu' } do |lockers|
+      lockers.item :index, '列表', admin_lockers_path
+      lockers.item :new, '新建', new_admin_locker_path
+    end
+
     primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
       admin_users.item :index, '列表', admin_users_path
     end

@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :lockers
     resources :membership_cards
     resources :timelines
     resources :roles

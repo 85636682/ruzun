@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>储物柜编号</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @lockers.each do |locker| %>
+            <tr>
+                <th scope="row"><%= locker.id %></th>
+                <td><%= locker.serial_number %></td>
+                <td><%= locker.state %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_locker_path(locker) %>
+                    <%= link_to '删除', admin_locker_path(locker), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

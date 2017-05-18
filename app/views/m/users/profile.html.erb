@@ -7,7 +7,14 @@
           <span><%= current_user.nickname %></span>
       </div>
   </div>
-  <div class="money"><span>账户余额</span><span style="float:right;">￥<%= current_user.fairy_coins %></span></div>
+  <div class="money">
+    <div class="coins">
+      <span>账户余额</span><span>￥<%= current_user.fairy_coins %></span>
+    </div>
+    <div class="foregift">
+      <span>储物柜押金</span><span>￥<%= current_user.foregift %></span>
+    </div>
+  </div>
   <div class="mdui-divider"></div>
   <ul class="mdui-list">
     <a href="<%= new_m_deposit_path %>" >
@@ -19,7 +26,6 @@
         <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
       </li>
     </a>
-    <li class="mdui-divider-inset mdui-m-y-0"></li>
     <a href="<%= m_deposits_path %>" >
       <li class="mdui-list-item mdui-ripple">
         <div class="mdui-list-item-avatar">
