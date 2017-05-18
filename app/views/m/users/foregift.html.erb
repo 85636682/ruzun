@@ -10,13 +10,12 @@
             <span>¥ <%= current_user.foregift %></span>
         </div>
     </div>
-    <div class="mdui-divider"></div>
     <div class="mdui-row-xs-2">
         <div class="mdui-col">
-            <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= current_user.id %>" data-pname="foregift" class="mdui-btn mdui-btn-block mdui-color-red mdui-ripple">交押金</a>
+            <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= current_user.id %>" data-pname="foregift" class="mdui-btn mdui-btn-block mdui-color-pink mdui-ripple">交押金</a>
         </div>
         <div class="mdui-col">
-            <a class="mdui-btn mdui-btn-block mdui-color-green mdui-ripple">退押金</a>
+            <a class="mdui-btn mdui-btn-block mdui-color-teal mdui-ripple">退押金</a>
         </div>
     </div>
 </div>
