@@ -2,7 +2,7 @@ class Admin::LockersController < AdminController
   before_action :set_locker, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lockers = Locker.all.order("created_at DESC").paginate(:page => params[:page])
+    @lockers = Locker.all.order("created_at ASC").paginate(:page => params[:page])
   end
 
   def show

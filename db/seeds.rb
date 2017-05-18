@@ -5,4 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-admin = Admin.create(phone: '15768092082', name: '黎锦洪', password: '861117')
+#   admin = Admin.create(phone: '15768092082', name: '黎锦洪', password: '861117')
+
+(1..96).each do |i|
+    Locker.create(serial_number: "0#{i}", state: :unused)
+end
