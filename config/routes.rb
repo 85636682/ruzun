@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     post 'wx_pay' => 'pay#wx_pay'
     post 'wx_notify' => 'pay#wx_notify'
 
+    resources :lucky_draws, only: [:index] do
+      member do
+        get :draw
+      end
+    end
     resources :user_lockers, only: [:new, :create]
     resources :membership_cards, only: [:index, :show, :new]
     resources :user_membership_cards, only: [:create]

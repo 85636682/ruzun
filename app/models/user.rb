@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :deposits
   has_many :user_membership_cards
   has_many :user_lockers
+  has_many :lucky_draws
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
