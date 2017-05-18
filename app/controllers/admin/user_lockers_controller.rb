@@ -7,7 +7,7 @@ class Admin::UserLockersController < AdminController
         user_locker = UserLocker.find params[:id]
         user_locker.update_attributes(used: false, returned_at: DateTime.now)
         user_locker.locker.update_attributes(state: :unused)
-        redirect_to admin_user_lockers
+        redirect_to admin_user_lockers_path
     end
     
 end
