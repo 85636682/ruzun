@@ -82,11 +82,13 @@ ul.list-unstyled {
 
     .coins, .foregift {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
       text-align: center;
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+      }
     }
 }
 
