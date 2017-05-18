@@ -16,7 +16,7 @@
                 <td><%= user_locker.locker.serial_number %></td>
                 <td><%= user_locker.used %></td>
                 <td>
-                    <%= link_to "退还", back_admin_user_locker_path(locker) %>
+                    <%= link_to "退还", back_admin_user_locker_path(user_locker) %>
                 </td>
             </tr>
         <% end %>
