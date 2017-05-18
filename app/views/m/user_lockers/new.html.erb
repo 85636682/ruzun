@@ -4,7 +4,7 @@
         <% if @user_locker.blank? %>
             <span>你还未领取储物柜</span>
         <% else %>
-            <span><%= @user_locker.lock.serial_number %></span>
+            <span><%= @user_locker.locker.serial_number %></span>
         <% end %>
         </div>
     </div>
