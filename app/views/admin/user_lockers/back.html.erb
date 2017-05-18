@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>储物柜编号</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @user_lockers.each do |user_locker| %>
+            <tr>
+                <th scope="row"><%= user_locker.id %></th>
+                <td><%= user_locker.locker.serial_number %></td>
+                <td><%= user_locker.used %></td>
+                <td>
+                    <%= link_to "退还", back_admin_user_locker_path(locker) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

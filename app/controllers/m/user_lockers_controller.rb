@@ -22,11 +22,5 @@ class M::UserLockersController < MobileController
       redirect_to new_m_user_locker_path
     end
   end
-
-  def back
-    user_locker = UserLocker.find params[:id]
-    user_locker.update_attributes(used: false, returned_at: DateTime.now)
-    user_locker.locker.update_attributes(state: :unused)
-  end
   
 end

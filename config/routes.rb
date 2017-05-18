@@ -77,6 +77,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :user_lockers, only: [:index] do
+      member do
+        get :back
+      end
+    end
     resources :lockers
     resources :membership_cards
     resources :timelines

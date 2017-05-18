@@ -117,6 +117,10 @@ SimpleNavigation::Configuration.run do |navigation|
       lockers.item :new, '新建', new_admin_locker_path
     end
 
+    primary.item :user_lockers, '<i class="zmdi zmdi-link"></i> 储物柜租借', '#', highlights_on: %r{/user_lockers}, html: { class: 'sub-menu' } do |user_lockers|
+      user_lockers.item :index, '列表', admin_user_lockers_path
+    end
+
     primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
       admin_users.item :index, '列表', admin_users_path
     end
