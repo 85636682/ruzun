@@ -4,12 +4,13 @@
         <% if @user_locker.blank? %>
             <span>你还未领取储物柜</span>
         <% else %>
-            <span><%= @user_locker.locker.serial_number %></span>
+            <%= image_tag("locker.png") %>
+            <span style="font-size: 20px;"><%= @user_locker.locker.serial_number %></span>
         <% end %>
         </div>
     </div>
     <div class="mdui-row-xs-1">
-        <div class="mdui-col">
+        <div class="mdui-col" style="text-align:center;">
         <% if @user_locker.blank? %>
             <%= form_for [:m, UserLocker.new] do |f| %>
             <%= f.submit "领取储物柜", class: "mdui-btn mdui-btn-block mdui-color-pink mdui-ripple" %>
