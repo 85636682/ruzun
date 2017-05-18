@@ -2,10 +2,13 @@
 //= require jquery_ujs
 //= require tether
 //= require bootstrap-sprockets
+//= require jquery.autogrow-textarea
 //= require turbolinks
 
 
 function domReady() {
+  $( "textarea" ).autogrow( { vertical : true, horizontal : false } );
+  
   /***********
    * Sidebar *
    ***********/
