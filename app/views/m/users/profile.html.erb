@@ -8,10 +8,12 @@
       </div>
   </div>
   <div class="money">
-    <div class="coins">
-      <span>账户余额</span>
-      <span>￥<%= current_user.fairy_coins %></span>
-    </div>
+    <a href="<%= m_deposits_path %>">
+      <div class="coins">
+        <span>账户余额</span>
+        <span>￥<%= current_user.fairy_coins %></span>
+      </div>
+    </a>
     <div class="foregift">
       <span>储物柜押金</span>
       <span>￥<%= current_user.foregift %></span>
