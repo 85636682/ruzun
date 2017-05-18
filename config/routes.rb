@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :awards
     resources :user_lockers, only: [:index] do
       member do
         get :back

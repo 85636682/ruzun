@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>抽奖名称</th>
+                <th>抽奖概率</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @awards.each do |award| %>
+            <tr>
+                <th scope="row"><%= award.id %></th>
+                <td><%= award.subject %></td>
+                <td><%= award.rate %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_award_path(award) %>
+                    <%= link_to '删除', admin_award_path(award), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

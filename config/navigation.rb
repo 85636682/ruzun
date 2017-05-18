@@ -121,6 +121,11 @@ SimpleNavigation::Configuration.run do |navigation|
       user_lockers.item :index, '列表', admin_user_lockers_path
     end
 
+    primary.item :awards, '<i class="zmdi zmdi-link"></i> 奖品设置', '#', highlights_on: %r{/awards}, html: { class: 'sub-menu' } do |awards|
+      awards.item :index, '列表', admin_awards_path
+      awards.item :new, '新建', new_admin_award_path
+    end
+
     primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
       admin_users.item :index, '列表', admin_users_path
     end
