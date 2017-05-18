@@ -8,10 +8,14 @@
         <% end %>
         </div>
     </div>
-    <div class="mdui-row-xs-2">
+    <div class="mdui-row-xs-1">
         <div class="mdui-col">
         <% if @user_locker.blank? %>
-            <%= link_to "领取储物柜", m_user_lockers_path, methods: :post, class: "mdui-btn mdui-btn-block mdui-color-pink mdui-ripple" %>
+            <%= form_for [:m, @user_locker] do |f| %>
+            <%= f.submit "领取储物柜", class: "mdui-btn mdui-btn-block mdui-color-pink mdui-ripple" %>
+            <% end %>
+        <% else %>
+        <span>请到前台退还钥匙</span>
         <% end %>
         </div>
     </div>
