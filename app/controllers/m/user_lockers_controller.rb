@@ -1,6 +1,6 @@
 class M::UserLockersController < MobileController
   def new
-    user_locker = UserLocker.where(user_id: current_user.id, used: true).first
+    @user_locker = UserLocker.where(user_id: current_user.id, used: true).first
   end
 
   def create

@@ -1,16 +1,16 @@
 <div class="mdui-container" style="margin-top: 10px;">
     <div class="mdui-row-xs-1">
         <div class="mdui-col" style="text-align:center;height: 100px;line-height:100px;">
-        <% if user_locker.blank? %>
+        <% if @user_locker.blank? %>
             <span>你还未领取储物柜</span>
         <% else %>
-            <span><%= user_locker.lock.serial_number %></span>
+            <span><%= @user_locker.lock.serial_number %></span>
         <% end %>
         </div>
     </div>
     <div class="mdui-row-xs-2">
         <div class="mdui-col">
-        <% if user_locker.blank? %>
+        <% if @user_locker.blank? %>
             <%= link_to "领取储物柜", m_user_lockers_path, methods: :post, class: "mdui-btn mdui-btn-block mdui-color-pink mdui-ripple" %>
         <% end %>
         </div>
