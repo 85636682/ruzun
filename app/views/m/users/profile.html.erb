@@ -15,7 +15,7 @@
       </a>
     </div>
     <div class="foregift">
-      <a href="<%= m_deposits_path %>">
+      <a href="<%= foregift_m_users_path %>">
         <span>储物柜押金</span>
         <span>￥<%= current_user.foregift %></span>
       </a>
@@ -32,22 +32,13 @@
         <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
       </li>
     </a>
-    <a href="<%= m_deposits_path %>" >
-      <li class="mdui-list-item mdui-ripple">
-        <div class="mdui-list-item-avatar">
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xE227;</i>
-        </div>
-        <div class="mdui-list-item-content">充值记录</div>
-        <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
-      </li>
-    </a>
     <li class="mdui-divider-inset mdui-m-y-0"></li>
     <a href="<%= m_orders_path %>">
       <li class="mdui-list-item mdui-ripple">
         <div class="mdui-list-item-avatar">
           <i class="mdui-list-item-icon mdui-icon material-icons">&#xe168;</i>
         </div>
-        <div class="mdui-list-item-content">订单</div>
+        <div class="mdui-list-item-content">购票订单</div>
         <i class="mdui-list-item-icon mdui-icon material-icons">&#xE315;</i>
       </li>
     </a>

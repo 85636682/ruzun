@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get :profile
+        get :foregift
       end
     end
     resources :lessons, only: [:index, :show] do

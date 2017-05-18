@@ -1,0 +1,42 @@
+<%= wechat_config_js debug: false, api: %w(hideMenuItems closeWindow chooseWXPay) -%>
+<script type="application/javascript">
+  wx.ready(function() {
+    wx.hideOptionMenu();
+  });
+</script>
+<div class="mdui-container" style="margin-top: 10px;">
+    <div class="mdui-row-xs-1">
+        <div class="mdui-col" style="text-align:center;height: 100px;line-height:100px;">
+            <span>¥ <%= current_user.foregift %></span>
+        </div>
+    </div>
+    <div class="mdui-row-xs-2">
+        <div class="mdui-col">
+            <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= current_user.id %>" data-pname="foregift" class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple">交押金</a>
+        </div>
+        <div class="mdui-col">
+            <a class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple">退押金</a>
+        </div>
+    </div>
+</div>
+<script>
+  function wxpay(e) {
+    var pid = $(e).data('pid');
+    var pname = $(e).data('pname');
+    $.post('/m/wx_pay?id=' + pid + '&name='+ pname, function(data) {
+      wx.chooseWXPay({
+        timestamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success: function (res) {
+          location.reload();
+        },
+        error: function(e) {
+          alert('支付发生错误，请联系客服。');
+        }
+      });
+    });
+  }
+</script>

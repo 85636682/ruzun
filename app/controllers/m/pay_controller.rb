@@ -47,8 +47,12 @@ class M::PayController < MobileController
       out_trade_no = user_membership_card.trade_no
       total_fee = user_membership_card.membership_card.fee.to_i * 100
       attach = "usermembershipcard"
-      Rails.logger.info out_trade_no
-      Rails.logger.info total_fee
+    elsif params[:name].downcase == 'foregift'
+      user = User.find params[:id]
+      body = "蓝精灵水上乐园-储物柜押金"
+      out_trade_no = "#{user.id}_FG" + DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s
+      total_fee = 2000
+      attach = "foregift"
     end
     
     pay_params = {
@@ -96,6 +100,10 @@ class M::PayController < MobileController
         user_membership_card = UserMembershipCard.find_by_trade_no(result["out_trade_no"])
         user_membership_card.update_attributes(status: :checkouted)
         # 设置实效日期
+      elsif result["attach"] == 'foregift'
+        _id = result["out_trade_no"].split("_")[0]
+        user = User.find _id
+        user.update_attributes(foregift: user.foregift.to_i + 20)
       end
       render xml: { return_code: 'SUCCESS', return_msg: 'OK' }.to_xml(root: 'xml', dasherize: false)
     else
