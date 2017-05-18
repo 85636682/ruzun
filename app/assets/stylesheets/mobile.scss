@@ -81,8 +81,11 @@ ul.list-unstyled {
     flex-direction: row;
 
     .coins, .foregift {
+      flex: 1;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-content: center;
     }
 }
 
