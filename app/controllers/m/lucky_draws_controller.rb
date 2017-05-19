@@ -13,7 +13,11 @@ class M::LuckyDrawsController < MobileController
   end
   
   def draw
-    @lucky_draw = LuckyDraw.find params[:id]
+    @lucky_draw = LuckyDraw.where(award_id: nil).first
+    if @lucky_draw.blank?
+      redirect_to m_lucky_draws_path and return
+    end
+    # 抽奖
   end
 
   private

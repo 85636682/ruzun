@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     resources :coupons, only: [:new, :create]
     resources :lucky_draws, only: [:index, :create] do
-      member do
+      collection do
         get :draw
       end
     end
