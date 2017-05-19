@@ -1,5 +1,10 @@
 <div class="mdui-container-fluid">
     <div class="mdui-row">
+    <% if @lucky %>
+    恭喜你，中奖了 <%= @lucky_draw.award.subject %>
+    <% else %>
+    很遗憾，没中奖
+    <% end %>
         <div class="mdui-col-xs-6">
             <button class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">继续抽奖</button>
         </div>

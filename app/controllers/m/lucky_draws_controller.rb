@@ -13,11 +13,20 @@ class M::LuckyDrawsController < MobileController
   end
   
   def draw
-    @lucky_draw = LuckyDraw.where(award_id: nil).first
+    @lucky_draw = current_user.lucky_draws.where(drawed: false).first
     if @lucky_draw.blank?
       redirect_to m_lucky_draws_path and return
     end
     # 抽奖
+    @lucky = false
+    temp_number = rand
+    Award.all.order("rate DESC").each do |award|
+      if temp_number < award.rate
+        @lucky_draw.update_attributes(award_id: award.id, drawed: true, drawed_at: Time.now)
+        @lucky = true
+        break
+      end
+    end
   end
 
   private
