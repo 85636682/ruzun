@@ -3,7 +3,23 @@
     <div class="mdui-col-xs-12">
       <ul>
       <% @lucky_draws.each do |lucky_draw| %>
-        <li><%= lucky_draw.id %></li>
+        <li>
+          <div class="mdui-row">
+            <div class="mdui-col-xs-3">
+              <%= lucky_draw.id %>
+            </div>
+            <div class="mdui-col-xs-6">
+            <% if lucky_draw.drawed %>
+              <%= lucky_draw.award.blank? ? "没中奖" : lucky_draw.award.subject %>
+            <% else %>
+              未抽奖
+            <% end %>
+            </div>
+            <div class="mdui-col-xs-3">
+              <%= lucky_draw.drawed_at %>
+            </div>
+          </div>
+        </li>
       <% end %>
       </ul>
     </div>

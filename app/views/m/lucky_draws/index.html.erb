@@ -68,6 +68,7 @@
     </div>
   </div>
 </div>
+<% if current_user.lucky_draws.where(drawed: false).count <= 0 %>
 <script type="text/javascript">
   $(".chest-close").click(function(){
 
@@ -87,3 +88,10 @@
     }, false);
   })
 </script>
+<% else %>
+<script>
+  $(".chest-close").click(function(){
+    alert('你已经没有抽奖机会了，赶快分享换取机会吧');
+  })
+</script>
+<% end %>
