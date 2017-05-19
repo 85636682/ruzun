@@ -386,7 +386,7 @@ ul.list-unstyled {
 .open-has .mod-chest-cont{padding:30px 0px 50px;text-align: center;overflow: hidden;opacity: 0;transform:translate(0px,30px);/*-webkit-transition:all .3s .3s;-webkit-transition:all .3s .3s cubic-bezier(.53,1.5,.69,1.81);*/z-index: 9;animation-fill-mode: forwards;}
 .open-has .chest-open.show .mod-chest-cont{/*-webkit-transform:translate(0px,0px);opacity: 1;*/animation:move2 .2s .0s linear;animation-fill-mode: forwards;}
 .open-has .mod-chest-cont .gift{color:#ff6000;font-size: 24px;line-height: 30px;padding-bottom:30px;}
-.open-has .mod-chest-cont .gift .icon{width: 58px;height:0px;position:relative;display: inline-block;vertical-align: middle;}
+.open-has .mod-chest-cont .gift .icon{width: 80px;height:0px;position:relative;display: inline-block;vertical-align: middle;}
 .open-has .mod-chest-cont .gift img{width: 75px;height:50px;position: absolute;top:-28px;left:-5px;}
 @keyframes rotate {
     0% {
