@@ -35,6 +35,9 @@ class M::LuckyDrawsController < MobileController
         break
       end
     end
+    if not @lucky
+      @lucky_draw.update_attributes(drawed: true, drawed_at: Time.now)
+    end
   end
 
   private
