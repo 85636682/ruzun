@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post 'wx_notify' => 'pay#wx_notify'
 
     resources :coupons, only: [:new, :create]
-    resources :lucky_draws, only: [:index] do
+    resources :lucky_draws, only: [:index, :create] do
       member do
         get :draw
       end
