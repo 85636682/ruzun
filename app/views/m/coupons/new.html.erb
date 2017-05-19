@@ -1,0 +1,12 @@
+<div class="mdui-container-fluid">
+  <%= form_for [:m, @coupon], { :html => { class: "form-horizontal" } } do |f| %>
+    <fieldset>
+      <legend>兑现奖品</legend>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label">输入兑现码</label>
+        <%= f.text_field :serial_number, class: "mdui-textfield-input" %>
+      </div>
+      <%= f.submit "充值", class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>
+    </fieldset>    
+  <% end %>
+</div>

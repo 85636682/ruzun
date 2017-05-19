@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'wx_pay' => 'pay#wx_pay'
     post 'wx_notify' => 'pay#wx_notify'
 
+    resources :coupons, only: [:new, :create]
     resources :lucky_draws, only: [:index] do
       member do
         get :draw
@@ -82,6 +83,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :coupons
     resources :awards
     resources :user_lockers, only: [:index] do
       member do

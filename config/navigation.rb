@@ -126,6 +126,11 @@ SimpleNavigation::Configuration.run do |navigation|
       awards.item :new, '新建', new_admin_award_path
     end
 
+    primary.item :coupons, '<i class="zmdi zmdi-link"></i> 奖券设置', '#', highlights_on: %r{/coupons}, html: { class: 'sub-menu' } do |coupons|
+      coupons.item :index, '列表', admin_coupons_path
+      coupons.item :new, '新建', new_admin_coupon_path
+    end
+
     primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
       admin_users.item :index, '列表', admin_users_path
     end
