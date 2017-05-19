@@ -51,7 +51,7 @@
       </div>
       <div class="mdui-chip mdui-center" style="margin-top: -150px;margin-bottom: 20px;">
         <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
-        <span class="mdui-chip-title">你还有<span id="lucky-draws-count"><%= current_user.lucky_draws.count %></span>次抽奖机会</span>
+        <span class="mdui-chip-title">你还有<span id="lucky-draws-count"><%= current_user.lucky_draws.where(drawed: false).count %></span>次抽奖机会</span>
       </div>
       <div class="mdui-chip mdui-center" style="margin-bottom: 20px;">
         <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>

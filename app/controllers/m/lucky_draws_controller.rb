@@ -25,8 +25,13 @@ class M::LuckyDrawsController < MobileController
     temp_number = rand
     Award.all.order("rate ASC").each do |award|
       if temp_number < award.rate
-        @lucky_draw.update_attributes(award_id: award.id, drawed: true, drawed_at: Time.now)
-        @lucky = true
+        begin
+          @lucky_draw.update_attributes(award_id: award.id, drawed: true, drawed_at: Time.now)
+          @lucky = true
+          eval award.code
+        rescue Exception => e
+          Rails.logger.error e.backtrace.join("\n")
+        end
         break
       end
     end
