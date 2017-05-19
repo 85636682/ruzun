@@ -1,0 +1,11 @@
+<div class="mdui-container-fluid open-body">
+  <div class="mdui-row">
+    <div class="mdui-col-xs-12">
+      <ul>
+      <% @lucky_draws.each do |lucky_draw| %>
+        <li><%= lucky_draw.id %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

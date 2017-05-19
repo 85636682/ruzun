@@ -1,6 +1,9 @@
 class M::LuckyDrawsController < MobileController
   def index
-    # @lucky_draws = current_user.lucky_draws.order("created_at DESC")
+  end
+
+  def list
+    @lucky_draws = current_user.lucky_draws.order("created_at DESC")
   end
 
   def create

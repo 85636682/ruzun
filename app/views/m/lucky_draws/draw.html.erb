@@ -1,15 +1,19 @@
 <div class="mdui-container-fluid">
     <div class="mdui-row">
-    <% if @lucky %>
-    恭喜你，中奖了 <%= @lucky_draw.award.subject %>
-    <% else %>
-    很遗憾，没中奖
-    <% end %>
+        <div class="mdui-col-xs-12" style="text-align:center;height: 100px;line-height: 100%;font-size: 5rem;">
+            <% if @lucky %>
+            恭喜你，中奖了 <%= @lucky_draw.award.subject %>
+            <% else %>
+            很遗憾，没中奖
+            <% end %>
+        </div>
+    </div>
+    <div class="mdui-row">
         <div class="mdui-col-xs-6">
-            <button class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">继续抽奖</button>
+            <a href="<%= m_lucky_draws_path %>" class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">继续抽奖</a>
         </div>
         <div class="mdui-col-xs-6">
-            <button class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">中奖详情</button>
+            <a href="<%= %>" class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">中奖详情</a>
         </div>
     </div>
 </div>

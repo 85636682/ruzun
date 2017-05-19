@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :lucky_draws, only: [:index, :create] do
       collection do
         get :draw
+        get :list
       end
     end
     resources :user_lockers, only: [:new, :create]
