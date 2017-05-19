@@ -20,7 +20,7 @@ class M::LuckyDrawsController < MobileController
     # 抽奖
     @lucky = false
     temp_number = rand
-    Award.all.order("rate DESC").each do |award|
+    Award.all.order("rate ASC").each do |award|
       if temp_number < award.rate
         @lucky_draw.update_attributes(award_id: award.id, drawed: true, drawed_at: Time.now)
         @lucky = true
