@@ -1,0 +1,11 @@
+<div class="mdui-container-fluid open-body">
+  <div class="mdui-row">
+    <div class="mdui-col-xs-12">
+      <ul>
+      <% @awards.each do |award| %>
+        <li><%= award.subject %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
