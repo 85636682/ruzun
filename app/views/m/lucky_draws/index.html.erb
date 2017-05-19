@@ -1,8 +1,8 @@
-<%= wechat_config_js debug: true, api: %w(onMenuShareTimeline) -%>
+<%= wechat_config_js debug: false, api: %w(onMenuShareTimeline) -%>
 <script type="application/javascript">
   wx.ready(function() {
     wx.onMenuShareTimeline({
-      title: '', // 分享标题
+      title: '蓝精灵水上乐园，分享大抽奖.', // 分享标题
       link: '', // 分享链接
       imgUrl: '', // 分享图标
       success: function () {
@@ -48,9 +48,16 @@
         <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
         <span class="mdui-chip-title">你还有<%= current_user.lucky_draws.count %>抽奖机会</span>
       </div>
+      <div class="mdui-chip mdui-center" style="margin-bottom: 20px;">
+        <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+        <span class="mdui-chip-title">右上角分享到朋友圈，分享一次就多一次抽奖机会啦.</span>
+      </div>
       <div class="mdui-row">
-        <div class="mdui-col-xs-12">
-          <button class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">查看中奖详情</button>
+        <div class="mdui-col-xs-6">
+          <button class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">中奖详情</button>
+        </div>
+        <div class="mdui-col-xs-6">
+          <button class="mdui-btn mdui-btn-block mdui-color-red-accent mdui-ripple">查看奖品</button>
         </div>
       </div>
     </div>
