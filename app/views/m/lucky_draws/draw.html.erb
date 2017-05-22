@@ -1,19 +1,19 @@
 <div class="mdui-container-fluid">
     <div class="mdui-row">
-        <div class="mdui-col-xs-12" style="text-align:center;height: 100px;line-height: 100%;font-size: 5rem;">
+        <div class="mdui-col-xs-12">
             <% if @lucky %>
             <div class="mdui-center">
                 <div class="mdui-chip mdui-center" style="margin-top: 20px;">
-                <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
-                <span class="mdui-chip-title">恭喜你，中<%= @lucky_draw.award.subject %>了 .</span>
+                    <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+                    <span class="mdui-chip-title">恭喜你，中<%= @lucky_draw.award.subject %>了 .</span>
                 </div>
                 <%= image_tag("bluefairy2.jpg") %>
             </div>
             <% else %>
             <div class="mdui-center">
                 <div class="mdui-chip mdui-center" style="margin-top: 20px;">
-                <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
-                <span class="mdui-chip-title">很遗憾，没中奖.</span>
+                    <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+                    <span class="mdui-chip-title">很遗憾，没中奖.</span>
                 </div>
                 <%= image_tag("bluefairy1.jpg") %>
             </div>

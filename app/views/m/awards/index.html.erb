@@ -3,7 +3,16 @@
     <div class="mdui-col-xs-12">
       <ul>
       <% @awards.each do |award| %>
-        <li><%= award.subject %></li>
+        <li>
+          <div class="mdui-row">
+            <div class="mdui-col-xs-1">
+              <%= award.id %>
+            </div>
+            <div class="mdui-col-xs-11">
+              <%= award.subject %>
+            </div>
+          </div>
+        </li>
       <% end %>
       </ul>
     </div>
