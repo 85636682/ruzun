@@ -4,7 +4,7 @@
     wx.onMenuShareTimeline({
       title: '蓝精灵水上乐园，分享大抽奖.', // 分享标题
       link: '', // 分享链接
-      imgUrl: '', // 分享图标
+      imgUrl: 'http://bluefairypark.cn/logo.jpg', // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
         $.post("http://bluefairypark.cn/m/lucky_draws", { lucky_draw: { user_id: <%= current_user.id %> } }, function(data) {
