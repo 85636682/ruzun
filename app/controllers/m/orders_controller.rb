@@ -10,7 +10,7 @@ class M::OrdersController < MobileController
   def create
     @shopping_carts = current_user.shopping_carts
     if @shopping_carts.count <= 0
-      redirect_to m_shopping_carts_path, notice: '购物车为空.'
+      redirect_to m_shopping_carts_path, notice: '购物车为空.' and return
     end
     begin
       @order = Order.create!(user_id: current_user.id, sn: DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s, status: :pending)
