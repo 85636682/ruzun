@@ -9,9 +9,7 @@ class M::OrdersController < MobileController
 
   def create
     @shopping_carts = current_user.shopping_carts
-    Rails.logger.info @shopping_carts.blank?
-    Rails.logger.info @shopping_carts.count
-    if @shopping_carts.blank?
+    if @shopping_carts.count <= 0
       redirect_to m_shopping_carts_path, notice: '购物车为空.' and return
     end
     begin
