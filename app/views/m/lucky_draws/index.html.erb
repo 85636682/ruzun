@@ -8,7 +8,8 @@
       success: function () {
         // 用户确认分享后执行的回调函数
         $.post("http://bluefairypark.cn/m/lucky_draws", { lucky_draw: { user_id: <%= current_user.id %> } }, function(data) {
-          $('#lucky-draws-count').text(Number($('#lucky-draws-count').text()) + 1)
+          $('#lucky-draws-count').text(Number($('#lucky-draws-count').text()) + 1);
+          location.reload();
         });
       },
       cancel: function () {
