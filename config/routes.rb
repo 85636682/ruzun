@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
     resources :user_lockers, only: [:new, :create]
     resources :membership_cards, only: [:index, :show, :new]
-    resources :user_membership_cards, only: [:create]
+    resources :user_membership_cards, only: [:index, :show, :create]
     resources :deposits, only: [:index, :show, :new, :create]
     resources :orders, only: [:index, :show, :create]
     resources :order_tickets, only: [] do

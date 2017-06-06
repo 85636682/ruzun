@@ -18,7 +18,7 @@
                 <% if user_card.pending? %>
                 <a href="javascript:;" onclick="wxpay(this)" data-pid="<%= user_card.id %>" data-pname="<%= user_card.class.name %>" class="mdui-btn">支付</a>
                 <% elsif user_card.checkouted? %>
-                <a href="<%= m_membership_card_path(user_card) %>">查看</a>
+                <a href="<%= m_user_membership_card_path(user_card) %>">查看</a>
                 <% end %>
             </div>
         </div>

@@ -1,2 +1,24 @@
-<h1>Admin::UserMembershipCards#show</h1>
-<p>Find me in app/views/admin/user_membership_cards/show.html.erb</p>
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <tbody>
+          <tr>
+            <td>会员</td>
+            <td><%= @user_member_card.user.nickname %></td>
+          </tr>
+          <tr>
+            <td>总次数</td>
+            <td><%= @user_member_card.member_card.count %></td>
+          </tr>
+          <tr>
+            <td>已使用次数</td>
+            <td><%= @user_member_card.count %></td>
+          </tr>
+          <tr>
+            <td>状态</td>
+            <td><%= i18n_enum @user_member_card, :status %></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
