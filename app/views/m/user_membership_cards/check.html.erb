@@ -1,0 +1,7 @@
+<%= form_tag(checkin_m_order_ticket_path(@order_ticket), { class: "form-horizontal" }) do %>
+  <div class="mdui-textfield mdui-textfield-floating-label">
+    <label class="mdui-textfield-label">安全码</label>
+    <%= text_field_tag :safe_code, "", class: "mdui-textfield-input" %>
+  </div>
+  <%= submit_tag "验票", class: "mdui-btn mdui-btn-block mdui-color-pink-accent mdui-ripple" %>   
+<% end %>

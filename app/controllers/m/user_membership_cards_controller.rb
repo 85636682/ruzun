@@ -19,6 +19,20 @@ class M::UserMembershipCardsController < MobileController
     end
   end
 
+  def check
+    @user_membership_card = UserMembershipCard.find params[:id]
+  end
+
+  def checkin
+    @user_membership_card = UserMembershipCard.find params[:id]
+    @checked = false
+    unless params[:safe_code].blank?
+      if params[:safe_code] == "bf007"
+        @checked = true if @user_membership_card.update_attributes(count: @user_membership_card.count + 1)
+      end
+    end
+  end
+
   private
 
   def user_membership_card_params

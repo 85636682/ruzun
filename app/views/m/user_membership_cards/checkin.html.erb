@@ -1,0 +1,23 @@
+<div class="mdui-container">
+  <div class="mdui-row-xs-1">
+    <div class="mdui-col">
+    <% if @checked %>
+      <div class="mdui-center">
+        <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+          <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+          <span class="mdui-chip-title">验票成功.</span>
+        </div>
+        <%= image_tag("bluefairy2.jpg") %>
+      </div>
+    <% else %>
+      <div class="mdui-center">
+        <div class="mdui-chip mdui-center" style="margin-top: 20px;">
+          <span class="mdui-chip-icon mdui-color-blue"><i class="mdui-icon material-icons">&#xe87c;</i></span>
+          <span class="mdui-chip-title">该票已经使用.</span>
+        </div>
+        <%= image_tag("bluefairy1.jpg") %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
