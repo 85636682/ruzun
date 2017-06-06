@@ -4,19 +4,19 @@
         <tbody>
           <tr>
             <td>会员</td>
-            <td><%= @user_member_card.user.nickname %></td>
+            <td><%= @user_membership_card.user.nickname %></td>
           </tr>
           <tr>
             <td>总次数</td>
-            <td><%= @user_member_card.member_card.count %></td>
+            <td><%= @user_membership_card.member_card.count %></td>
           </tr>
           <tr>
             <td>已使用次数</td>
-            <td><%= @user_member_card.count %></td>
+            <td><%= @user_membership_card.count %></td>
           </tr>
           <tr>
             <td>状态</td>
-            <td><%= i18n_enum @user_member_card, :status %></td>
+            <td><%= i18n_enum @user_membership_card, :status %></td>
           </tr>
         </tbody>
     </table>
