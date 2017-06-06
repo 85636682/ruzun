@@ -93,7 +93,9 @@ Rails.application.routes.draw do
       end
     end
     resources :lockers
-    resources :membership_cards
+    resources :membership_cards do
+      resources :user_membership_cards
+    end
     resources :timelines
     resources :roles
     resources :users, only: [:index]

@@ -48,6 +48,6 @@ class Admin::MembershipCardsController < AdminController
   end
 
   def membership_card_params
-    params.require(:membership_card).permit(:name, :fee, :summary)
+    params.require(:membership_card).permit(:name, :fee, :count, :summary)
   end
 end

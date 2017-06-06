@@ -16,6 +16,7 @@
                 <td><%= membership_card.name %></td>
                 <td><%= membership_card.fee %></td>
                 <td>
+                    <%= link_to "查看", admin_membership_card_user_membership_cards_path %>
                     <%= link_to "修改", edit_admin_membership_card_path(membership_card) %>
                     <%= link_to '删除', admin_membership_card_path(membership_card), method: :delete %>
                 </td>
