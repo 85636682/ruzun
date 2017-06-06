@@ -13,7 +13,7 @@ class Admin::UserMembershipCardsController < AdminController
   end
 
   def update
-    if @user_membership_card.update membership_card_params
+    if @user_membership_card.update user_membership_card_params
       redirect_to admin_membership_card_user_membership_card_path(@membership_card, @user_membership_card), notice: "更新成功！"
     else
       redirect_to admin_membership_card_user_membership_card_path(@membership_card, @user_membership_card), notice: "更新失败！"
@@ -34,4 +34,9 @@ class Admin::UserMembershipCardsController < AdminController
   def set_user_membership_card
     @user_membership_card = UserMembershipCard.find params[:id]
   end
+
+  def user_membership_card_params
+    params.require(:user_membership_card).permit(:status)
+  end
+  
 end
