@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="mdui-row">
-    <div class="mdui-col-xs-6">
+    <div class="mdui-col-xs-12">
       <button id="user_membership_card_qrcode" class="mdui-btn mdui-color-pink-accent mdui-btn-raised mdui-btn-block mdui-ripple">显示二维码</button>
     </div>
   </div>
@@ -35,7 +35,7 @@
 <script>
   $('#user_membership_card_qrcode').click(function() {
     $('#qrcode').empty();
-    $('#qrcode').qrcode("http://bluefairypark.cn/m/user_membership_cards/<%= user_membership_card.id %>/check");
+    $('#qrcode').qrcode("http://bluefairypark.cn/m/user_membership_cards/<%= @user_membership_card.id %>/check");
     $('#qrcode-dialog').show();
   });
 </script>
