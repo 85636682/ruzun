@@ -18,6 +18,7 @@
                 <td><%= user_membership_card.membership_card.name %></td>
                 <td><%= user_membership_card.membership_card.fee %></td>
                 <td><%= user_membership_card.user.nickname %></td>
+                <td><%= user_membership_card.status %></td>
                 <td>
                     <%= link_to "查看", admin_membership_card_user_membership_card_path(@membership_card, user_membership_card) %>
                     <%= link_to "修改", edit_admin_membership_card_user_membership_card_path(@membership_card, user_membership_card) %>
