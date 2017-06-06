@@ -1,5 +1,5 @@
 class Admin::UserMembershipCardsController < AdminController
-  before_action :set_membership_card, only: [:index, :update, :destroy]
+  before_action :set_membership_card, only: [:index, :edit, :update, :destroy]
   before_action :set_user_membership_card, only: [:show, :edit, :update, :destroy]
   
   def index
