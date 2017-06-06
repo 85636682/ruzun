@@ -13,7 +13,7 @@ class M::UserMembershipCardsController < MobileController
     @user_membership_card.trade_no = "MC" + DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S') + rand(999).to_s
     @user_membership_card.status = :pending
     if @user_membership_card.save
-      redirect_to m_membership_cards_path
+      redirect_to m_user_membership_cards_path
     else
       redirect_to new_m_membership_card_path
     end
