@@ -10,20 +10,23 @@
                 <th>电话</th>
                 <th>年龄</th>
                 <th>身高</th>
+                <th>状态</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
         <% @students.each do |student| %>
             <tr>
-                <th scope="row"><%= student.id %></th>
+                <th scope="row"><%= student.trade_no %></th>
                 <td><%= student.lesson.subject if student.lesson.present? %></td>
                 <td><%= student.timeline.subject if student.timeline.present? %></td>
                 <td><%= student.name %></td>
                 <td><%= student.phone %></td>
                 <td><%= student.age %></td>
                 <td><%= student.height %></td>
+                <td><%= i18n_enum student, :status %></td>
                 <td>
+                    <%= link_to "查看", admin_student_path(student) %>
                     <%= link_to "修改", edit_admin_student_path(student) %>
                     <%= link_to '删除', admin_student_path(student), method: :delete %>
                 </td>
