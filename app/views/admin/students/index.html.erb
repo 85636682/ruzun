@@ -19,6 +19,7 @@
             <tr>
                 <th scope="row"><%= student.trade_no %></th>
                 <td><%= student.lesson.subject if student.lesson.present? %></td>
+                <td><%= student.dayline.subject if student.dayline.present? %></td>
                 <td><%= student.timeline.subject if student.timeline.present? %></td>
                 <td><%= student.name %></td>
                 <td><%= student.phone %></td>
