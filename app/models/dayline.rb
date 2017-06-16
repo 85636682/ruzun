@@ -1,0 +1,2 @@
+class Dayline < ApplicationRecord
+end

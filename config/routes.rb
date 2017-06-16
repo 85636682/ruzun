@@ -101,6 +101,7 @@ Rails.application.routes.draw do
     resources :membership_cards do
       resources :user_membership_cards
     end
+    resources :daylines
     resources :timelines
     resources :roles
     resources :users, only: [:index]

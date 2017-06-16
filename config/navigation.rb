@@ -88,6 +88,11 @@ SimpleNavigation::Configuration.run do |navigation|
       admin_lessons.item :new, '新建', new_admin_lesson_path
     end
 
+    primary.item :admin_daylines, '<i class="zmdi zmdi-link"></i> 日期表', '#', highlights_on: %r{/admin_daylines}, html: { class: 'sub-menu' } do |admin_daylines|
+      admin_daylines.item :index, '列表', admin_daylines_path
+      admin_daylines.item :new, '新建', new_admin_dayline_path
+    end
+
     primary.item :admin_timelines, '<i class="zmdi zmdi-link"></i> 时间表', '#', highlights_on: %r{/admin_timelines}, html: { class: 'sub-menu' } do |admin_timelines|
       admin_timelines.item :index, '列表', admin_timelines_path
       admin_timelines.item :new, '新建', new_admin_timeline_path

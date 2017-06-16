@@ -20,6 +20,19 @@
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
         <div class="mdui-row">
+          <% @lesson.daylines.each do |dayline| %>
+          <div class="mdui-col-xs-12">
+            <label class="mdui-radio">
+              <%= f.radio_button :dayline_id, dayline.id %> 
+              <i class="mdui-radio-icon"></i>
+              <%= dayline.subject %>
+            </label>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <div class="mdui-row">
           <% @lesson.timelines.each do |timeline| %>
           <div class="mdui-col-xs-12">
             <label class="mdui-radio">
