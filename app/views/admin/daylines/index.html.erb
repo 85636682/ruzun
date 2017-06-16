@@ -9,13 +9,13 @@
             </tr>
         </thead>
         <tbody>
-        <% @timelines.each do |timeline| %>
+        <% @daylines.each do |dayline| %>
             <tr>
-                <th scope="row"><%= timeline.id %></th>
-                <td><%= timeline.subject %></td>
+                <th scope="row"><%= dayline.id %></th>
+                <td><%= dayline.subject %></td>
                 <td>
-                    <%= link_to "修改", edit_admin_timeline_path(timeline) %>
-                    <%= link_to '删除', admin_timeline_path(timeline), method: :delete %>
+                    <%= link_to "修改", edit_admin_dayline_path(dayline) %>
+                    <%= link_to '删除', admin_dayline_path(dayline), method: :delete %>
                 </td>
             </tr>
         <% end %>
