@@ -12,7 +12,7 @@ function domReady() {
   $(".student-lesson").on("change", function(e) {
     e.preventDefault();
     $('.loading').show();
-    $.getJSON("/admin/lessons/" + $(this).val() + "/subitems.json", function (result) {
+    $.getJSON("/admin/lesson/lessons/" + $(this).val() + "/subitems.json", function (result) {
       $('.loading').hide();
       $("#daylines").empty();
       $("#timelines").empty();

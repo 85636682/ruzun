@@ -89,7 +89,7 @@ class M::PayController < MobileController
         order.update_attributes(status: :checkouted)
       elsif result["attach"] == 'student'
         student = Student.find_by_trade_no(result["out_trade_no"])
-        student.update_attributes(status: :checkouted)
+        student.update_attributes(status: :checkouted, paid_in: student.lesson.price.to_i)
       elsif result["attach"] == 'deposit'
         deposit = Deposit.find_by_trade_no(result["out_trade_no"])
         deposit.update_attributes(checkouted: true)

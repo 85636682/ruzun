@@ -2,7 +2,19 @@ class Admin::StudentsController < AdminController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
+    @lesson = Lesson.find params[:lesson_id] unless params[:lesson_id].blank?
+    params[:dayline_id] ||= ''
+    params[:timeline_id] ||= ''
     @students = Student.all.order("created_at DESC").paginate(:page => params[:page])
+    if not params[:lesson_id].blank?
+      @students = @students.where(lesson_id: params[:lesson_id])
+    end
+    if not params[:dayline_id].blank?
+      @students = @students.where(dayline_id: params[:dayline_id])
+    end
+    if not params[:timeline_id].blank?
+      @students = @students.where(timeline_id: params[:timeline_id])
+    end
   end
 
   def show
@@ -45,6 +57,6 @@ class Admin::StudentsController < AdminController
   end
 
   def student_params
-    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :status, :lesson_id, :dayline_id, :timeline_id, :remark)
+    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :paid_in, :status, :lesson_id, :dayline_id, :timeline_id, :remark)
   end
 end

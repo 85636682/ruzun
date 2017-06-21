@@ -16,15 +16,15 @@
           </tr>
           <tr>
             <td>班级</td>
-            <td><%= @student.lesson.subject %></td>
+            <td><%= @student.lesson.subject if not @student.lesson.blank? %></td>
           </tr>
           <tr>
             <td>日期</td>
-            <td><%= @student.dayline.subject %></td>
+            <td><%= @student.dayline.subject if not @student.dayline.blank? %></td>
           </tr>
           <tr>
             <td>时间</td>
-            <td><%= @student.timeline.subject %></td>
+            <td><%= @student.timeline.subject if not @student.timeline.blank? %></td>
           </tr>
           <tr>
             <td>状态</td>

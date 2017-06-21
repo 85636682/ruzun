@@ -1,5 +1,41 @@
 <div class="card">
   <div class="card-body card-padding">
+    <ul class="list-unstyled list-inline" id="student-lesson-list">
+        <li>班级</li>
+        <% Lesson.all.each do |lesson| %>
+        <li class="<%= 'active' if !@lesson.blank? && @lesson == lesson %>">
+            <a href="<%= admin_students_path(lesson_id: lesson.id) %>"><%= lesson.subject %></a>
+        </li>
+        <% end %>
+    </ul>
+    <ul class="list-unstyled list-inline" id="student-dayline-list">
+        <li>日期</li>
+        <% if not @lesson.blank? %>
+            <% @lesson.daylines.each do |dayline| %>
+            <li class="<%= 'active' if !params[:dayline_id].blank? && params[:dayline_id] == dayline.id %>">
+                <a href="<%= admin_students_path(lesson_id: @lesson.id, dayline_id: dayline.id, timeline_id: params[:timeline_id]) %>">
+                    <%= dayline.subject %>
+                </a>
+            </li>
+            <% end %>
+        <% end %>
+    </ul>
+    <ul class="list-unstyled list-inline" id="student-timeline-list">
+        <li>时间</li>
+        <% if not @lesson.blank? %>
+            <% @lesson.timelines.each do |timeline| %>
+            <li class="<%= 'active' if !params[:timeline_id].blank? && params[:timeline_id] == timeline.id %>">
+                <a href="<%= admin_students_path(lesson_id: @lesson.id, dayline_id: params[:dayline_id], timeline_id: timeline.id) %>">
+                    <%= timeline.subject %>
+                </a>
+            </li>
+            <% end %>
+        <% end %>
+    </ul>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body card-padding">
     <table class="table">
         <thead>
             <tr>
