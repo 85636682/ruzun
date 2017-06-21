@@ -5,7 +5,7 @@ class BaseUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "#{Setting.upyun_upload_url}/anonymousUser.jpg#{version_name}"
+    "#{Setting.upyun_upload_url}/default.jpg#{version_name}"
   end
 
   def url(version_name = "")

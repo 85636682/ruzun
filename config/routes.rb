@@ -112,9 +112,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create, :destroy]
     resources :order_tickets, only: [:show, :edit, :update]
     resources :lessons do
-      resources :students, only: [:new, :create, :update]
+      member do
+        get :subitems
+      end
     end
-    resources :students, only: [:index, :show, :edit, :destroy]
+    resources :students
     resources :tickets do
       collection do
         get :sell

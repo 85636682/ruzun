@@ -8,6 +8,26 @@
 
 function domReady() {
   $( "textarea" ).autogrow( { vertical : true, horizontal : false } );
+
+  $(".student-lesson").on("change", function(e) {
+    e.preventDefault();
+    $('.loading').show();
+    $.getJSON("/admin/lessons/1/subitems.json", function (result) {
+      $('.loading').hide();
+      $.each(result.daylines, function(i, field){
+        $("#daylines").append('<label class="radio-inline">' +
+                              '<input class="student-dayline" type="radio" value="' + field.id + '" name="student[dayline_id]" id="student_dayline_id_'+field.id+'">' +
+                              field.subject + 
+                              '</label>');
+      });
+      $.each(result.timelines, function(i, field){
+        $("#timelines").append('<label class="radio-inline">' +
+                               '<input class="student-timeline" type="radio" value="' + field.id + '" name="student[timeline_id]" id="student_timeline_id_'+field.id+'">' +
+                               field.subject + 
+                               '</label>');
+      });
+    });
+  });
   
   /***********
    * Sidebar *

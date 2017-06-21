@@ -49,3 +49,25 @@
  .sign-box .form input {
    padding: 1rem;
  }
+
+#header .navbar-nav {
+  margin-top: -24px;
+  margin-left: 45px;
+  li {
+    height: 60px;
+    margin-left: 5px;
+  }
+  li:hover {
+    border-bottom: solid 3px red;
+  }
+  li.active {
+    border-bottom: solid 3px red;
+  }
+  a {
+    color: #fff;
+    font-size: 18px;
+  }
+  a:hover {
+    background-color: transparent;
+  }
+}

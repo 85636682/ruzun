@@ -7,7 +7,6 @@
                 <th>培训班名称</th>
                 <th>培训班价格</th>
                 <th>在班学生</th>
-                <th>报名</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -18,7 +17,6 @@
                 <td><%= lesson.subject %></td>
                 <td><%= lesson.price %></td>
                 <td><%= lesson.students.count %></td>
-                <td><%= link_to "报名", new_admin_lesson_student_path(lesson) %></td>
                 <td>
                     <%= link_to "修改", edit_admin_lesson_path(lesson) %>
                     <%= link_to '删除', admin_lesson_path(lesson), method: :delete %>

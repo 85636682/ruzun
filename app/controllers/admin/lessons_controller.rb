@@ -29,6 +29,12 @@ class Admin::LessonsController < AdminController
     end
   end
 
+  def subitems
+    @lesson = Lesson.find params[:id]
+    @daylines = @lesson.daylines
+    @timelines = @lesson.timelines
+  end
+
   private
 
   def lesson_params

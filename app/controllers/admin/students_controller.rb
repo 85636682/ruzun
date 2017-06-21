@@ -9,15 +9,11 @@ class Admin::StudentsController < AdminController
   end
 
   def new
-    @lesson = Lesson.find params[:lesson_id]
     @student = Student.new
   end
 
   def create
-    @lesson = Lesson.find params[:lesson_id]
     @student = Student.new student_params
-    @student.lesson_id = @lesson.id
-    @student.status = :pending
     if @student.save
       redirect_to admin_student_path(@student)
     else
@@ -49,6 +45,6 @@ class Admin::StudentsController < AdminController
   end
 
   def student_params
-    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :lesson_id, :dayline_id, :timeline_id, :remark)
+    params.require(:student).permit(:name, :avatar, :phone, :height, :age, :status, :lesson_id, :dayline_id, :timeline_id, :remark)
   end
 end
