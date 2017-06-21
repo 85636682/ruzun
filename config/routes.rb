@@ -90,38 +90,53 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :coupons
-    resources :awards
-    resources :user_lockers, only: [:index] do
-      member do
-        get :back
+    scope "/park" do
+      resources :orders, only: [:index, :show, :create, :destroy]
+      resources :order_tickets, only: [:show, :edit, :update]
+      resources :coupons
+      resources :awards
+      resources :user_lockers, only: [:index] do
+        member do
+          get :back
+        end
+      end
+      resources :lockers
+      resources :membership_cards do
+        resources :user_membership_cards
+      end
+      resources :users, only: [:index]
+      resources :tickets do
+        collection do
+          get :sell
+        end
       end
     end
-    resources :lockers
-    resources :membership_cards do
-      resources :user_membership_cards
+    scope '/lesson' do
+      resources :daylines
+      resources :timelines
+      resources :lessons do
+        member do
+          get :subitems
+        end
+      end
+      resources :students
     end
-    resources :daylines
-    resources :timelines
-    resources :roles
-    resources :users, only: [:index]
-    resources :products
-    resources :sales_lists
-    resources :admins
+    scope '/store' do
+      resources :products
+      resources :sales_lists
+    end
+    scope '/system' do
+      resources :admins
+      resources :roles
+    end
+    
+    
+    
+    
+    
     resources :sessions, only: [:new, :create, :destroy]
-    resources :orders, only: [:index, :show, :create, :destroy]
-    resources :order_tickets, only: [:show, :edit, :update]
-    resources :lessons do
-      member do
-        get :subitems
-      end
-    end
-    resources :students
-    resources :tickets do
-      collection do
-        get :sell
-      end
-    end
+    
+    
     resources :games do
       member do
         get :lot

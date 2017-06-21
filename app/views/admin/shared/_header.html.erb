@@ -13,9 +13,17 @@
     </li>
   </ul>
   <ul class="nav navbar-nav">
-    <li class="active"><a href="#">门票 <span class="sr-only">(current)</span></a></li>
-    <li><a href="#">商铺</a></li>
-    <li><a href="">培训班</a></li>
-    <li><a href="">系统设置</a></li>
+    <li class="<%= 'active' if is_current_scope?('park') %>">
+      <a href="<%= sell_admin_tickets_path %>">门票</a>
+    </li>
+    <li class="<%= 'active' if is_current_scope?('store') %>">
+      <a href="<%= new_admin_sales_list_path %>">商铺</a>
+    </li>
+    <li class="<%= 'active' if is_current_scope?('lesson') %>">
+      <a href="<%= admin_students_path %>">培训班</a>
+    </li>
+    <li class="<%= 'active' if is_current_scope?('system') %>">
+      <a href="<%= admin_admins_path %>">系统设置</a>
+    </li>
   </ul>
 </header>

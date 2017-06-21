@@ -73,80 +73,80 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.dom_class = 'main-menu'
 
-    primary.item :admin_tickets, '<i class="zmdi zmdi-link"></i> 门票', '#', highlights_on: %r{/admin_tickets}, html: { class: 'sub-menu' } do |admin_tickets|
+    primary.item :admin_tickets, '<i class="zmdi zmdi-link"></i> 门票', '#', highlights_on: %r{/admin_tickets}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |admin_tickets|
       admin_tickets.item :index, '列表', admin_tickets_path
       admin_tickets.item :new, '新建', new_admin_ticket_path
       admin_tickets.item :sell, '销售', sell_admin_tickets_path
     end
 
-    primary.item :admin_orders, '<i class="zmdi zmdi-link"></i> 订单', '#', highlights_on: %r{/admin_orders}, html: { class: 'sub-menu' } do |admin_orders|
+    primary.item :admin_orders, '<i class="zmdi zmdi-link"></i> 订单', '#', highlights_on: %r{/admin_orders}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |admin_orders|
       admin_orders.item :index, '列表', admin_orders_path
     end
 
-    primary.item :admin_lessons, '<i class="zmdi zmdi-link"></i> 培训班', '#', highlights_on: %r{/admin_lessons}, html: { class: 'sub-menu' } do |admin_lessons|
+    primary.item :admin_lessons, '<i class="zmdi zmdi-link"></i> 培训班', '#', highlights_on: %r{/admin_lessons}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('lesson') } do |admin_lessons|
       admin_lessons.item :index, '列表', admin_lessons_path
       admin_lessons.item :new, '新建', new_admin_lesson_path
     end
 
-    primary.item :admin_daylines, '<i class="zmdi zmdi-link"></i> 日期表', '#', highlights_on: %r{/admin_daylines}, html: { class: 'sub-menu' } do |admin_daylines|
+    primary.item :admin_daylines, '<i class="zmdi zmdi-link"></i> 日期表', '#', highlights_on: %r{/admin_daylines}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('lesson') } do |admin_daylines|
       admin_daylines.item :index, '列表', admin_daylines_path
       admin_daylines.item :new, '新建', new_admin_dayline_path
     end
 
-    primary.item :admin_timelines, '<i class="zmdi zmdi-link"></i> 时间表', '#', highlights_on: %r{/admin_timelines}, html: { class: 'sub-menu' } do |admin_timelines|
+    primary.item :admin_timelines, '<i class="zmdi zmdi-link"></i> 时间表', '#', highlights_on: %r{/admin_timelines}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('lesson') } do |admin_timelines|
       admin_timelines.item :index, '列表', admin_timelines_path
       admin_timelines.item :new, '新建', new_admin_timeline_path
     end
 
-    primary.item :admin_students, '<i class="zmdi zmdi-link"></i> 学生', '#', highlights_on: %r{/admin_students}, html: { class: 'sub-menu' } do |admin_students|
+    primary.item :admin_students, '<i class="zmdi zmdi-link"></i> 学生', '#', highlights_on: %r{/admin_students}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('lesson') } do |admin_students|
       admin_students.item :index, '列表', admin_students_path
       admin_students.item :new, '新建', new_admin_student_path
     end
 
-    primary.item :admin_sales_lists, '<i class="zmdi zmdi-link"></i> 超市零售单', '#', highlights_on: %r{/admin_sales_lists}, html: { class: 'sub-menu' } do |admin_sales_lists|
+    primary.item :admin_sales_lists, '<i class="zmdi zmdi-link"></i> 超市零售单', '#', highlights_on: %r{/admin_sales_lists}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('store') } do |admin_sales_lists|
       admin_sales_lists.item :index, '列表', admin_sales_lists_path
       admin_sales_lists.item :new, '新建', new_admin_sales_list_path
     end
 
-    primary.item :admin_products, '<i class="zmdi zmdi-link"></i> 超市商品', '#', highlights_on: %r{/admin_products}, html: { class: 'sub-menu' } do |admin_products|
+    primary.item :admin_products, '<i class="zmdi zmdi-link"></i> 超市商品', '#', highlights_on: %r{/admin_products}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('store') } do |admin_products|
       admin_products.item :index, '列表', admin_products_path
       admin_products.item :new, '新建', new_admin_product_path
     end
 
-    primary.item :membership_cards, '<i class="zmdi zmdi-link"></i> 会员卡', '#', highlights_on: %r{/membership_cards}, html: { class: 'sub-menu' } do |membership_cards|
+    primary.item :membership_cards, '<i class="zmdi zmdi-link"></i> 会员卡', '#', highlights_on: %r{/membership_cards}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |membership_cards|
       membership_cards.item :index, '列表', admin_membership_cards_path
       membership_cards.item :new, '新建', new_admin_membership_card_path
     end
 
-    primary.item :lockers, '<i class="zmdi zmdi-link"></i> 储物柜', '#', highlights_on: %r{/lockers}, html: { class: 'sub-menu' } do |lockers|
+    primary.item :lockers, '<i class="zmdi zmdi-link"></i> 储物柜', '#', highlights_on: %r{/lockers}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |lockers|
       lockers.item :index, '列表', admin_lockers_path
       lockers.item :new, '新建', new_admin_locker_path
     end
 
-    primary.item :user_lockers, '<i class="zmdi zmdi-link"></i> 储物柜租借', '#', highlights_on: %r{/user_lockers}, html: { class: 'sub-menu' } do |user_lockers|
+    primary.item :user_lockers, '<i class="zmdi zmdi-link"></i> 储物柜租借', '#', highlights_on: %r{/user_lockers}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |user_lockers|
       user_lockers.item :index, '列表', admin_user_lockers_path
     end
 
-    primary.item :awards, '<i class="zmdi zmdi-link"></i> 奖品设置', '#', highlights_on: %r{/awards}, html: { class: 'sub-menu' } do |awards|
+    primary.item :awards, '<i class="zmdi zmdi-link"></i> 奖品设置', '#', highlights_on: %r{/awards}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |awards|
       awards.item :index, '列表', admin_awards_path
       awards.item :new, '新建', new_admin_award_path
     end
 
-    primary.item :coupons, '<i class="zmdi zmdi-link"></i> 奖券设置', '#', highlights_on: %r{/coupons}, html: { class: 'sub-menu' } do |coupons|
+    primary.item :coupons, '<i class="zmdi zmdi-link"></i> 奖券设置', '#', highlights_on: %r{/coupons}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |coupons|
       coupons.item :index, '列表', admin_coupons_path
       coupons.item :new, '新建', new_admin_coupon_path
     end
 
-    primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' } do |admin_users|
+    primary.item :admin_users, '<i class="zmdi zmdi-link"></i> 用户', '#', highlights_on: %r{/admin_users}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('park') } do |admin_users|
       admin_users.item :index, '列表', admin_users_path
     end
 
-    primary.item :admin_admins, '<i class="zmdi zmdi-link"></i> 管理员', '#', highlights_on: %r{/admin_admins}, html: { class: 'sub-menu' } do |admin_admins|
+    primary.item :admin_admins, '<i class="zmdi zmdi-link"></i> 管理员', '#', highlights_on: %r{/admin_admins}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('system') } do |admin_admins|
       admin_admins.item :index, '列表', admin_admins_path
       admin_admins.item :new, '新建', new_admin_admin_path
     end
 
-    primary.item :admin_roles, '<i class="zmdi zmdi-link"></i> 角色权限', '#', highlights_on: %r{/admin_roles}, html: { class: 'sub-menu' } do |admin_roles|
+    primary.item :admin_roles, '<i class="zmdi zmdi-link"></i> 角色权限', '#', highlights_on: %r{/admin_roles}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('system') } do |admin_roles|
       admin_roles.item :index, '列表', admin_roles_path
       admin_roles.item :new, '新建', new_admin_role_path
     end

@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
   layout "admin"
 
-  helper_method :current_admin
+  helper_method :current_admin, :is_current_scope?
 
   def authenticate_admin!
     redirect_to new_admin_session_path if current_admin.blank?
@@ -22,6 +22,10 @@ class AdminController < ApplicationController
 
   def unauthorized
     redirect_to request.referrer || admin_dashboard_path, alert: 'You are not authorized to perform this action.'
+  end
+
+  def is_current_scope?(scope_name)
+    scope_name == request.original_url.split("/")[4]
   end
 
 end
