@@ -27,6 +27,10 @@
             <td><%= @student.timeline.subject if not @student.timeline.blank? %></td>
           </tr>
           <tr>
+            <td>实收款</td>
+            <td><%= @student.paid_in %></td>
+          </tr>
+          <tr>
             <td>状态</td>
             <td><%= i18n_enum @student, :status %></td>
           </tr>
