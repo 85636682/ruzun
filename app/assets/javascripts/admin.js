@@ -14,6 +14,8 @@ function domReady() {
     $('.loading').show();
     $.getJSON("/admin/lessons/1/subitems.json", function (result) {
       $('.loading').hide();
+      $("#daylines").empty();
+      $("#timelines").empty();
       $.each(result.daylines, function(i, field){
         $("#daylines").append('<label class="radio-inline">' +
                               '<input class="student-dayline" type="radio" value="' + field.id + '" name="student[dayline_id]" id="student_dayline_id_'+field.id+'">' +
