@@ -1,5 +1,5 @@
 class Admin::DaylinesController < AdminController
-  before_action :set_dayline, only: [:edit, :update]
+  before_action :set_dayline, only: [:edit, :update, :notice]
   
   def index
     @daylines = Dayline.all
@@ -23,10 +23,15 @@ class Admin::DaylinesController < AdminController
 
   def update
     if @dayline.update dayline_params
-      redirect_to admin_daylines_path, notice: "更新成功！"
+      redirect_to admin_daylines_path, notice: "更新成功."
     else
-      redirect_to admin_daylines_path, notice: "更新失败！"
+      redirect_to admin_daylines_path, notice: "更新失败."
     end
+  end
+
+  def notice
+    ClassOpenNoticeJob.perform_later(@dayline)
+    redirect_to admin_daylines_path, notice: "正在发送..."
   end
 
   private

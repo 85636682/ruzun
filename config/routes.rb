@@ -112,7 +112,11 @@ Rails.application.routes.draw do
       end
     end
     scope '/lesson' do
-      resources :daylines
+      resources :daylines do
+        member do
+          get :notice
+        end
+      end
       resources :timelines
       resources :lessons do
         member do
