@@ -26,6 +26,7 @@ class Admin::StudentsController < AdminController
 
   def create
     @student = Student.new student_params
+    @student.trade_no = 'STN' + rand(999).to_s + DateTime.parse(Time.now.iso8601).strftime('%Y%m%d%H%M%S')
     if @student.save
       redirect_to admin_student_path(@student)
     else
