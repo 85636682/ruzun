@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body card-padding">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>众筹项目</th>
+                <th>费用</th>
+                <th>描述</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @crowdfundings.each do |crowdfunding| %>
+            <tr>
+                <th scope="row"><%= crowdfunding.id %></th>
+                <td><%= crowdfunding.subject %></td>
+                <td><%= crowdfunding.fee %></td>
+                <td><%= crowdfunding.desc %></td>
+                <td>
+                    <%= link_to "修改", edit_admin_crowdfunding_path(crowdfunding) %>
+                    <%= link_to '删除', admin_crowdfunding_path(crowdfunding), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

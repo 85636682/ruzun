@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'wx_pay' => 'pay#wx_pay'
     post 'wx_notify' => 'pay#wx_notify'
 
+    resources :crowdfundings
     resources :coupons, only: [:new, :create]
     resources :awards, only: [:index, :show]
     resources :lucky_draws, only: [:index, :create] do
@@ -132,6 +133,7 @@ Rails.application.routes.draw do
     scope '/system' do
       resources :admins
       resources :roles
+      resources :crowdfundings
     end
     
     

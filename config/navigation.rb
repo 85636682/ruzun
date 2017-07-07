@@ -151,6 +151,11 @@ SimpleNavigation::Configuration.run do |navigation|
       admin_roles.item :new, '新建', new_admin_role_path
     end
 
+    primary.item :admin_crowdfundings, '<i class="zmdi zmdi-link"></i> 众筹', '#', highlights_on: %r{/admin_crowdfundings}, html: { class: 'sub-menu' }, if: -> { is_current_scope?('system') } do |admin_crowdfundings|
+      admin_crowdfundings.item :index, '列表', admin_crowdfundings_path
+      admin_crowdfundings.item :new, '新建', new_admin_crowdfunding_path
+    end
+
   end
 end
 

@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :user_lockers
   has_many :lucky_draws
   has_many :coupons
+  has_many :user_crowdfundings
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
