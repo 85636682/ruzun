@@ -1,6 +1,6 @@
 class M::CrowdfundingsController < MobileController
   def index
-    @crowdfunding = Crowdfunding.all.order("created_at DESC")
+    @crowdfundings = Crowdfunding.all.order("created_at DESC")
   end
 
   def show
