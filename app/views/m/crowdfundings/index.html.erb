@@ -1,9 +1,9 @@
 <div class="mdui-container-fluid">
     <div class="mdui-row">
-        <div class="mdui-col-xs-6">
+        <div class="mdui-col-xs-6 mdui-valign mdui-center">
             <%= image_tag("bluefairy2.jpg", width: 80, height: 80) %>
         </div>
-        <div class="mdui-col-xs-6">
+        <div class="mdui-col-xs-6 mdui-valign mdui-center">
             <p>一张图读懂</p>
             <p>蓝精灵升级俱乐部众筹</p>
         </div>
@@ -11,10 +11,10 @@
     <div class="mdui-divider"></div>
     <% @crowdfundings.each do |crowdfunding| %>
     <div class="mdui-row">
-        <div class="mdui-col-xs-6">
+        <div class="mdui-col-xs-6 mdui-valign mdui-center">
             <%= crowdfunding.fee %>
         </div>
-        <div class="mdui-col-xs-6">
+        <div class="mdui-col-xs-6 mdui-valign mdui-center">
             <p><%= crowdfunding.desc %></p>
         </div>
     </div>
