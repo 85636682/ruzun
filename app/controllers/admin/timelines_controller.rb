@@ -35,7 +35,7 @@ class Admin::TimelinesController < AdminController
   end
   
   def timeline_params
-    params.require(:timeline).permit(:subject, :lesson_id)
+    params.require(:timeline).permit(:subject, :lesson_id, :enabled)
   end
   
 end

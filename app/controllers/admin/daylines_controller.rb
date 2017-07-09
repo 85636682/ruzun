@@ -41,6 +41,6 @@ class Admin::DaylinesController < AdminController
   end
   
   def dayline_params
-    params.require(:dayline).permit(:subject, :lesson_id)
+    params.require(:dayline).permit(:subject, :lesson_id, :enabled)
   end
 end
