@@ -1,5 +1,0 @@
-<%= form_for [:admin, @game, @game_team] do |f| %>
-  <%= f.select :team_id, Team.all.collect {|t| [ t.name, t.id ] } %>
-  <%= f.select :game_id, Game.all.collect {|g| [ g.name, g.id ] } %>
-  <%= f.submit %>
-<% end %>
