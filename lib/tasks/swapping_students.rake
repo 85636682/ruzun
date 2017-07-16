@@ -10,15 +10,27 @@ task :swapping_students => :environment do
         elsif row[5] == 2
           status = :completed
         end
-        Student.create!(
-          name: row[0],
-          phone: row[1].to_s,
-          lesson_id: row[2],
-          dayline_id: row[3],
-          timeline_id: row[4],
-          status: status,
-          paid_in: row[6]
-        )
+        student = Student.where(name: "#{row[0]}").first
+        if student.blank?
+          student.create!(
+            name: "#{row[0]}",
+            phone: "#{row[1]}",
+            lesson_id: "#{row[2]}".to_i,
+            dayline_id: "#{row[3]}".to_i,
+            timeline_id: "#{row[4]}".to_i,
+            status: status,
+            paid_in: "#{row[6]}".to_f
+          )
+        else
+          student.update_attributes!(
+            phone: "#{row[1]}",
+            lesson_id: "#{row[2]}".to_i,
+            dayline_id: "#{row[3]}".to_i,
+            timeline_id: "#{row[4]}".to_i,
+            status: status,
+            paid_in: "#{row[6]}".to_f
+          )
+        end
       rescue => exception
         puts exception
       end
