@@ -36,7 +36,7 @@ class Admin::UserMembershipCardsController < AdminController
   end
 
   def user_membership_card_params
-    params.require(:user_membership_card).permit(:status)
+    params.require(:user_membership_card).permit(:status, :count)
   end
   
 end
