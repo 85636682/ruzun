@@ -14,7 +14,9 @@
             <tr>
                 <th scope="row"><%= order.sn %></th>
                 <td><%= order.total_price %></td>
-                <td><%= order.status %></td>
+                <td>
+                    <%= i18n_enum order, :status %>
+                </td>
                 <td>
                     <%= link_to "查看", admin_order_path(order) %>
                     <%= link_to '删除', admin_order_path(order), method: :delete %>

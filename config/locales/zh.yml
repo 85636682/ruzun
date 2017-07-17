@@ -10,6 +10,16 @@ zh:
       checkouted: "已付款"
       completed: "完成"
       canceled: "取消"
+  user_membership_card:
+    status:
+      pending: "代付款"
+      checkouted: "已付款"
+      disabled: "失效"
+  user:
+    sex:
+      unknown: "不知道"
+      female: "女"
+      male: "男"
   activerecord:
     models:
       merchant: "商家"
