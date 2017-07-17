@@ -3,7 +3,7 @@ class Admin::UserMembershipCardsController < AdminController
   before_action :set_user_membership_card, only: [:show, :edit, :update, :destroy]
   
   def index
-    @user_membership_cards = @membership_card.user_membership_cards.order("created_at DESC")
+    @user_membership_cards = @membership_card.user_membership_cards.order("created_at DESC").paginate(:page => params[:page])
   end
 
   def show
