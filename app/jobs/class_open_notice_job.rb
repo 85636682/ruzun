@@ -4,7 +4,7 @@ class ClassOpenNoticeJob < ApplicationJob
   def perform(dayline)
     dayline.students.each do |student|
       vars = "#{student.name}|#{student.dayline.subject} #{student.timeline.subject}"
-      UpyunSMS.to(162, student.phone, vars)
+      UpyunSMS.to(162, student.phone, vars) if not student.phone.blank?
     end 
   end
 end
