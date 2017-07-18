@@ -30,7 +30,11 @@ class Admin::DaylinesController < AdminController
   end
 
   def notice
-    ClassOpenNoticeJob.perform_later(@dayline)
+    @dayline.students.each do |student|
+      vars = "#{student.name}|#{student.dayline.subject} #{student.timeline.subject}"
+      UpyunSMS.to(162, student.phone, vars) if not student.phone.blank?
+    end
+    # ClassOpenNoticeJob.perform_later(@dayline)
     redirect_to admin_daylines_path, notice: "正在发送..."
   end
 
