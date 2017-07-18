@@ -4,7 +4,7 @@ module UpyunSMS
   extend self
 
   def to(template_id, mobile, vars = "")
-    Rails.logger.info("-----发送短信中-----")
+    Rails.logger.info("-----发送#{mobile}短信中-----")
     #response = HTTP.post(
     #                'https://sms-api.upyun.com/api/messages', 
     #                form: {
