@@ -7,6 +7,7 @@
                 <th>时间段名称</th>
                 <th>所属班级</th>
                 <th>信息通知</th>
+                <th>祝贺</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -16,7 +17,8 @@
                 <th scope="row"><%= dayline.id %></th>
                 <td><%= dayline.subject %></td>
                 <td><%= dayline.lesson.subject %></td>
-                <td><%= link_to "发送", notice_admin_dayline_path(dayline) %></td>
+                <td><%= link_to "发送开课通知", notice_admin_dayline_path(dayline) %></td>
+                <td><%= link_to "发送毕业祝贺", congratulate_admin_dayline_path(dayline) %></td>
                 <td>
                     <%= link_to "修改", edit_admin_dayline_path(dayline) %>
                     <%= link_to '删除', admin_dayline_path(dayline), method: :delete %>

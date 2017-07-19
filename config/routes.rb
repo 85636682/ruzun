@@ -81,6 +81,7 @@ Rails.application.routes.draw do
       resources :daylines do
         member do
           get :notice
+          get :congratulate
         end
       end
       resources :timelines

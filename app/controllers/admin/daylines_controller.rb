@@ -51,6 +51,26 @@ class Admin::DaylinesController < AdminController
     redirect_to admin_daylines_path, notice: "正在发送..."
   end
 
+  def congratulate
+    @dayline.students.each do |student|
+      vars = "#{student.name}"
+      #UpyunSMS.to(162, student.phone, vars) 
+      if not student.phone.blank?
+        response = HTTP.auth(Figaro.env.upyun_sms_token).post(
+          'https://sms-api.upyun.com/api/messages', 
+          form: {
+            "template_id": 245,
+            "mobile": student.phone,
+            "vars": vars
+          }
+        )
+        Rails.logger.info("----#{response}------")
+      end
+    end
+    # ClassOpenNoticeJob.perform_later(@dayline)
+    redirect_to admin_daylines_path, notice: "正在发送..."
+  end
+
   private
 
   def set_dayline
