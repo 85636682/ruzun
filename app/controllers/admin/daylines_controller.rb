@@ -1,3 +1,5 @@
+require "http"
+
 class Admin::DaylinesController < AdminController
   before_action :set_dayline, only: [:edit, :update, :notice]
   
@@ -34,7 +36,15 @@ class Admin::DaylinesController < AdminController
       vars = "#{student.name}|#{student.dayline.subject} #{student.timeline.subject}"
       #UpyunSMS.to(162, student.phone, vars) 
       if not student.phone.blank?
-        
+        response = HTTP.auth(Figaro.env.upyun_sms_token).post(
+          'https://sms-api.upyun.com/api/messages', 
+          form: {
+            "template_id": 162,
+            "mobile": student.phone,
+            "vars": vars
+          }
+        )
+        Rails.logger.info("----#{response}------")
       end
     end
     # ClassOpenNoticeJob.perform_later(@dayline)
