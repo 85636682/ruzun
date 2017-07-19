@@ -11,15 +11,13 @@
     <div class="mdui-divider"></div>
     <% @crowdfundings.each do |crowdfunding| %>
     <div class="mdui-row">
-        <div class="mdui-col-xs-3">
-            <div style="text-align:center;vertical-align:middle;">
-                <%= crowdfunding.fee %>
+        <div class="mdui-col-xs-3" style="">
+            <div >
+                <span style="text-align:center;vertical-align:middle;"><%= crowdfunding.fee %></span>
             </div>
         </div>
-        <div class="mdui-col-xs-9">
-            <div style="text-align:center;vertical-align:middle;">
-                <%= crowdfunding.desc %>
-            </div>
+        <div class="mdui-col-xs-9" style="padding: 10px;">
+            <%= crowdfunding.desc %>
         </div>
     </div>
     <div class="mdui-divider"></div>
