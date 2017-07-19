@@ -1,4 +1,4 @@
-<div class="mdui-container-fluid">
+<div class="mdui-container-fluid" style="background-color:#ffa800;">
     <div class="mdui-row">
         <div class="mdui-col-xs-4">
             <%= image_tag("bluefairy2.jpg", width: 80, height: 80, style: "margin: 5px;") %>
@@ -13,7 +13,7 @@
     <div class="mdui-row">
         <div class="mdui-col-xs-3" style="padding: 10px;" flex="dir:top">
             <div style="text-align:left;color:red;font-size:12px;">支持</div>
-            <div style="text-align:center;color:red;font-size:20px;font-weight:bold;"><%= crowdfunding.fee %></div>
+            <div style="text-align:center;color:red;font-size:20px;font-weight:bold;"><%= crowdfunding.fee.to_i %></div>
             <div style="text-align:right;color:red;font-size:12px;">元</div>
         </div>
         <div class="mdui-col-xs-9" style="padding: 10px;">
