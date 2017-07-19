@@ -32,7 +32,20 @@ class Admin::DaylinesController < AdminController
   def notice
     @dayline.students.each do |student|
       vars = "#{student.name}|#{student.dayline.subject} #{student.timeline.subject}"
-      UpyunSMS.to(162, student.phone, vars) if not student.phone.blank?
+      #UpyunSMS.to(162, student.phone, vars) 
+      if not student.phone.blank?
+        response = HTTP.post(
+          'https://sms-api.upyun.com/api/messages', 
+          form: {
+            Authorization: Figaro.env.upyun_sms_token,
+            {
+              "template_id": 162,
+              "mobile": student.phone,
+              "vars": vars
+            }
+          }
+        )
+      end
     end
     # ClassOpenNoticeJob.perform_later(@dayline)
     redirect_to admin_daylines_path, notice: "正在发送..."
