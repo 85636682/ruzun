@@ -1,7 +1,7 @@
 require "http"
 
 class Admin::DaylinesController < AdminController
-  before_action :set_dayline, only: [:edit, :update, :notice]
+  before_action :set_dayline, only: [:edit, :update, :notice, :congratulate]
   
   def index
     @daylines = Dayline.all
