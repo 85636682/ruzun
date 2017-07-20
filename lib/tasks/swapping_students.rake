@@ -1,7 +1,7 @@
 task :swapping_students => :environment do
     puts "-----------------\n"
     require 'roo'
-    xlsx = Roo::Spreadsheet.open("#{Rails.root}/lib/tasks/students.xlsx")
+    xlsx = Roo::Spreadsheet.open("#{Rails.root}/lib/tasks/students_2.xlsx")
     xlsx.each_row_streaming do |row|
       begin
         status = :checkouted
