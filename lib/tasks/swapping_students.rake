@@ -12,7 +12,7 @@ task :swapping_students => :environment do
         end
         student = Student.where(name: "#{row[0]}").first
         if student.blank?
-          student.create!(
+          Student.create!(
             name: "#{row[0]}",
             phone: "#{row[1]}",
             lesson_id: "#{row[2]}".to_i,
