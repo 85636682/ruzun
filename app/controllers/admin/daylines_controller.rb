@@ -59,7 +59,7 @@ class Admin::DaylinesController < AdminController
         response = HTTP.auth(Figaro.env.upyun_sms_token).post(
           'https://sms-api.upyun.com/api/messages', 
           form: {
-            "template_id": 245,
+            "template_id": 247,
             "mobile": student.phone,
             "vars": vars
           }
