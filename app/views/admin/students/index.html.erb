@@ -41,6 +41,7 @@
             <tr>
                 <th>#</th>
                 <th>所报课程</th>
+                <th>日期</th>
                 <th>时间</th>
                 <th>学生名称</th>
                 <th>电话</th>
@@ -53,6 +54,7 @@
         <tbody>
         <% @students.each do |student| %>
             <tr>
+                <td><%= student.trade_no %></td>
                 <td><%= student.lesson.subject if student.lesson.present? %></td>
                 <td><%= student.dayline.subject if student.dayline.present? %></td>
                 <td><%= student.timeline.subject if student.timeline.present? %></td>
