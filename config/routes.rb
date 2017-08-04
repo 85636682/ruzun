@@ -11,14 +11,14 @@ Rails.application.routes.draw do
     post 'wx_notify' => 'pay#wx_notify'
 
     resources :crowdfundings
-    resources :coupons, only: [:new, :create]
-    resources :awards, only: [:index, :show]
-    resources :lucky_draws, only: [:index, :create] do
-      collection do
-        get :draw
-        get :list
-      end
-    end
+    #resources :coupons, only: [:new, :create]
+    #resources :awards, only: [:index, :show]
+    #resources :lucky_draws, only: [:index, :create] do
+    #  collection do
+    #    get :draw
+    #    get :list
+    #  end
+    #end
     resources :user_lockers, only: [:new, :create]
     resources :membership_cards, only: [:index, :show, :new]
     resources :user_membership_cards, only: [:index, :show, :create] do
