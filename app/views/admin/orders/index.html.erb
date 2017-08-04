@@ -5,6 +5,7 @@
             <tr>
                 <th>订单编号</th>
                 <th>订单总价</th>
+                <th>用户</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
@@ -14,6 +15,7 @@
             <tr>
                 <th scope="row"><%= order.sn %></th>
                 <td><%= order.total_price %></td>
+                <td><%= order.user.nickname %></td>
                 <td>
                     <%= i18n_enum order, :status %>
                 </td>
